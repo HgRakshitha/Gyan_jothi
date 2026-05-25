@@ -38,11 +38,11 @@ class _QuizPageState extends State<QuizPage> {
           AppRoutes.quizAlphabet,
           AppRoutes.quizAlphabetSet2_1,
           AppRoutes.quizAlphabetSet3_1,
-          AppRoutes.quizAlphabet,
-          AppRoutes.quizAlphabet
+          AppRoutes.quizAlphabetSet4_1,
+          AppRoutes.quizAlphabetSet5_1
         ],
         questionCount: 8,
-        setNames: ['A to E Safari', 'F to J Jungle', 'K to O Ocean', 'P to T Forest', 'U to Z Space'],
+        setNames: ['A to E Safari', 'F to J Jungle', 'K to O Ocean', 'P to T Space', 'U to Z Magic'],
         setEmojis: ['🐶', '🐱', '🦊', '🦁', '🐰'],
       ),
     ),

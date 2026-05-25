@@ -168,6 +168,26 @@ class AppRoutes {
   static const String quizAlphabetSet3_6 = '/quiz/alphabet/set3/6';
   static const String quizAlphabetSet3_7 = '/quiz/alphabet/set3/7';
   static const String quizAlphabetSet3_8 = '/quiz/alphabet/set3/8';
+
+  // Alphabet Quiz Set 4 (P to T)
+  static const String quizAlphabetSet4_1 = '/quiz/alphabet/set4/1';
+  static const String quizAlphabetSet4_2 = '/quiz/alphabet/set4/2';
+  static const String quizAlphabetSet4_3 = '/quiz/alphabet/set4/3';
+  static const String quizAlphabetSet4_4 = '/quiz/alphabet/set4/4';
+  static const String quizAlphabetSet4_5 = '/quiz/alphabet/set4/5';
+  static const String quizAlphabetSet4_6 = '/quiz/alphabet/set4/6';
+  static const String quizAlphabetSet4_7 = '/quiz/alphabet/set4/7';
+  static const String quizAlphabetSet4_8 = '/quiz/alphabet/set4/8';
+
+  // Alphabet Quiz Set 5 (U to Z Magic)
+  static const String quizAlphabetSet5_1 = '/quiz/alphabet/set5/1';
+  static const String quizAlphabetSet5_2 = '/quiz/alphabet/set5/2';
+  static const String quizAlphabetSet5_3 = '/quiz/alphabet/set5/3';
+  static const String quizAlphabetSet5_4 = '/quiz/alphabet/set5/4';
+  static const String quizAlphabetSet5_5 = '/quiz/alphabet/set5/5';
+  static const String quizAlphabetSet5_6 = '/quiz/alphabet/set5/6';
+  static const String quizAlphabetSet5_7 = '/quiz/alphabet/set5/7';
+  static const String quizAlphabetSet5_8 = '/quiz/alphabet/set5/8';
   /// Color Quiz (11 fill-in-the-blank questions). Use [quizColorQuestion] for `/quiz/colors/1` … `/quiz/colors/11`.
   static const String quizColor = '/quiz/colors';
   static String quizColorQuestion(int n) => '/quiz/colors/$n';
@@ -820,6 +840,229 @@ final appRouter = GoRouter(
         instructionText: 'Drag the letters to spell the word',
         bankOrder: ['R', 'A', 'O', 'C'],
         correctSlotOrder: ['O', 'R', 'C', 'A'],
+      ),
+    ),
+    // ------------------------------------------------------------------------
+    // Alphabet Quiz Set 4 (P to T Space)
+    // ------------------------------------------------------------------------
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet4_1,
+      builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
+        questionNumber: 1,
+        questionText: 'What is this?',
+        imageAssetPath: 'assets/icons/quiz/set4/earth.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.public_rounded, size: 120, color: Color(0xFF4CAF50)),
+        options: ['Star', 'Planet', 'Sun', 'Moon'],
+        correctAnswerIndex: 1,
+        submitNextRoute: AppRoutes.quizAlphabetSet4_2,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet4_2,
+      builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
+        questionNumber: 2,
+        imageAssetPath: 'assets/icons/quiz/set4/quasar.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.blur_on_rounded, size: 120, color: Color(0xFFE91E63)),
+        statement: 'A quasar is very bright.',
+        correctAnswerIndex: 0, // 0 = True, 1 = False
+        submitNextRoute: AppRoutes.quizAlphabetSet4_3,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet4_3,
+      builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
+        questionNumber: 3,
+        imageAssetPath: 'assets/icons/quiz/set4/ring.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.camera_rounded, size: 120, color: Color(0xFFFFC107)),
+        instructionText: 'Drag the letters to spell the word',
+        bankOrder: ['N', 'I', 'G', 'R'],
+        correctSlotOrder: ['R', 'I', 'N', 'G'],
+        submitNextRoute: AppRoutes.quizAlphabetSet4_4,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet4_4,
+      builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
+        questionNumber: 4,
+        imageAssetPath: 'assets/icons/quiz/set4/sun.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.wb_sunny_rounded, size: 120, color: Color(0xFFFF9800)),
+        statement: 'The sun is cold.',
+        correctAnswerIndex: 1, // False
+        submitNextRoute: AppRoutes.quizAlphabetSet4_5,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet4_5,
+      builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
+        questionNumber: 5,
+        questionText: 'What is this?',
+        imageAssetPath: 'assets/icons/quiz/set4/spaceship.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.rocket_launch_rounded, size: 120, color: Color(0xFF9C27B0)),
+        options: ['Planet', 'Telescope', 'Spaceship', 'Sun'],
+        correctAnswerIndex: 2,
+        submitNextRoute: AppRoutes.quizAlphabetSet4_6,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet4_6,
+      builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
+        questionNumber: 6,
+        imageAssetPath: 'assets/icons/quiz/set4/star.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.star_rounded, size: 120, color: Color(0xFFFFEB3B)),
+        instructionText: 'Drag the letters to spell the word',
+        bankOrder: ['A', 'R', 'S', 'T'],
+        correctSlotOrder: ['S', 'T', 'A', 'R'],
+        submitNextRoute: AppRoutes.quizAlphabetSet4_7,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet4_7,
+      builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
+        questionNumber: 7,
+        imageAssetPath: 'assets/icons/quiz/set4/telescope.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.center_focus_strong_rounded, size: 120, color: Color(0xFF607D8B)),
+        statement: 'A telescope sees far.',
+        correctAnswerIndex: 0, // True
+        submitNextRoute: AppRoutes.quizAlphabetSet4_8,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet4_8,
+      builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
+        questionNumber: 8,
+        imageAssetPath: 'assets/icons/quiz/set4/suit.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.accessibility_new_rounded, size: 120, color: Color(0xFFFFFFFF)),
+        instructionText: 'Drag the letters to spell the word',
+        bankOrder: const ['T', 'S', 'U', 'I'],
+        correctSlotOrder: const ['S', 'U', 'I', 'T'],
+      ),
+    ),
+    // ------------------------------------------------------------------------
+    // Alphabet Quiz Set 5 (U to Z Magic)
+    // ------------------------------------------------------------------------
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet5_1,
+      builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
+        questionNumber: 1,
+        questionText: 'What is this?',
+        imageAssetPath: 'assets/icons/quiz/set5/unicorn.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.cruelty_free_rounded, size: 120, color: Color(0xFFE91E63)),
+        options: ['Dragon', 'Wizard', 'Unicorn', 'Yeti'],
+        correctAnswerIndex: 2,
+        submitNextRoute: AppRoutes.quizAlphabetSet5_2,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet5_2,
+      builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
+        questionNumber: 2,
+        imageAssetPath: 'assets/icons/quiz/set5/vampire.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.visibility_off_rounded, size: 120, color: Color(0xFF9E9E9E)),
+        statement: 'A vampire likes the sun.',
+        correctAnswerIndex: 1, // False
+        submitNextRoute: AppRoutes.quizAlphabetSet5_3,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet5_3,
+      builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
+        questionNumber: 3,
+        imageAssetPath: 'assets/icons/quiz/set5/wand.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.auto_fix_high_rounded, size: 120, color: Color(0xFFFFC107)),
+        instructionText: 'Drag the letters to spell the word',
+        bankOrder: ['D', 'A', 'W', 'N'],
+        correctSlotOrder: ['W', 'A', 'N', 'D'],
+        submitNextRoute: AppRoutes.quizAlphabetSet5_4,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet5_4,
+      builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
+        questionNumber: 4,
+        questionText: 'What is this?',
+        imageAssetPath: 'assets/icons/quiz/set5/wizard.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.face_retouching_natural_rounded, size: 120, color: Color(0xFF673AB7)),
+        options: ['Vampire', 'Wizard', 'Zombie', 'Yeti'],
+        correctAnswerIndex: 1,
+        submitNextRoute: AppRoutes.quizAlphabetSet5_5,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet5_5,
+      builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
+        questionNumber: 5,
+        imageAssetPath: 'assets/icons/quiz/set5/x-ray.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.document_scanner_rounded, size: 120, color: Color(0xFF00BCD4)),
+        statement: 'An X-ray shows your bones.',
+        correctAnswerIndex: 0, // True
+        submitNextRoute: AppRoutes.quizAlphabetSet5_6,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet5_6,
+      builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
+        questionNumber: 6,
+        imageAssetPath: 'assets/icons/quiz/set5/snow_yeti.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.ac_unit_rounded, size: 120, color: Color(0xFF2196F3)),
+        instructionText: 'Drag the letters to spell the word',
+        bankOrder: ['I', 'T', 'E', 'Y'],
+        correctSlotOrder: ['Y', 'E', 'T', 'I'],
+        submitNextRoute: AppRoutes.quizAlphabetSet5_7,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet5_7,
+      builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
+        questionNumber: 7,
+        questionText: 'What is this?',
+        imageAssetPath: 'assets/icons/quiz/set5/zombie.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.personal_injury_rounded, size: 120, color: Color(0xFF4CAF50)),
+        options: ['Zombie', 'Wizard', 'Vampire', 'Yeti'],
+        correctAnswerIndex: 0,
+        submitNextRoute: AppRoutes.quizAlphabetSet5_8,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet5_8,
+      builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
+        questionNumber: 8,
+        imageAssetPath: 'assets/icons/quiz/set5/maze.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.pattern_rounded, size: 120, color: Color(0xFFFF5722)),
+        instructionText: 'Drag the letters to spell the word',
+        bankOrder: ['E', 'Z', 'M', 'A'],
+        correctSlotOrder: ['M', 'A', 'Z', 'E'],
       ),
     ),
     GoRoute(

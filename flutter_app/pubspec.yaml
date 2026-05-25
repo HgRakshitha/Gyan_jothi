@@ -78,6 +78,8 @@ flutter:
     - assets/icons/quiz/
     - assets/icons/quiz/set1/
     - assets/icons/quiz/set3/
+    - assets/icons/quiz/set4/
+    - assets/icons/quiz/set5/
     - assets/icons/profile/
     - assets/animations/
     - assets/sounds/
