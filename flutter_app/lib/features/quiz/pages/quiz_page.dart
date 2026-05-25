@@ -11,6 +11,7 @@ import '../../../shared/widgets/app_asset_image.dart';
 import '../../../shared/widgets/quiz_header.dart';
 import '../../../shared/widgets/search_bar.dart';
 import '../../../shared/widgets/search_empty_state.dart';
+import 'quiz_sets_page.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({super.key});
@@ -22,7 +23,7 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   String _query = '';
 
-  static const _quizzes = <_QuizCardData>[
+  static final _quizzes = <_QuizCardData>[
     _QuizCardData(
       category: 'English',
       title: 'Alphabet Quiz',
@@ -30,7 +31,20 @@ class _QuizPageState extends State<QuizPage> {
       backgroundColor: Color(0xFFE9B6E7),
       imagePath: AppAssets.quizAlphabet,
       fallbackIcon: Icons.abc_rounded,
-      navigateTo: AppRoutes.quizAlphabet,
+      navigateTo: AppRoutes.quizSets,
+      setsArgs: QuizSetsPageArgs(
+        title: 'Alphabet Quiz Sets',
+        targetRoutes: [
+          AppRoutes.quizAlphabet,
+          AppRoutes.quizAlphabetSet2_1,
+          AppRoutes.quizAlphabetSet3_1,
+          AppRoutes.quizAlphabet,
+          AppRoutes.quizAlphabet
+        ],
+        questionCount: 8,
+        setNames: ['A to E Safari', 'F to J Jungle', 'K to O Ocean', 'P to T Forest', 'U to Z Space'],
+        setEmojis: ['🐶', '🐱', '🦊', '🦁', '🐰'],
+      ),
     ),
     _QuizCardData(
       category: 'Art/ Visual Skills',
@@ -39,7 +53,14 @@ class _QuizPageState extends State<QuizPage> {
       backgroundColor: Color(0xFFBDD6F0),
       imagePath: AppAssets.quizColors,
       fallbackIcon: Icons.palette_rounded,
-      navigateTo: AppRoutes.quizColor,
+      navigateTo: AppRoutes.quizSets,
+      setsArgs: QuizSetsPageArgs(
+        title: 'Color Quiz Sets',
+        targetRoutes: [AppRoutes.quizColor, AppRoutes.quizColor, AppRoutes.quizColor, AppRoutes.quizColor, AppRoutes.quizColor],
+        questionCount: 11,
+        setNames: ['Primary Colors', 'Secondary Colors', 'Warm Colors', 'Cool Colors', 'Rainbow Colors'],
+        setEmojis: ['🐶', '🐱', '🦊', '🦁', '🐰'],
+      ),
     ),
     _QuizCardData(
       category: 'Math',
@@ -48,7 +69,14 @@ class _QuizPageState extends State<QuizPage> {
       backgroundColor: Color(0xFFEFC0CF),
       imagePath: AppAssets.quizNumbers,
       fallbackIcon: Icons.calculate_rounded,
-      navigateTo: AppRoutes.quizNumbers,
+      navigateTo: AppRoutes.quizSets,
+      setsArgs: QuizSetsPageArgs(
+        title: 'Numbers Quiz Sets',
+        targetRoutes: [AppRoutes.quizNumbers, AppRoutes.quizNumbers, AppRoutes.quizNumbers, AppRoutes.quizNumbers, AppRoutes.quizNumbers],
+        questionCount: 9,
+        setNames: ['Counting 1 to 5', 'Counting 6 to 10', 'Teens & Twenties', 'Basic Addition', 'Math Mix'],
+        setEmojis: ['🐶', '🐱', '🦊', '🦁', '🐰'],
+      ),
     ),
     _QuizCardData(
       category: 'General Knowledge',
@@ -57,7 +85,14 @@ class _QuizPageState extends State<QuizPage> {
       backgroundColor: Color(0xFFF0D7D9),
       imagePath: AppAssets.quizAnimals,
       fallbackIcon: Icons.pets_rounded,
-      navigateTo: AppRoutes.quizAnimals,
+      navigateTo: AppRoutes.quizSets,
+      setsArgs: QuizSetsPageArgs(
+        title: 'Animals Quiz Sets',
+        targetRoutes: [AppRoutes.quizAnimals, AppRoutes.quizAnimals, AppRoutes.quizAnimals, AppRoutes.quizAnimals, AppRoutes.quizAnimals],
+        questionCount: 11,
+        setNames: ['Farm Animals', 'Wild Animals', 'Beautiful Birds', 'Sea Creatures', 'Creepy Crawlies'],
+        setEmojis: ['🐶', '🐱', '🦊', '🦁', '🐰'],
+      ),
     ),
   ];
 
@@ -249,7 +284,13 @@ class _QuizCard extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           borderRadius: BorderRadius.circular(30),
-          onTap: () => context.push(data.navigateTo!),
+          onTap: () {
+            if (data.setsArgs != null) {
+              context.push(data.navigateTo!, extra: data.setsArgs);
+            } else {
+              context.push(data.navigateTo!);
+            }
+          },
           child: card,
         ),
       );
@@ -301,6 +342,7 @@ class _QuizCardData {
   final String imagePath;
   final IconData fallbackIcon;
   final String? navigateTo;
+  final QuizSetsPageArgs? setsArgs;
 
   const _QuizCardData({
     required this.category,
@@ -310,5 +352,6 @@ class _QuizCardData {
     required this.imagePath,
     required this.fallbackIcon,
     this.navigateTo,
+    this.setsArgs,
   });
 }

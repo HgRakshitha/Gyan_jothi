@@ -141,9 +141,10 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
                                 right: padH,
                               ),
                               child: _Header(
-                                name: user?.name ?? 'Aarav Kumar',
-                                className: user?.className ?? 'Class: Playgroup',
-                                coins: user?.coins ?? 2200,
+                                name: user.name,
+                                className: user.className,
+                                coins: user.coins,
+                                avatarPath: user.avatarPath,
                               ),
                             ),
                           ),
@@ -283,11 +284,13 @@ class _Header extends StatelessWidget {
   final String name;
   final String className;
   final int coins;
+  final String avatarPath;
 
   const _Header({
     required this.name,
     required this.className,
     required this.coins,
+    required this.avatarPath,
   });
 
   @override
@@ -312,16 +315,17 @@ class _Header extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   border: Border.all(color: Colors.white, width: 2),
+                  color: Colors.white,
                 ),
                 clipBehavior: Clip.hardEdge,
-                child: const Padding(
-                  padding: EdgeInsets.all(3),
+                child: Padding(
+                  padding: const EdgeInsets.all(3),
                   child: AppAssetImage(
-                    assetPath: AppAssets.avatarDefault,
+                    assetPath: avatarPath.isNotEmpty ? avatarPath : AppAssets.avatarDefault,
                     width: 50,
                     height: 50,
                     fit: BoxFit.contain,
-                    fallback: Icon(Icons.person_rounded),
+                    fallback: const Icon(Icons.person_rounded),
                   ),
                 ),
               ),

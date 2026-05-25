@@ -472,7 +472,7 @@ class _CreateAParkPageState extends State<CreateAParkPage> {
                       ),
                     ),
                     const SizedBox(height: 8),
-                    _CreateAParkDoneButton(onPressed: () => context.pop()),
+                    _CreateAParkDoneButton(onPressed: () => context.pop(true)),
                   ],
                 ),
               ),

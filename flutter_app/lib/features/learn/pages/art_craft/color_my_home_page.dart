@@ -411,7 +411,7 @@ class _ColorMyHomePageState extends State<ColorMyHomePage> {
                     ),
                     const SizedBox(height: 12),
                     _ColorMyHomeDoneButton(
-                      onPressed: () => context.pop(),
+                      onPressed: () => context.pop(true),
                     ),
                   ],
                 ),

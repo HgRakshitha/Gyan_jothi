@@ -49,7 +49,7 @@ child: Padding(
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 12, 16, 20),
-              child: _DoneButton(onPressed: () => context.pop()),
+              child: _DoneButton(onPressed: () => context.pop(true)),
             ),
           ],
         ),

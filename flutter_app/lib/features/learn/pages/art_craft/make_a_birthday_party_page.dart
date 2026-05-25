@@ -473,7 +473,7 @@ class _MakeABirthdayPartyPageState extends State<MakeABirthdayPartyPage> {
                     ),
                     const SizedBox(height: 12),
                     _MakeABirthdayPartyDoneButton(
-                      onPressed: () => context.pop(),
+                      onPressed: () => context.pop(true),
                     ),
                   ],
                 ),

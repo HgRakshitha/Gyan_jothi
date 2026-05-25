@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/navigation/go_to_app_home.dart';
 import '../../../../core/theme/text_styles.dart';
@@ -28,12 +29,19 @@ class SceneActivityPlaceholderPage extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(24),
                   child: Text(
-                    'Scene activity coming soon.',
+                    'Make a scene activity coming soon.',
                     textAlign: TextAlign.center,
                     style: AppTextStyles.bodyMedium
                         .copyWith(color: Colors.black54),
                   ),
                 ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: ElevatedButton(
+                onPressed: () => context.pop(true),
+                child: const Text('Mark as Done (Test)'),
               ),
             ),
           ],

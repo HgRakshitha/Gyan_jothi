@@ -414,7 +414,7 @@ class _ColorTheBigBalloonPageState extends State<ColorTheBigBalloonPage> {
                     ),
                     const SizedBox(height: 12),
                     _ColorTheBigBalloonDoneButton(
-                      onPressed: () => context.pop(),
+                      onPressed: () => context.pop(true),
                     ),
                   ],
                 ),

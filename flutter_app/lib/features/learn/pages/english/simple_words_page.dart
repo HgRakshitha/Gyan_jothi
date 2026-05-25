@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../shared/providers/user_provider.dart';
 
 
+import '../../../../core/router/app_router.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/navigation/go_to_app_home.dart';
 import '../../../../core/constants/app_colors.dart';
@@ -134,33 +136,7 @@ class _MaterialCard extends ConsumerWidget {
   void _awardCoins(BuildContext context, WidgetRef ref) {
     final success = ref.read(userProvider.notifier).completeActivity('learn_${data.title}', data.coinCount);
     if (success) {
-      ScaffoldMessenger.of(context).clearSnackBars();
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Row(
-            children: [
-              const Icon(Icons.stars_rounded, color: Colors.amber, size: 24),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Text(
-                  'Well Done! You earned ${data.coinCount} coins! 🪙🏆',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w800,
-                    fontSize: 14,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          backgroundColor: const Color(0xFF4CAF50),
-          behavior: SnackBarBehavior.floating,
-          duration: const Duration(seconds: 2),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-        ),
-      );
+      context.push(AppRoutes.taskCompletion, extra: data.coinCount);
     }
   }
 

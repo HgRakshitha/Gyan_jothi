@@ -47,7 +47,7 @@ class DrawSunPage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
-              child: _DoneButton(onPressed: () => context.pop()),
+              child: _DoneButton(onPressed: () => context.pop(true)),
             ),
           ],
         ),

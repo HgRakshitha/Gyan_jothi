@@ -472,7 +472,7 @@ class _BuildAFarmPageState extends State<BuildAFarmPage> {
                       ),
                     ),
                     const SizedBox(height: 12),
-                    _BuildAFarmDoneButton(onPressed: () => context.pop()),
+                    _BuildAFarmDoneButton(onPressed: () => context.pop(true)),
                   ],
                 ),
               ),

@@ -412,7 +412,7 @@ class _ColorTheTreePageState extends State<ColorTheTreePage> {
                     ),
                     const SizedBox(height: 12),
                     _ColorTreeDoneButton(
-                      onPressed: () => context.pop(),
+                      onPressed: () => context.pop(true),
                     ),
                   ],
                 ),

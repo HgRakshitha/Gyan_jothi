@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../shared/providers/user_provider.dart';
 
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/navigation/go_to_app_home.dart';
@@ -15,7 +17,7 @@ import '../../../../shared/widgets/type_label_pill.dart';
 import '../../../../shared/widgets/crescent_border_card.dart';
 
 /// "Make a Scene" chapter — list of scene activities (matches Color & Create layout).
-class MakeAScenePage extends StatelessWidget {
+class MakeAScenePage extends ConsumerWidget {
   const MakeAScenePage({super.key});
 
   static const _materials = <_SceneMaterialItemData>[
@@ -42,7 +44,7 @@ class MakeAScenePage extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final maxContentW = Breakpoints.contentMaxWidth(context);
     final padH = Breakpoints.horizontalPadding(context);
     final padB = Breakpoints.scrollBottomPadding(context);
@@ -107,24 +109,31 @@ class MakeAScenePage extends StatelessWidget {
                               ),
                               child: _SceneMaterialCard(
                                 data: _materials[index],
-                                onTap: () {
+                                onTap: () async {
+                                  dynamic result;
                                   if (index == 0) {
-                                    context.push(AppRoutes.artCraftCreateAPark);
+                                    result = await context.push(AppRoutes.artCraftCreateAPark);
                                   } else if (index == 1) {
-                                    context.push(AppRoutes.artCraftBuildAForm);
+                                    result = await context.push(AppRoutes.artCraftBuildAForm);
                                   } else if (index == 2) {
-                                    context.push(
+                                    result = await context.push(
                                       AppRoutes.artCraftMakeABirthdayParty,
                                     );
                                   } else if (index == 3) {
-                                    context.push(
+                                    result = await context.push(
                                       AppRoutes.artCraftDecorateAClassroom,
                                     );
                                   } else {
-                                    context.push(
+                                    result = await context.push(
                                       AppRoutes.artCraftSceneActivity,
                                       extra: _materials[index].title,
                                     );
+                                  }
+                                  if (result == true) {
+                                    final success = ref.read(userProvider.notifier).completeActivity('learn_${_materials[index].title}', _materials[index].coinCount);
+                                    if (success) {
+                                      context.push(AppRoutes.taskCompletion, extra: _materials[index].coinCount);
+                                    }
                                   }
                                 },
                               ),

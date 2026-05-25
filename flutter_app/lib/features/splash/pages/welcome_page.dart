@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../core/router/app_router.dart';
+import '../../../shared/widgets/top_wave_clipper.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -70,42 +71,37 @@ class WelcomePage extends StatelessWidget {
                       alignment: Alignment.center,
                       clipBehavior: Clip.none,
                       children: [
-                        // Highlighted Cat Shadow/Glow (247 x 112)
-                        Positioned(
-                          bottom: 12,
-                          child: Container(
-                            width: 247,
-                            height: 112,
-                            decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.all(
-                                Radius.elliptical(247 / 2, 112 / 2),
-                              ),
-                              gradient: LinearGradient(
+                        // Cat-shaped Gradient Drop Shadow (Darker at bottom)
+                        Transform.translate(
+                          offset: const Offset(6, 13),
+                          child: ImageFiltered(
+                            imageFilter: ImageFilter.blur(sigmaX: 15.5, sigmaY: 15.5),
+                            child: ShaderMask(
+                              shaderCallback: (bounds) => const LinearGradient(
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
                                 colors: [
-                                  Color(0x00D9D9D9),
-                                  Color(0x4CDBF226),
+                                  Color(0x20DBF226), // Light yellow at top
+                                  Color(0x708A960B), // Darker yellow-green at bottom
                                 ],
-                                stops: [0.5046, 0.9889],
+                                stops: [0.3, 1.0],
+                              ).createShader(bounds),
+                              blendMode: BlendMode.srcIn,
+                              child: Image.asset(
+                                'assets/welcome/welcome_cat.png',
+                                width: 360,
+                                height: 504,
+                                fit: BoxFit.contain,
                               ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color(0x40DBF226),
-                                  blurRadius: 31,
-                                  spreadRadius: 0,
-                                  offset: Offset(6, 13),
-                                ),
-                              ],
                             ),
                           ),
                         ),
 
-                        // Cat Image (238 x 375)
+                        // Cat Image (Increased size)
                         Image.asset(
                           'assets/welcome/welcome_cat.png',
-                          width: 238,
-                          height: 375,
+                          width: 360,
+                          height: 504,
                           fit: BoxFit.contain,
                         ),
                       ],
@@ -113,24 +109,15 @@ class WelcomePage extends StatelessWidget {
                   ),
                 ),
 
-                // Bottom Content Card (White Card with Rounded Top Corners)
-                Container(
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(48),
-                      topRight: Radius.circular(48),
+                // Bottom Content Card (White Card with TopWaveClipper)
+                ClipPath(
+                  clipper: const TopWaveClipper(),
+                  child: Container(
+                    width: double.infinity,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
                     ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0x08000000),
-                        blurRadius: 20,
-                        offset: Offset(0, -10),
-                      ),
-                    ],
-                  ),
-                  child: SafeArea(
+                    child: SafeArea(
                     top: false,
                     child: Padding(
                       padding: const EdgeInsets.only(
@@ -142,34 +129,43 @@ class WelcomePage extends StatelessWidget {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          // Title
-                          const Text(
-                            'Welcome',
-                            style: TextStyle(
-                              fontSize: 32,
-                              fontWeight: FontWeight.w800,
-                              color: Colors.black,
-                              letterSpacing: 0.5,
-                            ),
-                          ),
-                          const SizedBox(height: 16),
+                            // Text Block (Width 312, Gap 12)
+                            SizedBox(
+                              width: 312,
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  // Title
+                                  const Text(
+                                    'Welcome',
+                                    style: TextStyle(
+                                      fontSize: 32,
+                                      fontWeight: FontWeight.w800,
+                                      color: Colors.black,
+                                      letterSpacing: 0.5,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 12), // gap: 12px
 
-                          // Subtitle
-                          const Text(
-                            'A magical world where you can play,\nlearn, and grow!',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black54,
-                              height: 1.4,
+                                  // Subtitle
+                                  const Text(
+                                    'A magical world where you can play,\nlearn, and grow!',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black54,
+                                      height: 1.4,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
                           const SizedBox(height: 32),
 
                           // Custom Styled Next Button (302 x 60)
                           GestureDetector(
-                            onTap: () => context.go(AppRoutes.home),
+                            onTap: () => context.go(AppRoutes.welcomeBunny),
                             child: CustomPaint(
                               painter: NextButtonBorderPainter(strokeWidth: 3.0),
                               child: Container(
@@ -235,6 +231,7 @@ class WelcomePage extends StatelessWidget {
                       ),
                     ),
                   ),
+                ),
                 ),
               ],
             ),

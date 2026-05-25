@@ -76,10 +76,13 @@ flutter:
     - assets/icons/
     - assets/icons/home/
     - assets/icons/quiz/
+    - assets/icons/quiz/set1/
+    - assets/icons/quiz/set3/
     - assets/icons/profile/
     - assets/animations/
     - assets/sounds/
     - assets/welcome/
+    - assets/avatar/
     - web/icons/home/
     - web/icons/learn/
     - web/icons/quiz/

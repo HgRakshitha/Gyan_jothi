@@ -30,8 +30,8 @@ class AlphabetQuizPuzzleRoundPage extends StatefulWidget {
   /// Four words in 2×2 grid order: top-left, top-right, bottom-left, bottom-right.
   final List<String> bankOrder;
   final String? submitNextRoute;
-  /// Expected words in slot order (left to right).
   final List<String> correctSlotOrder;
+  final String instructionText;
 
   const AlphabetQuizPuzzleRoundPage({
     super.key,
@@ -42,6 +42,7 @@ class AlphabetQuizPuzzleRoundPage extends StatefulWidget {
     required this.fallback,
     required this.bankOrder,
     required this.correctSlotOrder,
+    this.instructionText = 'Drag the words to make a correct sentence',
     this.submitNextRoute,
   });
 
@@ -173,7 +174,7 @@ class _AlphabetQuizPuzzleRoundPageState
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Text(
-                                    'Drag the words to make a correct sentence',
+                                    widget.instructionText,
                                     textAlign: TextAlign.center,
                                     style:
                                         AppTextStyles.headlineMedium.copyWith(

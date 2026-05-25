@@ -17,7 +17,7 @@ import '../../../../shared/widgets/star_badge.dart';
 import '../../../../shared/widgets/type_label_pill.dart';
 import '../../../../shared/widgets/crescent_border_card.dart';
 
-class CreativeDrawingPage extends StatelessWidget {
+class CreativeDrawingPage extends ConsumerWidget {
   const CreativeDrawingPage({super.key});
 
   static const _materials = <_MaterialItemData>[
@@ -44,7 +44,7 @@ class CreativeDrawingPage extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final maxContentW = Breakpoints.contentMaxWidth(context);
     final padH = Breakpoints.horizontalPadding(context);
     final padB = Breakpoints.scrollBottomPadding(context);
@@ -113,15 +113,23 @@ class CreativeDrawingPage extends StatelessWidget {
                               ),
                               child: _MaterialCard(
                                 data: _materials[index],
-                                onTap: () {
+                                onTap: () async {
+                                  dynamic result;
                                   if (_materials[index].title == 'Draw a Sun') {
-                                    context.push(AppRoutes.artCraftDrawSun);
+                                    result = await context.push(AppRoutes.artCraftDrawSun);
                                   } else if (_materials[index].title == 'Draw a Tree') {
-                                    context.push(AppRoutes.artCraftDrawTree);
+                                    result = await context.push(AppRoutes.artCraftDrawTree);
                                   } else if (_materials[index].title == 'Draw a Car') {
-                                    context.push(AppRoutes.artCraftDrawCar);
+                                    result = await context.push(AppRoutes.artCraftDrawCar);
                                   } else if (_materials[index].title == 'Draw a Home') {
-                                    context.push(AppRoutes.artCraftDrawHome);
+                                    result = await context.push(AppRoutes.artCraftDrawHome);
+                                  }
+                                  
+                                  if (result == true) {
+                                    final success = ref.read(userProvider.notifier).completeActivity('learn_${_materials[index].title}', _materials[index].coinCount);
+                                    if (success) {
+                                      context.push(AppRoutes.taskCompletion, extra: _materials[index].coinCount);
+                                    }
                                   }
                                 },
                               ),
@@ -141,58 +149,18 @@ class CreativeDrawingPage extends StatelessWidget {
   }
 }
 
-class _MaterialCard extends ConsumerWidget {
+class _MaterialCard extends StatelessWidget {
   final _MaterialItemData data;
   final VoidCallback? onTap;
     
   const _MaterialCard({required this.data, this.onTap});
 
-  
-  
-
-  
-  void _awardCoins(BuildContext context, WidgetRef ref) {
-    final success = ref.read(userProvider.notifier).completeActivity('learn_${data.title}', data.coinCount);
-    if (success) {
-      ScaffoldMessenger.of(context).clearSnackBars();
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Row(
-            children: [
-              const Icon(Icons.stars_rounded, color: Colors.amber, size: 24),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Text(
-                  'Well Done! You earned ${data.coinCount} coins! 🪙🏆',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w800,
-                    fontSize: 14,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          backgroundColor: const Color(0xFF4CAF50),
-          behavior: SnackBarBehavior.floating,
-          duration: const Duration(seconds: 2),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-        ),
-      );
-    }
-    if (onTap != null) {
-      onTap!();
-    }
-  }
-
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: () => _awardCoins(context, ref),
+        onTap: onTap,
         borderRadius: BorderRadius.circular(24),
         child: CrescentBorderCard(
           borderRadius: 24,
@@ -270,7 +238,7 @@ class _MaterialCard extends ConsumerWidget {
               ),
               const SizedBox(width: 10),
               GestureDetector(
-                onTap: () => _awardCoins(context, ref),
+                onTap: onTap,
                 child: Container(
                   width: AppSizes.studyMaterialActionButtonSize,
                   height: AppSizes.studyMaterialActionButtonSize,

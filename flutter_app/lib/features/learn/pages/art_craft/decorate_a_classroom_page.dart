@@ -473,7 +473,7 @@ class _DecorateAClassroomPageState extends State<DecorateAClassroomPage> {
                     ),
                     const SizedBox(height: 12),
                     _DecorateAClassroomDoneButton(
-                      onPressed: () => context.pop(),
+                      onPressed: () => context.pop(true),
                     ),
                   ],
                 ),

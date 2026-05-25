@@ -406,7 +406,7 @@ class _ColorTheAnimalPageState extends State<ColorTheAnimalPage> {
                     ),
                     const SizedBox(height: 12),
                     _ColorAnimalDoneButton(
-                      onPressed: () => context.pop(),
+                      onPressed: () => context.pop(true),
                     ),
                   ],
                 ),

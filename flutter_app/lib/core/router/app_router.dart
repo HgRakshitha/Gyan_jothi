@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/splash/pages/splash_page.dart';
 import '../../features/splash/pages/welcome_page.dart';
+import '../../features/splash/pages/welcome_bunny_page.dart';
+import '../../features/splash/pages/welcome_panda_page.dart';
+import '../../features/splash/pages/welcome_fox_page.dart';
+import '../../features/splash/pages/welcome_final_page.dart';
+import '../../features/splash/pages/welcome_name_page.dart';
+import '../../features/splash/pages/welcome_buddy_page.dart';
+import '../../features/splash/pages/welcome_class_page.dart';
+import '../../features/splash/pages/welcome_all_done_page.dart';
+import '../../shared/pages/task_completion_page.dart';
 import '../../features/dashboard/pages/main_tab_page.dart';
 import '../../features/profile/pages/profile_page.dart';
 import '../../features/learn/pages/learn_page.dart';
@@ -52,6 +61,11 @@ import '../../features/quiz/pages/color_quiz_true_false_page.dart';
 import '../../features/quiz/pages/color_quiz_variant_page.dart';
 import '../../features/quiz/pages/animals_quiz_question_page.dart';
 import '../../features/quiz/pages/numbers_quiz_question_page.dart';
+import '../../features/quiz/pages/quiz_sets_page.dart';
+import '../../features/quiz/pages/alphabet_quiz_set2_question_page.dart';
+import '../../features/quiz/pages/alphabet_quiz_set2_monkey_page.dart';
+import '../../features/quiz/pages/alphabet_quiz_set2_true_false_page.dart';
+import '../../features/quiz/pages/alphabet_quiz_multiple_choice_round_page.dart';
 import '../../features/quiz/pages/quiz_page.dart';
 import '../../features/quiz/pages/quiz_result_page.dart';
 import '../../features/quiz/quiz_answer_tracker.dart';
@@ -69,6 +83,16 @@ class AppRoutes {
   static const String login = '/login';
   static const String signup = '/signup';
   static const String welcome = '/welcome';
+  static const String welcomeBunny = '/welcome/bunny';
+  static const String welcomePanda = '/welcome/panda';
+  static const String welcomeFox = '/welcome/fox';
+  static const String welcomeFinal = '/welcome/final';
+  static const String welcomeName = '/welcome/name';
+  static const String welcomeBuddy = '/welcome/buddy';
+  static const String welcomeClass = '/welcome/class';
+  static const String welcomeAllDone = '/welcome/all-done';
+  static const String taskCompletion = '/task-completion';
+  static const String dashboard = '/dashboard';
   static const String home = '/home';
   static const String profile = '/profile';
   static const String learn = '/learn';
@@ -115,6 +139,7 @@ class AppRoutes {
   /// Score screen after completing a quiz (`?title=&score=&total=`).
   static const String quizResult = '/quiz/result';
   static const String quizQuestion = '/quiz/question';
+  static const String quizSets = '/quiz/sets';
   static const String quizAlphabet = '/quiz/alphabet';
   static const String quizAlphabet2 = '/quiz/alphabet/2';
   static const String quizAlphabet3 = '/quiz/alphabet/3';
@@ -123,6 +148,26 @@ class AppRoutes {
   static const String quizAlphabet6 = '/quiz/alphabet/6';
   static const String quizAlphabet7 = '/quiz/alphabet/7';
   static const String quizAlphabet8 = '/quiz/alphabet/8';
+
+  // Alphabet Quiz Set 2 (F to J)
+  static const String quizAlphabetSet2_1 = '/quiz/alphabet/set2/1';
+  static const String quizAlphabetSet2_2 = '/quiz/alphabet/set2/2';
+  static const String quizAlphabetSet2_3 = '/quiz/alphabet/set2/3';
+  static const String quizAlphabetSet2_4 = '/quiz/alphabet/set2/4';
+  static const String quizAlphabetSet2_5 = '/quiz/alphabet/set2/5';
+  static const String quizAlphabetSet2_6 = '/quiz/alphabet/set2/6';
+  static const String quizAlphabetSet2_7 = '/quiz/alphabet/set2/7';
+  static const String quizAlphabetSet2_8 = '/quiz/alphabet/set2/8';
+
+  // Alphabet Quiz Set 3 (K to O)
+  static const String quizAlphabetSet3_1 = '/quiz/alphabet/set3/1';
+  static const String quizAlphabetSet3_2 = '/quiz/alphabet/set3/2';
+  static const String quizAlphabetSet3_3 = '/quiz/alphabet/set3/3';
+  static const String quizAlphabetSet3_4 = '/quiz/alphabet/set3/4';
+  static const String quizAlphabetSet3_5 = '/quiz/alphabet/set3/5';
+  static const String quizAlphabetSet3_6 = '/quiz/alphabet/set3/6';
+  static const String quizAlphabetSet3_7 = '/quiz/alphabet/set3/7';
+  static const String quizAlphabetSet3_8 = '/quiz/alphabet/set3/8';
   /// Color Quiz (11 fill-in-the-blank questions). Use [quizColorQuestion] for `/quiz/colors/1` … `/quiz/colors/11`.
   static const String quizColor = '/quiz/colors';
   static String quizColorQuestion(int n) => '/quiz/colors/$n';
@@ -153,6 +198,45 @@ final appRouter = GoRouter(
     GoRoute(
       path: AppRoutes.welcome,
       builder: (context, state) => const WelcomePage(),
+    ),
+    GoRoute(
+      path: AppRoutes.welcomeBunny,
+      builder: (context, state) => const WelcomeBunnyPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.welcomePanda,
+      builder: (context, state) => const WelcomePandaPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.welcomeFox,
+      builder: (context, state) => const WelcomeFoxPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.welcomeFinal,
+      builder: (context, state) => const WelcomeFinalPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.welcomeName,
+      builder: (context, state) => const WelcomeNamePage(),
+    ),
+    GoRoute(
+      path: AppRoutes.welcomeBuddy,
+      builder: (context, state) => const WelcomeBuddyPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.welcomeClass,
+      builder: (context, state) => const WelcomeClassPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.welcomeAllDone,
+      builder: (context, state) => const WelcomeAllDonePage(),
+    ),
+    GoRoute(
+      path: AppRoutes.taskCompletion,
+      builder: (context, state) {
+        final coins = state.extra as int? ?? 0;
+        return TaskCompletionPage(coinsEarned: coins);
+      },
     ),
     GoRoute(
       path: AppRoutes.home,
@@ -405,6 +489,13 @@ final appRouter = GoRouter(
       },
     ),
     GoRoute(
+      path: AppRoutes.quizSets,
+      builder: (context, state) {
+        final args = state.extra as QuizSetsPageArgs;
+        return QuizSetsPage(args: args);
+      },
+    ),
+    GoRoute(
       path: AppRoutes.quizAlphabet,
       builder: (context, state) => const AlphabetQuizQuestionPage(),
     ),
@@ -499,6 +590,236 @@ final appRouter = GoRouter(
         ),
         bankOrder: ['is', 'This', 'apple', 'red'],
         correctSlotOrder: ['This', 'apple', 'is', 'red'],
+      ),
+    ),
+    // ------------------------------------------------------------------------
+    // Alphabet Quiz Set 2 (F to J)
+    // ------------------------------------------------------------------------
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet2_1,
+      builder: (context, state) => const AlphabetQuizSet2QuestionPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet2_2,
+      builder: (context, state) => const AlphabetQuizSet2MonkeyPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet2_3,
+      builder: (context, state) => const AlphabetQuizSet2TrueFalsePage(),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet2_4,
+      builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
+        questionNumber: 4,
+        imageAssetPath: 'assets/icons/quiz/set1/giraffe.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(
+          Icons.warning_amber_rounded,
+          size: 120,
+          color: Color(0xFFF9A825),
+        ),
+        statement: '“A giraffe has a short neck.”',
+        submitNextRoute: AppRoutes.quizAlphabetSet2_5,
+        compactIllustration: true,
+        correctAnswerIndex: 1, // False
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet2_5,
+      builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
+        questionNumber: 5,
+        imageAssetPath: 'assets/icons/quiz/set1/elephant.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(
+          Icons.emoji_nature_rounded,
+          size: 120,
+          color: Color(0xFF455A64),
+        ),
+        statement: '“An elephant has a long trunk.”',
+        submitNextRoute: AppRoutes.quizAlphabetSet2_6,
+        correctAnswerIndex: 0, // True
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet2_6,
+      builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
+        questionNumber: 6,
+        imageAssetPath: 'assets/icons/quiz/set1/iguana.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: const Icon(
+          Icons.pest_control_rounded,
+          size: 120,
+          color: Color(0xFF43A047),
+        ),
+        bankOrder: const ['green', 'iguana', 'An', 'is'],
+        correctSlotOrder: const ['An', 'iguana', 'is', 'green'],
+        submitNextRoute: AppRoutes.quizAlphabetSet2_7,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet2_7,
+      builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
+        questionNumber: 7,
+        imageAssetPath: 'assets/icons/quiz/set1/jaguar.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: const Icon(
+          Icons.visibility_rounded,
+          size: 120,
+          color: Color(0xFFFB8C00),
+        ),
+        bankOrder: const ['see', 'jaguar', 'I', 'a'],
+        correctSlotOrder: const ['I', 'see', 'a', 'jaguar'],
+        submitNextRoute: AppRoutes.quizAlphabetSet2_8,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet2_8,
+      builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
+        questionNumber: 8,
+        imageAssetPath: 'assets/icons/quiz/set1/jungle.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(
+          Icons.park_rounded,
+          size: 120,
+          color: Color(0xFF2E7D32),
+        ),
+        bankOrder: ['big', 'is', 'jungle', 'The'],
+        correctSlotOrder: ['The', 'jungle', 'is', 'big'],
+      ),
+    ),
+    // ------------------------------------------------------------------------
+    // Alphabet Quiz Set 3 (K to O)
+    // ------------------------------------------------------------------------
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet3_1,
+      builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
+        questionNumber: 1,
+        questionText: 'What animal is this?',
+        imageAssetPath: 'assets/icons/quiz/set3/whale.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.waves_rounded, size: 120, color: Color(0xFF1565C0)),
+        options: ['Octopus', 'Killer Whale', 'Lobster', 'Manatee'],
+        correctAnswerIndex: 1,
+        submitNextRoute: AppRoutes.quizAlphabetSet3_2,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet3_2,
+      builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
+        questionNumber: 2,
+        imageAssetPath: 'assets/icons/quiz/set3/kelp.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(
+          Icons.grass_rounded,
+          size: 120,
+          color: Color(0xFF43A047),
+        ),
+        instructionText: 'Drag the letters to spell the word',
+        bankOrder: ['L', 'K', 'P', 'E'],
+        correctSlotOrder: ['K', 'E', 'L', 'P'],
+        submitNextRoute: AppRoutes.quizAlphabetSet3_3,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet3_3,
+      builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
+        questionNumber: 3,
+        questionText: 'What animal is this?',
+        imageAssetPath: 'assets/icons/quiz/set3/lobster.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.bug_report_rounded, size: 120, color: Color(0xFFD32F2F)),
+        options: ['Nemo', 'Orca', 'Lobster', 'Kelp'],
+        correctAnswerIndex: 2,
+        submitNextRoute: AppRoutes.quizAlphabetSet3_4,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet3_4,
+      builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
+        questionNumber: 4,
+        imageAssetPath: 'assets/icons/quiz/set3/lion.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(
+          Icons.set_meal_rounded,
+          size: 120,
+          color: Color(0xFFE53935),
+        ),
+        instructionText: 'Drag the letters to spell the word',
+        bankOrder: ['O', 'N', 'L', 'I'],
+        correctSlotOrder: ['L', 'I', 'O', 'N'],
+        submitNextRoute: AppRoutes.quizAlphabetSet3_5,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet3_5,
+      builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
+        questionNumber: 5,
+        questionText: 'What animal is this?',
+        imageAssetPath: 'assets/icons/quiz/set3/manatee.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.water_rounded, size: 120, color: Color(0xFF78909C)),
+        options: ['Kelp', 'Manatee', 'Lionfish', 'Octopus'],
+        correctAnswerIndex: 1,
+        submitNextRoute: AppRoutes.quizAlphabetSet3_6,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet3_6,
+      builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
+        questionNumber: 6,
+        imageAssetPath: 'assets/icons/quiz/set3/nemo.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(
+          Icons.set_meal_rounded,
+          size: 120,
+          color: Color(0xFFFF9800),
+        ),
+        instructionText: 'Drag the letters to spell the word',
+        bankOrder: ['E', 'O', 'N', 'M'],
+        correctSlotOrder: ['N', 'E', 'M', 'O'],
+        submitNextRoute: AppRoutes.quizAlphabetSet3_7,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet3_7,
+      builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
+        questionNumber: 7,
+        questionText: 'What animal is this?',
+        imageAssetPath: 'assets/icons/quiz/set3/octopus.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(Icons.bubble_chart_rounded, size: 120, color: Color(0xFFE91E63)),
+        options: ['Manatee', 'Killer Whale', 'Nemo', 'Octopus'],
+        correctAnswerIndex: 3,
+        submitNextRoute: AppRoutes.quizAlphabetSet3_8,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.quizAlphabetSet3_8,
+      builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
+        questionNumber: 8,
+        imageAssetPath: 'assets/icons/quiz/set3/orca.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        fallback: Icon(
+          Icons.waves_rounded,
+          size: 120,
+          color: Color(0xFF1565C0),
+        ),
+        instructionText: 'Drag the letters to spell the word',
+        bankOrder: ['R', 'A', 'O', 'C'],
+        correctSlotOrder: ['O', 'R', 'C', 'A'],
       ),
     ),
     GoRoute(

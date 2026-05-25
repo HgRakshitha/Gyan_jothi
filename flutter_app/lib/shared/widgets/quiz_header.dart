@@ -12,6 +12,7 @@ class QuizHeader extends StatelessWidget {
   final EdgeInsetsGeometry margin;
   /// When set, replaces the default lime-yellow header gradient.
   final List<Color>? gradientColors;
+  final bool showBackButton;
 
   const QuizHeader({
     super.key,
@@ -21,6 +22,7 @@ class QuizHeader extends StatelessWidget {
     this.onBack,
     this.margin = EdgeInsets.zero,
     this.gradientColors,
+    this.showBackButton = true,
   });
 
   @override
@@ -58,7 +60,10 @@ class QuizHeader extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(22, topPad + 18, 22, 0),
                 child: Row(
                   children: [
-                    _HeaderBackButton(onTap: onBack ?? () => Navigator.of(context).maybePop()),
+                    if (showBackButton)
+                      _HeaderBackButton(onTap: onBack ?? () => Navigator.of(context).maybePop()),
+                    if (!showBackButton)
+                      const SizedBox(width: 42), // Keep symmetry if back button is hidden
                     Expanded(
                       child: Center(
                         child: subtitle != null

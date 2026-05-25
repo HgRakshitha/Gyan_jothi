@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../shared/providers/user_provider.dart';
 
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/navigation/go_to_app_home.dart';
@@ -15,7 +17,7 @@ import '../../../../shared/widgets/type_label_pill.dart';
 import '../../../../shared/widgets/crescent_border_card.dart';
 
 /// "Fold & Create" chapter — list of fold activities (matches [ColorAndCreatePage] layout).
-class FoldAndCreatePage extends StatelessWidget {
+class FoldAndCreatePage extends ConsumerWidget {
   const FoldAndCreatePage({super.key});
 
   static const _materials = <_FoldMaterialItemData>[
@@ -47,7 +49,7 @@ class FoldAndCreatePage extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final maxContentW = Breakpoints.contentMaxWidth(context);
     final padH = Breakpoints.horizontalPadding(context);
     final padB = Breakpoints.scrollBottomPadding(context);
@@ -112,12 +114,18 @@ class FoldAndCreatePage extends StatelessWidget {
                               ),
                               child: _FoldMaterialCard(
                                 data: _materials[index],
-                                onTap: () {
-                                  context.push(
-                                    AppRoutes.artCraftFoldActivity,
-                                    extra: _materials[index].title,
-                                  );
-                                },
+                                  onTap: () async {
+                                    final result = await context.push(
+                                      AppRoutes.artCraftFoldActivity,
+                                      extra: _materials[index].title,
+                                    );
+                                    if (result == true) {
+                                      final success = ref.read(userProvider.notifier).completeActivity('learn_${_materials[index].title}', _materials[index].coinCount);
+                                      if (success) {
+                                        context.push(AppRoutes.taskCompletion, extra: _materials[index].coinCount);
+                                      }
+                                    }
+                                  },
                               ),
                             ),
                           ),
