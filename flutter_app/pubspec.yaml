@@ -1,0 +1,118 @@
+name: gyan_jyoti
+description: "Gyan Jyoti Education Hub - A fun learning app for kids aged 2-5."
+
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/icons/home/GJ.png"
+  min_sdk_android: 21
+  web:
+    generate: false
+  windows:
+    generate: false
+  macos:
+    generate: false
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # UI & Fonts
+  google_fonts: ^6.2.1
+  cupertino_icons: ^1.0.8
+  flutter_svg: ^2.2.0
+
+  # State Management
+  flutter_riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.5
+
+  # Navigation
+  go_router: ^14.2.0
+
+  # Local Storage
+  shared_preferences: ^2.3.2
+
+  # Network
+  dio: ^5.7.0
+
+  # Utils
+  intl: ^0.19.0
+  path_provider: ^2.1.4
+  share_plus: ^10.1.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  build_runner: ^2.4.12
+  riverpod_generator: ^2.4.3
+  flutter_launcher_icons: ^0.14.3
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: Mona Sans
+      fonts:
+        - asset: assets/fonts/MonaSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/MonaSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/MonaSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/MonaSans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/MonaSans-ExtraBold.ttf
+          weight: 800
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/icons/home/
+    - assets/icons/quiz/
+    - assets/icons/profile/
+    - assets/animations/
+    - assets/sounds/
+    - assets/welcome/
+    - web/icons/home/
+    - web/icons/learn/
+    - web/icons/quiz/
+    - web/icons/profile/
+    - web/icons/events/
+    - web/icons/stories/
+    - web/icons/stories/bunny_s_day/first.png
+    - web/icons/stories/bunny_s_day/second.png
+    - web/icons/stories/bunny_s_day/third.png
+    - web/icons/stories/bunny_s_day/fourth.png
+    - web/icons/stories/bunny_s_day/fifth.png
+    - "web/icons/stories/Elli's story/first.png"
+    - "web/icons/stories/Elli's story/second.png"
+    - "web/icons/stories/Elli's story/third.png"
+    - "web/icons/stories/Elli's story/fourth.png"
+    - "web/icons/stories/Elli's story/fifth.png"
+    - web/icons/stories/chicky_walk/one.png
+    - web/icons/stories/chicky_walk/two.png
+    - web/icons/stories/chicky_walk/three.png
+    - web/icons/stories/chicky_walk/four.png
+    - web/icons/stories/chicky_walk/five.png
+    - web/icons/stories/shining_star/one.png
+    - web/icons/stories/shining_star/two.png
+    - web/icons/stories/shining_star/three.png
+    - web/icons/stories/shining_star/four.png
+    - web/icons/stories/shining_star/five.png
+    - web/icons/stories/teddy_s_button/one.png
+    - web/icons/stories/teddy_s_button/two.png
+    - web/icons/stories/teddy_s_button/three.png
+    - web/icons/stories/teddy_s_button/four.png
+    - web/icons/stories/teddy_s_button/five.png
+    - web/icons/english_sub/
+    - web/icons/math_sub/
+    - web/icons/science_sub/
+    - web/icons/arts_craft/
+    - web/icons/arts_craft/make_scene/
