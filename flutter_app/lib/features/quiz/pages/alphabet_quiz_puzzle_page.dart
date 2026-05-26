@@ -259,7 +259,7 @@ class _SentenceSlots extends StatelessWidget {
                           color: hasCandidate
                               ? AppColors.primary
                               : AppColors.textPrimary,
-                          width: hasCandidate ? 2.5 : 2,
+                          width: hasCandidate ? 5.0 : 4,
                         ),
                       ),
                     ),

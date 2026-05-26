@@ -10,7 +10,7 @@ class CrescentBorderCard extends StatelessWidget {
     this.borderColor = const Color(0xFFF7F6C4),
     this.borderGradient,
     this.borderRadius = 36.5,
-    this.borderWidth = 2.5,
+    this.borderWidth = 5.0,
     this.padding = const EdgeInsets.all(16.0),
     this.width,
     this.height,

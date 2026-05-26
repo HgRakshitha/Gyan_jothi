@@ -24,7 +24,8 @@ import '../widgets/quick_access_card.dart';
 import '../widgets/event_card.dart';
 
 class DashboardPage extends ConsumerStatefulWidget {
-  const DashboardPage({super.key});
+  final VoidCallback? onProfileTap;
+  const DashboardPage({super.key, this.onProfileTap});
 
   @override
   ConsumerState<DashboardPage> createState() => _DashboardPageState();
@@ -145,6 +146,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
                                 className: user.className,
                                 coins: user.coins,
                                 avatarPath: user.avatarPath,
+                                onProfileTap: widget.onProfileTap,
                               ),
                             ),
                           ),
@@ -285,12 +287,14 @@ class _Header extends StatelessWidget {
   final String className;
   final int coins;
   final String avatarPath;
+  final VoidCallback? onProfileTap;
 
   const _Header({
     required this.name,
     required this.className,
     required this.coins,
     required this.avatarPath,
+    this.onProfileTap,
   });
 
   @override
@@ -309,15 +313,17 @@ class _Header extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                width: 58,
-                height: 58,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  border: Border.all(color: Colors.white, width: 2),
-                  color: Colors.white,
-                ),
-                clipBehavior: Clip.hardEdge,
+              GestureDetector(
+                onTap: onProfileTap,
+                child: Container(
+                  width: 58,
+                  height: 58,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    border: Border.all(color: Colors.white, width: 2),
+                    color: Colors.white,
+                  ),
+                  clipBehavior: Clip.hardEdge,
                 child: Padding(
                   padding: const EdgeInsets.all(3),
                   child: AppAssetImage(
@@ -328,6 +334,7 @@ class _Header extends StatelessWidget {
                     fallback: const Icon(Icons.person_rounded),
                   ),
                 ),
+              ),
               ),
               const SizedBox(width: 14),
               Expanded(
@@ -445,8 +452,7 @@ class _QuickAccessGrid extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            SizedBox(
-              width: _quizEventsWidth,
+            Expanded(
               child: Column(
                 children: [
                   QuickAccessCard(
@@ -456,7 +462,7 @@ class _QuickAccessGrid extends StatelessWidget {
                       imagePath: AppAssets.illustrationQuiz,
                       imageScale: 0.98,
                     ),
-                    width: _quizEventsWidth,
+                    width: double.infinity,
                     height: _quizEventsHeight,
                     borderRadius: _cardRadius,
                     border: Border.all(width: 1, color: Colors.black.withValues(alpha: 0.08)),
@@ -470,7 +476,7 @@ class _QuickAccessGrid extends StatelessWidget {
                       imagePath: AppAssets.illustrationEvents,
                       imageScale: 0.90,
                     ),
-                    width: _quizEventsWidth,
+                    width: double.infinity,
                     height: _quizEventsHeight,
                     borderRadius: _cardRadius,
                     border: Border.all(width: 1, color: Colors.black.withValues(alpha: 0.08)),

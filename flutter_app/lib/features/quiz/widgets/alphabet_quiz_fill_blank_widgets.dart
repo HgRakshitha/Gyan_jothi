@@ -12,7 +12,7 @@ abstract final class AlphabetQuizDim {
   static const optionW = 152.0;
   static const optionH = 112.0;
   static const optionRadius = 28.0;
-  static const optionSideBorder = 2.5;
+  static const optionSideBorder = 5.0;
 
   static const trueFalseW = 320.0;
   static const trueFalseH = 98.0;

@@ -68,7 +68,7 @@ class _HomePill extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 22),
         innerColor: const Color(0xFFFBFBE4),
         borderColor: const Color(0xFFF7F6C4),
-        borderWidth: 2.5,
+        borderWidth: 5.0,
         borderRadius: 37,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -195,18 +195,13 @@ class _ProfilePill extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       behavior: HitTestBehavior.opaque,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
+      child: CrescentBorderCard(
         height: 74,
         padding: const EdgeInsets.symmetric(horizontal: 22),
-        decoration: BoxDecoration(
-          color: isActive ? const Color(0xFFF6F7E4) : Colors.white,
-          borderRadius: BorderRadius.circular(37),
-          border: Border.all(
-            color: const Color(0xFFE8E7C5),
-            width: 1.5,
-          ),
-        ),
+        innerColor: isActive ? const Color(0xFFF6F7E4) : Colors.white,
+        borderColor: const Color(0xFFF7F6C4),
+        borderWidth: 5.0,
+        borderRadius: 37,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -219,7 +214,7 @@ class _ProfilePill extends StatelessWidget {
                   height: 24,
                   fallback: Icon(
                     Icons.sentiment_satisfied_alt_outlined,
-                    color: AppColors.textPrimary, // Note: opacity applied by wrapper
+                    color: AppColors.textPrimary,
                     size: 22,
                   ),
                 ),

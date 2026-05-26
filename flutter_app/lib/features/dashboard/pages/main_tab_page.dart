@@ -30,7 +30,9 @@ class _MainTabPageState extends ConsumerState<MainTabPage> {
         children: [
           Stack(
             children: [
-              _buildTab(0, const DashboardPage()),
+              _buildTab(0, DashboardPage(
+                onProfileTap: () => setState(() => _currentIndex = 1),
+              )),
               _buildTab(1, const ProfilePage()),
             ],
           ),

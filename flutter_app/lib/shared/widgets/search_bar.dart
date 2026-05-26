@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_assets.dart';
 import '../../core/theme/text_styles.dart';
+import 'crescent_border_card.dart';
 
 class AppSearchBar extends StatelessWidget {
   final String hint;
@@ -22,19 +23,14 @@ class AppSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-      decoration: BoxDecoration(
-        color: borderColor ?? const Color(0xFFF7F6C4),
-        borderRadius: BorderRadius.circular(36.5),
-      ),
-      child: Container(
-        height: 66,
-        decoration: BoxDecoration(
-          color: backgroundColor ?? const Color(0xFFFBFBE4),
-          borderRadius: BorderRadius.circular(34),
-        ),
-        child: Row(
+    return CrescentBorderCard(
+      height: 66,
+      padding: EdgeInsets.zero,
+      innerColor: backgroundColor ?? const Color(0xFFFBFBE4),
+      borderColor: borderColor ?? const Color(0xFFF7F6C4),
+      borderWidth: 5.0,
+      borderRadius: 36.5,
+      child: Row(
         children: [
           const SizedBox(width: 18),
           SvgPicture.asset(
@@ -85,7 +81,6 @@ class AppSearchBar extends StatelessWidget {
           ),
           const SizedBox(width: 8),
         ],
-      ),
       ),
     );
   }
