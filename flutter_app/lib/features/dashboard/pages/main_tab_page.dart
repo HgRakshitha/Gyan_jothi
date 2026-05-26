@@ -24,16 +24,14 @@ class _MainTabPageState extends ConsumerState<MainTabPage> {
 
     return Scaffold(
       extendBody: false,
-      // Matches home header so no white leaks at top corners on mobile.
-      backgroundColor:
-          isMobile ? AppColors.primary : AppColors.background,
+      // Matches background so no yellow flashes during slide
+      backgroundColor: AppColors.background,
       body: Stack(
         children: [
-          IndexedStack(
-            index: _currentIndex,
-            children: const [
-              DashboardPage(),
-              ProfilePage(),
+          Stack(
+            children: [
+              _buildTab(0, const DashboardPage()),
+              _buildTab(1, const ProfilePage()),
             ],
           ),
           if (!isMobile)
@@ -94,6 +92,28 @@ class _MainTabPageState extends ConsumerState<MainTabPage> {
               ),
             )
           : null,
+    );
+  }
+
+  Widget _buildTab(int index, Widget child) {
+    final isActive = _currentIndex == index;
+    // Determine direction of the slide based on the tab order
+    final offset = isActive 
+        ? Offset.zero 
+        : (index < _currentIndex ? const Offset(-1.0, 0.0) : const Offset(1.0, 0.0));
+
+    return IgnorePointer(
+      ignoring: !isActive,
+      child: AnimatedSlide(
+        duration: const Duration(milliseconds: 700), // Slow motion effect
+        curve: Curves.fastOutSlowIn,
+        offset: offset,
+        child: AnimatedOpacity(
+          duration: const Duration(milliseconds: 700),
+          opacity: isActive ? 1.0 : 0.0,
+          child: child,
+        ),
+      ),
     );
   }
 }

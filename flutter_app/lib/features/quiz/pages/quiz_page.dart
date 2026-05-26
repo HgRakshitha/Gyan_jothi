@@ -24,10 +24,9 @@ class _QuizPageState extends State<QuizPage> {
   String _query = '';
 
   static final _quizzes = <_QuizCardData>[
-    _QuizCardData(
+    const _QuizCardData(
       category: 'English',
       title: 'Alphabet Quiz',
-      questionCount: 8,
       backgroundColor: Color(0xFFE9B6E7),
       imagePath: AppAssets.quizAlphabet,
       fallbackIcon: Icons.abc_rounded,
@@ -41,57 +40,58 @@ class _QuizPageState extends State<QuizPage> {
           AppRoutes.quizAlphabetSet4_1,
           AppRoutes.quizAlphabetSet5_1
         ],
-        questionCount: 8,
+        setQuestionCounts: [8, 8, 8, 8, 8],
+        setCoins: [50, 60, 70, 80, 100],
         setNames: ['A to E Safari', 'F to J Jungle', 'K to O Ocean', 'P to T Space', 'U to Z Magic'],
         setEmojis: ['🐶', '🐱', '🦊', '🦁', '🐰'],
       ),
     ),
-    _QuizCardData(
+    const _QuizCardData(
       category: 'Art/ Visual Skills',
       title: 'Color Quiz',
-      questionCount: 11,
       backgroundColor: Color(0xFFBDD6F0),
       imagePath: AppAssets.quizColors,
       fallbackIcon: Icons.palette_rounded,
       navigateTo: AppRoutes.quizSets,
       setsArgs: QuizSetsPageArgs(
         title: 'Color Quiz Sets',
-        targetRoutes: [AppRoutes.quizColor, AppRoutes.quizColor, AppRoutes.quizColor, AppRoutes.quizColor, AppRoutes.quizColor],
-        questionCount: 11,
-        setNames: ['Primary Colors', 'Secondary Colors', 'Warm Colors', 'Cool Colors', 'Rainbow Colors'],
-        setEmojis: ['🐶', '🐱', '🦊', '🦁', '🐰'],
+        targetRoutes: [AppRoutes.quizColor, AppRoutes.quizColorSet2_1],
+        setQuestionCounts: [11, 8],
+        setCoins: [50, 80],
+        setNames: ['Primary Colors', 'Mixed Colors'],
+        setEmojis: ['🐶', '🐱'],
       ),
     ),
-    _QuizCardData(
+    const _QuizCardData(
       category: 'Math',
       title: 'Numbers Quiz',
-      questionCount: 9,
       backgroundColor: Color(0xFFEFC0CF),
       imagePath: AppAssets.quizNumbers,
       fallbackIcon: Icons.calculate_rounded,
       navigateTo: AppRoutes.quizSets,
       setsArgs: QuizSetsPageArgs(
         title: 'Numbers Quiz Sets',
-        targetRoutes: [AppRoutes.quizNumbers, AppRoutes.quizNumbers, AppRoutes.quizNumbers, AppRoutes.quizNumbers, AppRoutes.quizNumbers],
-        questionCount: 9,
-        setNames: ['Counting 1 to 5', 'Counting 6 to 10', 'Teens & Twenties', 'Basic Addition', 'Math Mix'],
-        setEmojis: ['🐶', '🐱', '🦊', '🦁', '🐰'],
+        targetRoutes: [AppRoutes.quizNumbers, AppRoutes.quizNumbersSet2_1],
+        setQuestionCounts: [9, 6],
+        setCoins: [50, 60],
+        setNames: ['Counting 1 to 5', 'Fun Counting'],
+        setEmojis: ['🐶', '🐱'],
       ),
     ),
-    _QuizCardData(
+    const _QuizCardData(
       category: 'General Knowledge',
       title: 'Animals Quiz',
-      questionCount: 11,
       backgroundColor: Color(0xFFF0D7D9),
       imagePath: AppAssets.quizAnimals,
       fallbackIcon: Icons.pets_rounded,
       navigateTo: AppRoutes.quizSets,
       setsArgs: QuizSetsPageArgs(
         title: 'Animals Quiz Sets',
-        targetRoutes: [AppRoutes.quizAnimals, AppRoutes.quizAnimals, AppRoutes.quizAnimals, AppRoutes.quizAnimals, AppRoutes.quizAnimals],
-        questionCount: 11,
-        setNames: ['Farm Animals', 'Wild Animals', 'Beautiful Birds', 'Sea Creatures', 'Creepy Crawlies'],
-        setEmojis: ['🐶', '🐱', '🦊', '🦁', '🐰'],
+        targetRoutes: [AppRoutes.quizAnimals, AppRoutes.quizAnimalsSet2_1],
+        setQuestionCounts: [9, 6],
+        setCoins: [50, 70],
+        setNames: ['Farm Animals', 'Mixed Animals'],
+        setEmojis: ['🐶', '🐱'],
       ),
     ),
   ];
@@ -109,8 +109,6 @@ class _QuizPageState extends State<QuizPage> {
             [
               q.category,
               q.title,
-              '${q.questionCount}',
-              'Questions',
             ],
           ),
         )
@@ -244,7 +242,7 @@ class _QuizCard extends StatelessWidget {
                           ],
                         ),
                         child: Text(
-                          '${data.questionCount} Questions',
+                          '${data.setsArgs?.targetRoutes.length ?? 0} Sets',
                           style: AppTextStyles.labelSmall.copyWith(
                             color: Colors.black87,
                             fontSize: 11,
@@ -253,7 +251,35 @@ class _QuizCard extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 10),
-                      const _RewardDots(),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFFFF3CD),
+                          borderRadius: BorderRadius.circular(18),
+                          border: Border.all(
+                            color: const Color(0xFFFFE69C),
+                            width: 1.0,
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const AppAssetImage(assetPath: AppAssets.iconCoin, width: 14, height: 14, fallback: SizedBox.shrink()),
+                            const SizedBox(width: 4),
+                            Text(
+                              '+${data.setsArgs?.setCoins.fold<int>(0, (a, b) => a + b) ?? 0} Coins',
+                              style: AppTextStyles.labelSmall.copyWith(
+                                color: const Color(0xFFB98A00),
+                                fontSize: 11,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ],
@@ -337,7 +363,6 @@ class _RewardCoin extends StatelessWidget {
 class _QuizCardData {
   final String category;
   final String title;
-  final int questionCount;
   final Color backgroundColor;
   final String imagePath;
   final IconData fallbackIcon;
@@ -347,7 +372,6 @@ class _QuizCardData {
   const _QuizCardData({
     required this.category,
     required this.title,
-    required this.questionCount,
     required this.backgroundColor,
     required this.imagePath,
     required this.fallbackIcon,

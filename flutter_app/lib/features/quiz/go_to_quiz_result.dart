@@ -9,6 +9,7 @@ void goToQuizResult(
   BuildContext context, {
   required String quizTitle,
   required int totalQuestions,
+  int coinsReward = 50,
 }) {
   final results = QuizAnswerTracker.takeResults();
   final score = results.where((r) => r.isCorrect).length;
@@ -19,6 +20,7 @@ void goToQuizResult(
       'title': quizTitle,
       'score': '$score',
       'total': '$total',
+      'coins': '$coinsReward',
     },
   );
   context.go(uri.toString(), extra: results);

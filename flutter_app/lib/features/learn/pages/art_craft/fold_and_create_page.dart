@@ -23,27 +23,27 @@ class FoldAndCreatePage extends ConsumerWidget {
   static const _materials = <_FoldMaterialItemData>[
     _FoldMaterialItemData(
       title: 'Boat',
-      coinCount: 2,
+      coinCount: 20,
       imagePath: AppAssets.artsCraftFoldBoat,
     ),
     _FoldMaterialItemData(
       title: 'Aeroplane',
-      coinCount: 2,
+      coinCount: 20,
       imagePath: AppAssets.artsCraftFoldAeroplane,
     ),
     _FoldMaterialItemData(
       title: 'Hat',
-      coinCount: 3,
+      coinCount: 30,
       imagePath: AppAssets.artsCraftFoldHat,
     ),
     _FoldMaterialItemData(
       title: 'Fish',
-      coinCount: 2,
+      coinCount: 20,
       imagePath: AppAssets.artsCraftFoldFish,
     ),
     _FoldMaterialItemData(
       title: 'Flower',
-      coinCount: 3,
+      coinCount: 30,
       imagePath: AppAssets.artsCraftFoldFlower,
     ),
   ];
@@ -122,6 +122,7 @@ class FoldAndCreatePage extends ConsumerWidget {
                                     if (result == true) {
                                       final success = ref.read(userProvider.notifier).completeActivity('learn_${_materials[index].title}', _materials[index].coinCount);
                                       if (success) {
+                                        if (!context.mounted) return;
                                         context.push(AppRoutes.taskCompletion, extra: _materials[index].coinCount);
                                       }
                                     }
@@ -209,20 +210,18 @@ class _FoldMaterialCard extends StatelessWidget {
                       children: [
                         const TypeLabelPill(label: 'Activity'),
                         const SizedBox(width: 8),
-                        ...List.generate(
-                          data.coinCount,
-                          (_) => const Padding(
-                            padding: EdgeInsets.only(right: 2),
-                            child: AppAssetImage(
-                              assetPath: AppAssets.iconCoin,
-                              width: 16,
-                              height: 16,
-                              fallback: Icon(
-                                Icons.monetization_on_rounded,
-                                size: 16,
-                                color: Colors.amber,
-                              ),
-                            ),
+                        const AppAssetImage(
+                          assetPath: AppAssets.iconCoin,
+                          width: 16,
+                          height: 16, fallback: SizedBox.shrink(),
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          '+${data.coinCount}',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.amber,
                           ),
                         ),
                       ],
@@ -274,3 +273,4 @@ class _FoldMaterialItemData {
     required this.imagePath,
   });
 }
+

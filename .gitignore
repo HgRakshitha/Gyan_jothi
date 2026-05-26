@@ -17,6 +17,7 @@ credentials.json
 **/.pub-cache/
 **/.pub/
 **/build/
+**/build_corrupted*/
 **/coverage/
 **/.packages
 

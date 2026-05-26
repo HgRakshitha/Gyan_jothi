@@ -25,21 +25,21 @@ class ColorsPage extends StatelessWidget {
       title: 'Color Names',
       description: 'Learn basic colors with bright pictures',
       categoryLabel: 'Book',
-      coinCount: 1,
+      coinCount: 15,
       imagePath: AppAssets.englishLetterTrace,
     ),
     _MaterialItemData(
       title: 'Color Match',
       description: 'Match objects with the same color',
       categoryLabel: 'Activity',
-      coinCount: 3,
+      coinCount: 30,
       imagePath: AppAssets.englishColorMatch,
     ),
     _MaterialItemData(
       title: 'Color & Objects',
       description: 'Find colors in everyday things',
       categoryLabel: 'Activity',
-      coinCount: 2,
+      coinCount: 20,
       imagePath: AppAssets.englishColorObj,
     ),
   ];
@@ -226,20 +226,18 @@ class _MaterialCard extends ConsumerWidget {
                       children: [
                         TypeLabelPill(label: data.categoryLabel),
                         const SizedBox(width: 8),
-                        ...List.generate(
-                          data.coinCount,
-                          (_) => const Padding(
-                            padding: EdgeInsets.only(right: 2),
-                            child: AppAssetImage(
-                              assetPath: AppAssets.iconCoin,
-                              width: AppSizes.studyMaterialCoinIconSize,
-                              height: AppSizes.studyMaterialCoinIconSize,
-                              fallback: Icon(
-                                Icons.monetization_on_rounded,
-                                size: AppSizes.studyMaterialCoinIconSize,
-                                color: Colors.amber,
-                              ),
-                            ),
+                        const AppAssetImage(
+                          assetPath: AppAssets.iconCoin,
+                          width: AppSizes.studyMaterialCoinIconSize,
+                          height: AppSizes.studyMaterialCoinIconSize, fallback: SizedBox.shrink(),
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          '+${data.coinCount}',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.amber,
                           ),
                         ),
                       ],
@@ -296,3 +294,4 @@ class _MaterialItemData {
     required this.imagePath,
   });
 }
+

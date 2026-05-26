@@ -17,10 +17,12 @@ import '../widgets/alphabet_quiz_fill_blank_widgets.dart';
 /// Color Quiz — fill-in-the-blank questions (`/quiz/colors/:n`).
 class ColorQuizQuestionPage extends StatefulWidget {
   final int questionNumber;
+  final int coinsReward;
 
   const ColorQuizQuestionPage({
     super.key,
     required this.questionNumber,
+    this.coinsReward = 50,
   });
 
   @override
@@ -74,6 +76,7 @@ class _ColorQuizQuestionPageState extends State<ColorQuizQuestionPage> {
         context,
         quizTitle: 'Color Quiz',
         totalQuestions: _totalQuestions,
+        coinsReward: widget.coinsReward,
       );
     }
   }

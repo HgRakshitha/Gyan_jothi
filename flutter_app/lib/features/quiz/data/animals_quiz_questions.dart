@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/constants/app_assets.dart';
 
-const int kAnimalsQuizTotal = 11;
+const int kAnimalsQuizTotal = 9;
 
 enum AnimalsQuizQuestionKind {
   multipleChoice,

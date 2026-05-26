@@ -69,9 +69,11 @@ class AlphabetQuizIllustration extends StatelessWidget {
     final stackH = height + 44.0;
     final stackW = math.max(280.0, width + 105.0);
 
-    return SizedBox(
-      width: stackW,
-      height: stackH,
+    return FittedBox(
+      fit: BoxFit.scaleDown,
+      child: SizedBox(
+        width: stackW,
+        height: stackH,
       child: Stack(
         clipBehavior: Clip.none,
         alignment: Alignment.bottomCenter,
@@ -130,6 +132,7 @@ class AlphabetQuizIllustration extends StatelessWidget {
           ),
         ],
       ),
+      ),
     );
   }
 
@@ -137,9 +140,11 @@ class AlphabetQuizIllustration extends StatelessWidget {
     final stackH = AlphabetQuizIllustration.compactLayoutHeight(height);
     final stackW = width + 28.0;
 
-    return SizedBox(
-      width: stackW,
-      height: stackH,
+    return FittedBox(
+      fit: BoxFit.scaleDown,
+      child: SizedBox(
+        width: stackW,
+        height: stackH,
       child: Stack(
         clipBehavior: Clip.none,
         alignment: Alignment.bottomCenter,
@@ -197,6 +202,7 @@ class AlphabetQuizIllustration extends StatelessWidget {
             ),
           ),
         ],
+      ),
       ),
     );
   }

@@ -80,6 +80,9 @@ flutter:
     - assets/icons/quiz/set3/
     - assets/icons/quiz/set4/
     - assets/icons/quiz/set5/
+    - assets/icons/quiz/colors_set2/
+    - assets/icons/quiz/numbers_set2/
+    - assets/icons/quiz/animals_set2/
     - assets/icons/profile/
     - assets/animations/
     - assets/sounds/

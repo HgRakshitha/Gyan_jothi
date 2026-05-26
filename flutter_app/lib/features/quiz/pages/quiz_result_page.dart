@@ -16,6 +16,7 @@ class QuizResultPage extends StatelessWidget {
   final String quizTitle;
   final int score;
   final int total;
+  final int coins;
   final List<QuizQuestionResult> results;
 
   const QuizResultPage({
@@ -23,6 +24,7 @@ class QuizResultPage extends StatelessWidget {
     required this.quizTitle,
     required this.score,
     required this.total,
+    required this.coins,
     this.results = const [],
   });
 
@@ -323,7 +325,7 @@ class QuizResultPage extends StatelessWidget {
           top: false,
           child: Stack(
             children: [
-              QuizCoinsAwarder(quizTitle: quizTitle),
+              QuizCoinsAwarder(quizTitle: quizTitle, coins: coins),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -524,10 +526,12 @@ class _AnimatedScoreBadgeState extends State<AnimatedScoreBadge>
 
 class QuizCoinsAwarder extends ConsumerStatefulWidget {
   final String quizTitle;
+  final int coins;
 
   const QuizCoinsAwarder({
     super.key,
     required this.quizTitle,
+    required this.coins,
   });
 
   @override
@@ -539,19 +543,19 @@ class _QuizCoinsAwarderState extends ConsumerState<QuizCoinsAwarder> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final success = ref.read(userProvider.notifier).completeActivity('quiz_${widget.quizTitle}', 3);
+      final success = ref.read(userProvider.notifier).completeActivity('quiz_${widget.quizTitle}', widget.coins);
       if (success) {
         ScaffoldMessenger.of(context).clearSnackBars();
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: const Row(
+            content: Row(
               children: [
-                Icon(Icons.stars_rounded, color: Colors.amber, size: 24),
-                SizedBox(width: 10),
+                const Icon(Icons.stars_rounded, color: Colors.amber, size: 24),
+                const SizedBox(width: 10),
                 Expanded(
                   child: Text(
-                    'Awesome! You earned 3 coins! 🪙🏆',
-                    style: TextStyle(
+                    'Awesome! You earned ${widget.coins} coins! 🪙🏆',
+                    style: const TextStyle(
                       fontWeight: FontWeight.w800,
                       fontSize: 14,
                       color: Colors.white,

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/constants/app_assets.dart';
 import '../../../core/theme/text_styles.dart';
 import '../../../core/utils/breakpoints.dart';
+import '../../../shared/widgets/app_asset_image.dart';
 import '../../../shared/widgets/quiz_header.dart';
 
 class QuizSetsPageArgs {
@@ -10,14 +12,16 @@ class QuizSetsPageArgs {
   final List<String> targetRoutes;
   final List<String> setNames;
   final List<String> setEmojis;
-  final int questionCount;
+  final List<int> setQuestionCounts;
+  final List<int> setCoins;
 
   const QuizSetsPageArgs({
     required this.title,
     required this.targetRoutes,
     required this.setNames,
     required this.setEmojis,
-    required this.questionCount,
+    required this.setQuestionCounts,
+    required this.setCoins,
   });
 }
 
@@ -84,7 +88,8 @@ class QuizSetsPage extends StatelessWidget {
                               emoji: args.setEmojis[index],
                               backgroundColor: _colors[index % _colors.length],
                               targetRoute: args.targetRoutes[index],
-                              questionCount: args.questionCount,
+                              questionCount: args.setQuestionCounts[index],
+                              coins: args.setCoins[index],
                             ),
                           ),
                         ),
@@ -107,6 +112,7 @@ class _SetCard extends StatelessWidget {
   final Color backgroundColor;
   final String targetRoute;
   final int questionCount;
+  final int coins;
 
   const _SetCard({
     required this.title,
@@ -114,6 +120,7 @@ class _SetCard extends StatelessWidget {
     required this.backgroundColor,
     required this.targetRoute,
     required this.questionCount,
+    required this.coins,
   });
 
   @override
@@ -170,12 +177,39 @@ class _SetCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 6),
-                    Text(
-                      '$questionCount Questions',
-                      style: AppTextStyles.bodyMedium.copyWith(
-                        fontWeight: FontWeight.w600,
-                        color: Colors.black54,
-                      ),
+                    Row(
+                      children: [
+                        Text(
+                          '$questionCount Questions',
+                          style: AppTextStyles.bodyMedium.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black54,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                          decoration: BoxDecoration(
+                            color: Colors.white.withValues(alpha: 0.6),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const AppAssetImage(assetPath: AppAssets.iconCoin, width: 14, height: 14, fallback: SizedBox.shrink()),
+                              const SizedBox(width: 4),
+                              Text(
+                                '+$coins',
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w900,
+                                  color: Color(0xFFD49A00),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

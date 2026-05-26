@@ -75,8 +75,9 @@ class _WelcomeBuddyPageState extends ConsumerState<WelcomeBuddyPage> {
                   CustomPaint(
                     painter: BuddyBorderPainter(),
                     child: Container(
-                      width: 350,
-                      height: 354,
+                      width: double.infinity,
+                      margin: const EdgeInsets.symmetric(horizontal: 16),
+                      padding: const EdgeInsets.symmetric(vertical: 24),
                       decoration: const BoxDecoration(
                         color: Color(0xFFFBFBE4),
                         borderRadius: BorderRadius.all(Radius.circular(32)),
@@ -95,15 +96,15 @@ class _WelcomeBuddyPageState extends ConsumerState<WelcomeBuddyPage> {
                               });
                             },
                             child: SizedBox(
-                              width: 100,
-                              height: 100,
+                              width: 115,
+                              height: 120,
                               child: Stack(
                                 clipBehavior: Clip.none,
                                 children: [
                                   // White Card
                                   Container(
-                                    width: 100,
-                                    height: 100,
+                                    width: 115,
+                                    height: 120,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(24),
@@ -112,31 +113,36 @@ class _WelcomeBuddyPageState extends ConsumerState<WelcomeBuddyPage> {
                                           : null,
                                       boxShadow: [
                                         BoxShadow(
-                                          color: Colors.black.withValues(alpha: 0.04),
-                                          blurRadius: 8,
-                                          offset: const Offset(0, 4),
+                                          color: Colors.black.withValues(alpha: 0.05),
+                                          blurRadius: 25,
+                                          spreadRadius: 8,
+                                          offset: const Offset(0, 0),
                                         ),
                                       ],
                                     ),
                                     child: Column(
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
-                                        const SizedBox(height: 8),
-                                        Image.asset(
-                                          buddies[index]['image']!,
-                                          width: 50,
-                                          height: 50,
-                                          fit: BoxFit.contain,
+                                        Expanded(
+                                          child: Center(
+                                            child: Image.asset(
+                                              buddies[index]['image']!,
+                                              width: 75,
+                                              height: 75,
+                                              fit: BoxFit.contain,
+                                              filterQuality: FilterQuality.high,
+                                            ),
+                                          ),
                                         ),
-                                        const SizedBox(height: 6),
                                         Text(
                                           buddies[index]['name']!,
                                           style: const TextStyle(
-                                            fontSize: 13,
+                                            fontSize: 14,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.black87,
                                           ),
                                         ),
+                                        const SizedBox(height: 10),
                                       ],
                                     ),
                                   ),
@@ -177,7 +183,8 @@ class _WelcomeBuddyPageState extends ConsumerState<WelcomeBuddyPage> {
                       context.go(AppRoutes.welcomeClass);
                     },
                     child: Container(
-                      width: 302,
+                      width: double.infinity,
+                      margin: const EdgeInsets.symmetric(horizontal: 32),
                       height: 60,
                       decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -246,3 +253,4 @@ class BuddyBorderPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
+

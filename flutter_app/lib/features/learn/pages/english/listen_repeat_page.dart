@@ -25,21 +25,21 @@ class ListenRepeatPage extends StatelessWidget {
       title: 'Word Sounds',
       description: 'Tap an object, hear the word, repeat it',
       categoryLabel: 'Video',
-      coinCount: 1,
+      coinCount: 15,
       imagePath: AppAssets.englishLetterTrace,
     ),
     _MaterialItemData(
       title: 'Animal Sounds',
       description: 'Listen to sounds and identify the animal',
       categoryLabel: 'Activity',
-      coinCount: 3,
+      coinCount: 30,
       imagePath: AppAssets.englishAnimalSound,
     ),
     _MaterialItemData(
       title: 'Repeat After Me',
       description: 'Simple words spoken slowly for kids to repeat',
       categoryLabel: 'Activity',
-      coinCount: 2,
+      coinCount: 20,
       imagePath: AppAssets.englishRepeatAfter,
     ),
   ];
@@ -226,20 +226,18 @@ class _MaterialCard extends ConsumerWidget {
                       children: [
                         TypeLabelPill(label: data.categoryLabel),
                         const SizedBox(width: 8),
-                        ...List.generate(
-                          data.coinCount,
-                          (_) => const Padding(
-                            padding: EdgeInsets.only(right: 2),
-                            child: AppAssetImage(
-                              assetPath: AppAssets.iconCoin,
-                              width: AppSizes.studyMaterialCoinIconSize,
-                              height: AppSizes.studyMaterialCoinIconSize,
-                              fallback: Icon(
-                                Icons.monetization_on_rounded,
-                                size: AppSizes.studyMaterialCoinIconSize,
-                                color: Colors.amber,
-                              ),
-                            ),
+                        const AppAssetImage(
+                          assetPath: AppAssets.iconCoin,
+                          width: AppSizes.studyMaterialCoinIconSize,
+                          height: AppSizes.studyMaterialCoinIconSize, fallback: SizedBox.shrink(),
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          '+${data.coinCount}',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.amber,
                           ),
                         ),
                       ],
@@ -296,3 +294,4 @@ class _MaterialItemData {
     required this.imagePath,
   });
 }
+

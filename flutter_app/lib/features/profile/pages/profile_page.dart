@@ -76,19 +76,19 @@ class ProfilePage extends ConsumerWidget {
                                     ),
                                   ],
                                 ),
-                                child: const Center(
+                                child: Center(
                                   child: AppAssetImage(
-                                    assetPath: AppAssets.avatarDefault,
+                                    assetPath: user.avatarPath.isNotEmpty ? user.avatarPath : AppAssets.avatarDefault,
                                     width: 84,
                                     height: 84,
                                     fit: BoxFit.contain,
-                                    fallback: Icon(Icons.person_rounded, size: 42),
+                                    fallback: const Icon(Icons.person_rounded, size: 42),
                                   ),
                                 ),
                               ),
                               const SizedBox(height: 18),
                               Text(
-                                user?.name ?? 'Aarav Kumar',
+                                user.name,
                                 style: AppTextStyles.headlineLarge.copyWith(
                                   fontSize: 17,
                                   fontWeight: FontWeight.w800,
@@ -96,7 +96,7 @@ class ProfilePage extends ConsumerWidget {
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                user?.className ?? 'Class: Playgroup',
+                                user.className,
                                 style: AppTextStyles.bodySmall.copyWith(
                                   color: Colors.black87,
                                   fontSize: 11.5,
@@ -104,7 +104,7 @@ class ProfilePage extends ConsumerWidget {
                                 ),
                               ),
                               const SizedBox(height: 18),
-                              _CoinPill(coins: user?.coins ?? 2200),
+                              _CoinPill(coins: user.coins),
                             ],
                           ),
                         ),
@@ -160,7 +160,7 @@ class ProfilePage extends ConsumerWidget {
                                       children: [
                                         Expanded(
                                           child: _StatCard(
-                                            value: '${user?.completedActivities.where((a) => a.startsWith('learn_')).length ?? 0}',
+                                            value: '${user.completedActivities.where((a) => a.startsWith('learn_')).length}',
                                             title: 'Lessons\nCompleted',
                                             assetPath: AppAssets.profileStatLessons,
                                             backgroundColor: const Color(0xFFDCE6FF),
@@ -169,7 +169,7 @@ class ProfilePage extends ConsumerWidget {
                                         const SizedBox(width: 10),
                                         Expanded(
                                           child: _StatCard(
-                                            value: '${user?.completedActivities.where((a) => a.startsWith('quiz_')).length ?? 0}',
+                                            value: '${user.completedActivities.where((a) => a.startsWith('quiz_')).length}',
                                             title: 'Quizzes\nTaken',
                                             assetPath: AppAssets.profileStatQuizzes,
                                             backgroundColor: const Color(0xFFFFE8BF),

@@ -23,22 +23,22 @@ class CreativeDrawingPage extends ConsumerWidget {
   static const _materials = <_MaterialItemData>[
     _MaterialItemData(
       title: 'Draw a Sun',
-      coinCount: 2,
+      coinCount: 20,
       imagePath: AppAssets.artsCraftDrawSun,
     ),
     _MaterialItemData(
       title: 'Draw a Tree',
-      coinCount: 2,
+      coinCount: 20,
       imagePath: AppAssets.artsCraftDrawTree,
     ),
     _MaterialItemData(
       title: 'Draw a Car',
-      coinCount: 3,
+      coinCount: 30,
       imagePath: AppAssets.artsCraftDrawCar,
     ),
     _MaterialItemData(
       title: 'Draw a Home',
-      coinCount: 3,
+      coinCount: 30,
       imagePath: AppAssets.artsCraftDrawHome,
     ),
   ];
@@ -128,6 +128,7 @@ class CreativeDrawingPage extends ConsumerWidget {
                                   if (result == true) {
                                     final success = ref.read(userProvider.notifier).completeActivity('learn_${_materials[index].title}', _materials[index].coinCount);
                                     if (success) {
+                                      if (!context.mounted) return;
                                       context.push(AppRoutes.taskCompletion, extra: _materials[index].coinCount);
                                     }
                                   }
@@ -215,20 +216,18 @@ class _MaterialCard extends StatelessWidget {
                       children: [
                         const TypeLabelPill(label: 'Activity'),
                         const SizedBox(width: 8),
-                        ...List.generate(
-                          data.coinCount,
-                          (_) => const Padding(
-                            padding: EdgeInsets.only(right: 2),
-                            child: AppAssetImage(
-                              assetPath: AppAssets.iconCoin,
-                              width: 16,
-                              height: 16,
-                              fallback: Icon(
-                                Icons.monetization_on_rounded,
-                                size: 16,
-                                color: Colors.amber,
-                              ),
-                            ),
+                        const AppAssetImage(
+                          assetPath: AppAssets.iconCoin,
+                          width: 16,
+                          height: 16, fallback: SizedBox.shrink(),
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          '+${data.coinCount}',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.amber,
                           ),
                         ),
                       ],
@@ -280,3 +279,4 @@ class _MaterialItemData {
     required this.imagePath,
   });
 }
+

@@ -17,10 +17,12 @@ import '../widgets/alphabet_quiz_fill_blank_widgets.dart';
 /// Animals Quiz — `/quiz/animals/1` … `/quiz/animals/11`.
 class AnimalsQuizQuestionPage extends StatefulWidget {
   final int questionNumber;
+  final int coinsReward;
 
   const AnimalsQuizQuestionPage({
     super.key,
     required this.questionNumber,
+    this.coinsReward = 50,
   });
 
   @override
@@ -84,6 +86,7 @@ class _AnimalsQuizQuestionPageState extends State<AnimalsQuizQuestionPage> {
         context,
         quizTitle: 'Animals Quiz',
         totalQuestions: kAnimalsQuizTotal,
+        coinsReward: widget.coinsReward,
       );
     }
   }

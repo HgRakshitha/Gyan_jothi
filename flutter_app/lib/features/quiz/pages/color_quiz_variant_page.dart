@@ -31,6 +31,7 @@ class ColorQuizVariantPage extends StatefulWidget {
   final bool showBackWithSubmit;
   /// Index into [options] for the correct choice.
   final int correctOptionIndex;
+  final int coinsReward;
 
   const ColorQuizVariantPage({
     super.key,
@@ -45,6 +46,7 @@ class ColorQuizVariantPage extends StatefulWidget {
     required this.correctOptionIndex,
     this.showImageGroundGlow = true,
     this.showBackWithSubmit = true,
+    this.coinsReward = 50,
   });
 
   @override
@@ -84,6 +86,7 @@ class _ColorQuizVariantPageState extends State<ColorQuizVariantPage> {
         context,
         quizTitle: 'Color Quiz',
         totalQuestions: _totalQuestions,
+        coinsReward: widget.coinsReward,
       );
     }
   }

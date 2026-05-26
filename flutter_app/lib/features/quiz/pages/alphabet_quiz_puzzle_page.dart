@@ -32,6 +32,7 @@ class AlphabetQuizPuzzleRoundPage extends StatefulWidget {
   final String? submitNextRoute;
   final List<String> correctSlotOrder;
   final String instructionText;
+  final int coinsReward;
 
   const AlphabetQuizPuzzleRoundPage({
     super.key,
@@ -44,6 +45,7 @@ class AlphabetQuizPuzzleRoundPage extends StatefulWidget {
     required this.correctSlotOrder,
     this.instructionText = 'Drag the words to make a correct sentence',
     this.submitNextRoute,
+    this.coinsReward = 50,
   });
 
   @override
@@ -91,6 +93,7 @@ class _AlphabetQuizPuzzleRoundPageState
         context,
         quizTitle: 'Alphabet Quiz',
         totalQuestions: _totalQuestions,
+        coinsReward: widget.coinsReward,
       );
     }
   }

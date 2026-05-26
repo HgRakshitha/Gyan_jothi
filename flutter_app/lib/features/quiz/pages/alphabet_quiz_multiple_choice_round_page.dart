@@ -28,6 +28,7 @@ class AlphabetQuizMultipleChoiceRoundPage extends StatefulWidget {
   
   /// When set, Submit pushes this route; otherwise Submit pops the quiz.
   final String? submitNextRoute;
+  final int coinsReward;
 
   const AlphabetQuizMultipleChoiceRoundPage({
     super.key,
@@ -40,6 +41,7 @@ class AlphabetQuizMultipleChoiceRoundPage extends StatefulWidget {
     required this.options,
     required this.correctAnswerIndex,
     this.submitNextRoute,
+    this.coinsReward = 50,
   });
 
   @override
@@ -157,6 +159,7 @@ class _AlphabetQuizMultipleChoiceRoundPageState
                       context,
                       quizTitle: 'Alphabet Quiz',
                       totalQuestions: _totalQuestions,
+                      coinsReward: widget.coinsReward,
                     );
                   }
                 },

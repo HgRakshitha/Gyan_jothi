@@ -29,6 +29,8 @@ class AlphabetQuizTrueFalseRoundPage extends StatefulWidget {
 
   /// 0 = True, 1 = False.
   final int correctAnswerIndex;
+  
+  final int coinsReward;
 
   const AlphabetQuizTrueFalseRoundPage({
     super.key,
@@ -42,6 +44,7 @@ class AlphabetQuizTrueFalseRoundPage extends StatefulWidget {
     this.submitNextRoute,
     this.compactIllustration = false,
     required this.correctAnswerIndex,
+    this.coinsReward = 50,
   });
 
   @override
@@ -185,6 +188,7 @@ class _AlphabetQuizTrueFalseRoundPageState
                       context,
                       quizTitle: 'Alphabet Quiz',
                       totalQuestions: _totalQuestions,
+                      coinsReward: widget.coinsReward,
                     );
                   }
                 },

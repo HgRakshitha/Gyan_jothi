@@ -23,22 +23,22 @@ class MakeAScenePage extends ConsumerWidget {
   static const _materials = <_SceneMaterialItemData>[
     _SceneMaterialItemData(
       title: 'Create a Park',
-      coinCount: 2,
+      coinCount: 20,
       imagePath: AppAssets.artsCraftMakeScenePark,
     ),
     _SceneMaterialItemData(
       title: 'Build a Form',
-      coinCount: 2,
+      coinCount: 20,
       imagePath: AppAssets.artsCraftMakeSceneBuildForm,
     ),
     _SceneMaterialItemData(
       title: 'Make a Birthday Party',
-      coinCount: 3,
+      coinCount: 30,
       imagePath: AppAssets.artsCraftMakeSceneBirthday,
     ),
     _SceneMaterialItemData(
       title: 'Decorate a Classroom',
-      coinCount: 3,
+      coinCount: 30,
       imagePath: AppAssets.artsCraftMakeSceneClassroom,
     ),
   ];
@@ -132,6 +132,7 @@ class MakeAScenePage extends ConsumerWidget {
                                   if (result == true) {
                                     final success = ref.read(userProvider.notifier).completeActivity('learn_${_materials[index].title}', _materials[index].coinCount);
                                     if (success) {
+                                      if (!context.mounted) return;
                                       context.push(AppRoutes.taskCompletion, extra: _materials[index].coinCount);
                                     }
                                   }
@@ -219,20 +220,18 @@ class _SceneMaterialCard extends StatelessWidget {
                       children: [
                         const TypeLabelPill(label: 'Activity'),
                         const SizedBox(width: 8),
-                        ...List.generate(
-                          data.coinCount,
-                          (_) => const Padding(
-                            padding: EdgeInsets.only(right: 2),
-                            child: AppAssetImage(
-                              assetPath: AppAssets.iconCoin,
-                              width: 16,
-                              height: 16,
-                              fallback: Icon(
-                                Icons.monetization_on_rounded,
-                                size: 16,
-                                color: Colors.amber,
-                              ),
-                            ),
+                        const AppAssetImage(
+                          assetPath: AppAssets.iconCoin,
+                          width: 16,
+                          height: 16, fallback: SizedBox.shrink(),
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          '+${data.coinCount}',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.amber,
                           ),
                         ),
                       ],
@@ -284,3 +283,4 @@ class _SceneMaterialItemData {
     required this.imagePath,
   });
 }
+

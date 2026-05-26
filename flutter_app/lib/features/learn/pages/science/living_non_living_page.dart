@@ -24,28 +24,28 @@ class LivingNonLivingPage extends StatelessWidget {
     _MaterialItemData(
       title: 'Living Things',
       typeLabel: 'Book',
-      coinCount: 2,
+      coinCount: 20,
       imagePath: AppAssets.englishLetterTrace,
       isVideo: false,
     ),
     _MaterialItemData(
       title: 'Non-Living Things',
       typeLabel: 'Book',
-      coinCount: 2,
+      coinCount: 20,
       imagePath: AppAssets.englishLetterTrace,
       isVideo: false,
     ),
     _MaterialItemData(
       title: 'Living or Not?',
       typeLabel: 'Activity',
-      coinCount: 1,
+      coinCount: 15,
       imagePath: AppAssets.englishLetterTrace,
       isVideo: false,
     ),
     _MaterialItemData(
       title: 'Living things',
       typeLabel: 'Video',
-      coinCount: 3,
+      coinCount: 30,
       imagePath: AppAssets.englishAbcSong,
       isVideo: true,
     ),
@@ -212,20 +212,18 @@ class _MaterialCard extends ConsumerWidget {
                       children: [
                         TypeLabelPill(label: data.typeLabel),
                         const SizedBox(width: 8),
-                        ...List.generate(
-                          data.coinCount,
-                          (_) => const Padding(
-                            padding: EdgeInsets.only(right: 2),
-                            child: AppAssetImage(
-                              assetPath: AppAssets.iconCoin,
-                              width: 16,
-                              height: 16,
-                              fallback: Icon(
-                                Icons.monetization_on_rounded,
-                                size: 16,
-                                color: Colors.amber,
-                              ),
-                            ),
+                        const AppAssetImage(
+                          assetPath: AppAssets.iconCoin,
+                          width: 16,
+                          height: 16, fallback: SizedBox.shrink(),
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          '+${data.coinCount}',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.amber,
                           ),
                         ),
                       ],
@@ -281,3 +279,4 @@ class _MaterialItemData {
     required this.isVideo,
   });
 }
+

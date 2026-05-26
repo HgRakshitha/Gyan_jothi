@@ -1,5 +1,4 @@
 import 'dart:math' as math;
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../core/router/app_router.dart';
@@ -13,26 +12,18 @@ class WelcomePandaPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Background Gradient (170.45deg, #DBF226 to #FFFFFF)
+          // Quiz Header Gradient Background
           Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                // 170.45 deg is roughly from top-center (slightly right) to bottom-center (slightly left)
-                begin: Alignment(0.166, -1.0),
-                end: Alignment(-0.166, 1.0),
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
                 colors: [
+                  Color(0xFFE8F55D),
                   Color(0xFFDBF226),
-                  Color(0xFFFFFFFF),
                 ],
-                stops: [-0.1817, 1.1472],
               ),
             ),
-          ),
-
-          // Backdrop filter for smooth background blur (100px)
-          BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 100, sigmaY: 100),
-            child: const SizedBox.expand(),
           ),
 
           // Main Layout Content
@@ -71,37 +62,27 @@ class WelcomePandaPage extends StatelessWidget {
                       alignment: Alignment.center,
                       clipBehavior: Clip.none,
                       children: [
-                        // Panda-shaped Gradient Drop Shadow (Darker at bottom)
-                        Transform.translate(
-                          offset: const Offset(6, 13),
-                          child: ImageFiltered(
-                            imageFilter: ImageFilter.blur(sigmaX: 15.5, sigmaY: 15.5),
-                            child: ShaderMask(
-                              shaderCallback: (bounds) => const LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  Color(0x20DBF226), // Light yellow at top
-                                  Color(0x708A960B), // Darker yellow-green at bottom
-                                ],
-                                stops: [0.3, 1.0],
-                              ).createShader(bounds),
-                              blendMode: BlendMode.srcIn,
-                              child: Image.asset(
-                                'assets/welcome/welcome_panda.png',
-                                width: 360,
-                                height: 504,
-                                fit: BoxFit.contain,
+                        // Yellow Glow
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 0.65,
+                          height: MediaQuery.sizeOf(context).width * 0.65,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                color: const Color(0xFFDBF226).withValues(alpha: 0.25),
+                                blurRadius: 100,
+                                spreadRadius: 20,
                               ),
-                            ),
+                            ],
                           ),
                         ),
 
                         // Panda Image
                         Image.asset(
                           'assets/welcome/welcome_panda.png',
-                          width: 360,
-                          height: 504,
+                          width: MediaQuery.sizeOf(context).width * 0.88,
+                          height: MediaQuery.sizeOf(context).height * 0.48,
                           fit: BoxFit.contain,
                         ),
                       ],
@@ -123,20 +104,20 @@ class WelcomePandaPage extends StatelessWidget {
                         padding: const EdgeInsets.only(
                           left: 32.0,
                           right: 32.0,
-                          top: 40.0,
-                          bottom: 24.0,
+                          top: 16.0,
+                          bottom: 32.0,
                         ),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             // Text Block (Width 312, Gap 12)
-                            SizedBox(
-                              width: 312,
+                            const SizedBox(
+                              width: double.infinity,
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   // Title
-                                  const Text(
+                                  Text(
                                     'Earn Stars & Badges',
                                     style: TextStyle(
                                       fontSize: 32,
@@ -145,10 +126,10 @@ class WelcomePandaPage extends StatelessWidget {
                                       letterSpacing: 0.5,
                                     ),
                                   ),
-                                  const SizedBox(height: 12), // gap: 12px
+                                  SizedBox(height: 12), // gap: 12px
 
                                   // Subtitle
-                                  const Text(
+                                  Text(
                                     'Complete activities and collect fun\nrewards for your achievements!',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
@@ -169,7 +150,7 @@ class WelcomePandaPage extends StatelessWidget {
                               child: CustomPaint(
                                 painter: PandaNextButtonBorderPainter(strokeWidth: 3.0),
                                 child: Container(
-                                  width: 302,
+                                  width: double.infinity,
                                   height: 60,
                                   decoration: const BoxDecoration(
                                     borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -177,11 +158,10 @@ class WelcomePandaPage extends StatelessWidget {
                                       begin: Alignment(-0.8, -0.6),
                                       end: Alignment(0.8, 0.6),
                                       colors: [
-                                        Color(0xBCECFF52),
-                                        Color(0xBCF0FE7F),
-                                        Color(0xBCDCF32C),
+                                        Color(0xFFE8F55D),
+                                        Color(0xFFDBF226),
                                       ],
-                                      stops: [0.1333, 0.2484, 0.4654],
+                                      stops: [0.0, 1.0],
                                     ),
                                   ),
                                   child: const Center(
@@ -274,3 +254,4 @@ class PandaNextButtonBorderPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
+

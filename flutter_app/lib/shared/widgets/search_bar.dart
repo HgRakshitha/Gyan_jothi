@@ -23,7 +23,7 @@ class AppSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 2.5),
+      padding: const EdgeInsets.symmetric(horizontal: 5.0),
       decoration: BoxDecoration(
         color: borderColor ?? const Color(0xFFF7F6C4),
         borderRadius: BorderRadius.circular(36.5),

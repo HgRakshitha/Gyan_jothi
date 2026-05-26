@@ -24,28 +24,28 @@ class AnimalsPage extends StatelessWidget {
     _MaterialItemData(
       title: 'Animal Names',
       typeLabel: 'Book',
-      coinCount: 2,
+      coinCount: 20,
       imagePath: AppAssets.englishLetterTrace,
       isVideo: false,
     ),
     _MaterialItemData(
       title: 'Animal Sounds',
       typeLabel: 'Video',
-      coinCount: 1,
+      coinCount: 15,
       imagePath: AppAssets.englishAnimalSound,
       isVideo: true,
     ),
     _MaterialItemData(
       title: 'Match the Animals',
       typeLabel: 'Activity',
-      coinCount: 3,
+      coinCount: 30,
       imagePath: AppAssets.englishColorMatch,
       isVideo: false,
     ),
     _MaterialItemData(
       title: 'Animals Song',
       typeLabel: 'Video',
-      coinCount: 1,
+      coinCount: 15,
       imagePath: AppAssets.englishAnimalSound,
       isVideo: true,
     ),
@@ -219,20 +219,18 @@ class _MaterialCard extends ConsumerWidget {
                       children: [
                         TypeLabelPill(label: data.typeLabel),
                         const SizedBox(width: 8),
-                        ...List.generate(
-                          data.coinCount,
-                          (_) => const Padding(
-                            padding: EdgeInsets.only(right: 2),
-                            child: AppAssetImage(
-                              assetPath: AppAssets.iconCoin,
-                              width: 16,
-                              height: 16,
-                              fallback: Icon(
-                                Icons.monetization_on_rounded,
-                                size: 16,
-                                color: Colors.amber,
-                              ),
-                            ),
+                        const AppAssetImage(
+                          assetPath: AppAssets.iconCoin,
+                          width: 16,
+                          height: 16, fallback: SizedBox.shrink(),
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          '+${data.coinCount}',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.amber,
                           ),
                         ),
                       ],
@@ -288,3 +286,4 @@ class _MaterialItemData {
     required this.isVideo,
   });
 }
+
