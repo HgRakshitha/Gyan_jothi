@@ -1,16 +1,18 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../core/router/app_router.dart';
+import '../../../shared/providers/shared_prefs_provider.dart';
 
-class SplashPage extends StatefulWidget {
+class SplashPage extends ConsumerStatefulWidget {
   const SplashPage({super.key});
 
   @override
-  State<SplashPage> createState() => _SplashPageState();
+  ConsumerState<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateMixin {
+class _SplashPageState extends ConsumerState<SplashPage> with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _spreadAnimation;
   late final Animation<double> _rotationAnimation;
@@ -43,7 +45,14 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
     _controller.forward();
 
     Future.delayed(const Duration(seconds: 4), () {
-      if (mounted) context.go(AppRoutes.welcome);
+      if (!mounted) return;
+      final prefs = ref.read(sharedPreferencesProvider);
+      final isFirstTime = prefs.getBool('isFirstTime') ?? true;
+      if (isFirstTime) {
+        context.go(AppRoutes.welcome);
+      } else {
+        context.go(AppRoutes.home);
+      }
     });
   }
 

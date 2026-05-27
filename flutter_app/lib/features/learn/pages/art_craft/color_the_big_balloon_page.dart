@@ -654,20 +654,20 @@ class _BigBalloonPaintOverlay extends CustomPainter {
     // 2. Draw the mask image
     canvas.drawImageRect(maskImage!, inputSubrect, outputSubrect, Paint());
 
-    // 3. Draw the strokes using BlendMode.srcIn to clip them to the mask's opaque region
+    // 3. Draw the strokes using BlendMode.srcATop to clip them to the mask's opaque region
     for (final s in strokes) {
-      _drawStroke(canvas, s.color, s.points, s.strokeWidth, blendMode: BlendMode.srcIn);
+      _drawStroke(canvas, s.color, s.points, s.strokeWidth, blendMode: BlendMode.srcATop);
     }
     if (currentStroke != null && currentStroke!.isNotEmpty) {
-      _drawStroke(canvas, currentColor, currentStroke!, currentStrokeWidth, blendMode: BlendMode.srcIn);
+      _drawStroke(canvas, currentColor, currentStroke!, currentStrokeWidth, blendMode: BlendMode.srcATop);
     }
 
-    // 4. Draw the outlines on top using BlendMode.multiply to keep them black
+    // 4. Draw the outlines on top using BlendMode.darken to keep them black without erasing transparent bg
     canvas.drawImageRect(
       maskImage!,
       inputSubrect,
       outputSubrect,
-      Paint()..blendMode = BlendMode.multiply,
+      Paint()..blendMode = BlendMode.darken,
     );
 
     // 5. Restore the canvas layer

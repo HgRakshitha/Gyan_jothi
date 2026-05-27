@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/splash/pages/splash_page.dart';
-import '../../features/splash/pages/welcome_page.dart';
-import '../../features/splash/pages/welcome_bunny_page.dart';
-import '../../features/splash/pages/welcome_panda_page.dart';
-import '../../features/splash/pages/welcome_fox_page.dart';
-import '../../features/splash/pages/welcome_final_page.dart';
+import '../../features/splash/pages/welcome_carousel_page.dart';
 import '../../features/splash/pages/welcome_name_page.dart';
 import '../../features/splash/pages/welcome_buddy_page.dart';
 import '../../features/splash/pages/welcome_class_page.dart';
@@ -129,7 +125,7 @@ class AppRoutes {
       '/learn/art-craft/color-the-big-balloon';
   static const String artCraftMakeScene = '/learn/art-craft/make-a-scene';
   static const String artCraftCreateAPark = '/learn/art-craft/create-a-park';
-  static const String artCraftBuildAForm = '/learn/art-craft/build-a-form';
+  static const String artCraftBuildAFarm = '/learn/art-craft/build-a-farm';
   static const String artCraftMakeABirthdayParty =
       '/learn/art-craft/make-a-birthday-party';
   static const String artCraftDecorateAClassroom =
@@ -265,35 +261,7 @@ final appRouter = GoRouter(
     ),
     GoRoute(
       path: AppRoutes.welcome,
-      builder: (context, state) => const WelcomePage(),
-    ),
-    GoRoute(
-      path: AppRoutes.welcomeBunny,
-      pageBuilder: (context, state) => _buildSlideTransitionPage(
-        key: state.pageKey,
-        child: const WelcomeBunnyPage(),
-      ),
-    ),
-    GoRoute(
-      path: AppRoutes.welcomePanda,
-      pageBuilder: (context, state) => _buildSlideTransitionPage(
-        key: state.pageKey,
-        child: const WelcomePandaPage(),
-      ),
-    ),
-    GoRoute(
-      path: AppRoutes.welcomeFox,
-      pageBuilder: (context, state) => _buildSlideTransitionPage(
-        key: state.pageKey,
-        child: const WelcomeFoxPage(),
-      ),
-    ),
-    GoRoute(
-      path: AppRoutes.welcomeFinal,
-      pageBuilder: (context, state) => _buildSlideTransitionPage(
-        key: state.pageKey,
-        child: const WelcomeFinalPage(),
-      ),
+      builder: (context, state) => const WelcomeCarouselPage(),
     ),
     GoRoute(
       path: AppRoutes.welcomeName,
@@ -477,7 +445,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const CreateAParkPage(),
     ),
     GoRoute(
-      path: AppRoutes.artCraftBuildAForm,
+      path: AppRoutes.artCraftBuildAFarm,
       builder: (context, state) => const BuildAFarmPage(),
     ),
     GoRoute(
@@ -1175,7 +1143,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizColorSet2_4,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 4,
-        imageAssetPath: 'assets/icons/quiz/colors_set2/green.png',
+        imageAssetPath: 'assets/icons/quiz/colors_set2/sky.png',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.cloud_rounded, size: 120, color: Color(0xFF03A9F4)),
@@ -1246,7 +1214,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 1,
         questionText: 'How many apples?',
-        imageAssetPath: 'assets/icons/quiz/numbers_set2/3_apples.png',
+        imageAssetPath: 'assets/icons/quiz/numbers_set2/apple.png',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.apple_rounded, size: 120, color: Color(0xFFF44336)),
@@ -1259,66 +1227,66 @@ final appRouter = GoRouter(
       path: AppRoutes.quizNumbersSet2_2,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 2,
-        imageAssetPath: 'assets/icons/quiz/numbers_set2/5_stars.png',
+        imageAssetPath: 'assets/icons/quiz/numbers_set2/cat.png',
         imageWidth: 200,
         imageHeight: 200,
-        fallback: Icon(Icons.star_rounded, size: 120, color: Color(0xFFFFEB3B)),
-        statement: 'There are 5 stars here.',
+        fallback: Icon(Icons.pets_rounded, size: 120, color: Color(0xFF795548)),
+        statement: 'There is 1 cat here.',
         correctAnswerIndex: 0, // True
         submitNextRoute: AppRoutes.quizNumbersSet2_3,
       ),
     ),
     GoRoute(
       path: AppRoutes.quizNumbersSet2_3,
-      builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
+      builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 3,
-        questionText: 'How many dogs?',
-        imageAssetPath: 'assets/icons/quiz/numbers_set2/2_dogs.png',
+        imageAssetPath: 'assets/icons/quiz/numbers_set2/car.png',
         imageWidth: 200,
         imageHeight: 200,
-        fallback: Icon(Icons.pets_rounded, size: 120, color: Color(0xFF795548)),
-        options: ['1', '2', '3', '4'],
-        correctAnswerIndex: 1,
+        fallback: Icon(Icons.directions_car_rounded, size: 120, color: Color(0xFF2196F3)),
+        statement: 'There are 4 cars here.',
+        correctAnswerIndex: 1, // False
         submitNextRoute: AppRoutes.quizNumbersSet2_4,
       ),
     ),
     GoRoute(
       path: AppRoutes.quizNumbersSet2_4,
-      builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
+      builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 4,
-        imageAssetPath: 'assets/icons/quiz/numbers_set2/2_cats.png',
+        questionText: 'How many dogs?',
+        imageAssetPath: 'assets/icons/quiz/numbers_set2/dogs.png',
         imageWidth: 200,
         imageHeight: 200,
-        fallback: Icon(Icons.cruelty_free_rounded, size: 120, color: Color(0xFF9E9E9E)),
-        statement: 'There is 1 cat here.',
-        correctAnswerIndex: 1, // False
+        fallback: Icon(Icons.pets_rounded, size: 120, color: Color(0xFF795548)),
+        options: ['1', '2', '3', '4'],
+        correctAnswerIndex: 2,
         submitNextRoute: AppRoutes.quizNumbersSet2_5,
       ),
     ),
     GoRoute(
       path: AppRoutes.quizNumbersSet2_5,
-      builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
+      builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 5,
-        questionText: 'How many cars?',
-        imageAssetPath: 'assets/icons/quiz/numbers_set2/4_cars.png',
+        imageAssetPath: 'assets/icons/quiz/numbers_set2/stars.png',
         imageWidth: 200,
         imageHeight: 200,
-        fallback: Icon(Icons.directions_car_rounded, size: 120, color: Color(0xFF2196F3)),
-        options: ['3', '4', '5', '6'],
-        correctAnswerIndex: 1,
+        fallback: Icon(Icons.star_rounded, size: 120, color: Color(0xFFFFEB3B)),
+        statement: 'There are 5 stars here.',
+        correctAnswerIndex: 0, // True
         submitNextRoute: AppRoutes.quizNumbersSet2_6,
       ),
     ),
     GoRoute(
       path: AppRoutes.quizNumbersSet2_6,
-      builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
+      builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 6,
-        imageAssetPath: 'assets/icons/quiz/numbers_set2/6_birds.png',
+        questionText: 'How many trees?',
+        imageAssetPath: 'assets/icons/quiz/numbers_set2/tree.png',
         imageWidth: 200,
         imageHeight: 200,
-        fallback: Icon(Icons.flutter_dash_rounded, size: 120, color: Color(0xFF00BCD4)),
-        statement: 'There are 6 birds here.',
-        correctAnswerIndex: 0, // True
+        fallback: Icon(Icons.park_rounded, size: 120, color: Color(0xFF4CAF50)),
+        options: ['1', '2', '3', '4'],
+        correctAnswerIndex: 0,
         coinsReward: 60,
       ),
     ),

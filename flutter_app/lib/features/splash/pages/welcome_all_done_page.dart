@@ -3,10 +3,23 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../core/router/app_router.dart';
 import '../../../shared/providers/user_provider.dart';
+import '../../../shared/providers/shared_prefs_provider.dart';
 import '../../../shared/widgets/quiz_header.dart';
 
 class WelcomeAllDonePage extends ConsumerWidget {
   const WelcomeAllDonePage({super.key});
+
+  String _getAllDoneImage(String avatarPath) {
+    if (avatarPath.contains('bunny')) return 'assets/welcome/all_done_bunny.png';
+    if (avatarPath.contains('cat')) return 'assets/welcome/all_done_cat.png';
+    if (avatarPath.contains('fox')) return 'assets/welcome/all_done_fox.png';
+    if (avatarPath.contains('owl')) return 'assets/welcome/all_done_owl.png';
+    if (avatarPath.contains('monkey')) return 'assets/welcome/welcome_monkey.png';
+    if (avatarPath.contains('penguin')) return 'assets/welcome/all_done_penguin.png';
+    if (avatarPath.contains('puppy')) return 'assets/welcome/all_done_puppy.png';
+    // Fallback or bear
+    return 'assets/welcome/all_done_bear.png';
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -51,7 +64,7 @@ class WelcomeAllDonePage extends ConsumerWidget {
                         ),
                         // Image
                         Image.asset(
-                          'assets/welcome/all_done.png',
+                          _getAllDoneImage(user.avatarPath),
                           width: 280,
                           height: 280,
                           fit: BoxFit.contain,
@@ -79,6 +92,8 @@ class WelcomeAllDonePage extends ConsumerWidget {
                   // Start Learning Button
                   GestureDetector(
                     onTap: () {
+                      // Mark onboarding as complete
+                      ref.read(sharedPreferencesProvider).setBool('isFirstTime', false);
                       // Final step navigates to home!
                       context.go(AppRoutes.home);
                     },

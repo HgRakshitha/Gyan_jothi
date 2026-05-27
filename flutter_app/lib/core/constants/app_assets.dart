@@ -104,10 +104,10 @@ class AppAssets {
   /// “Build your dream park” activity background (`dream_park.png`).
   static const String artsCraftMakeSceneDreamPark =
       '${_webMakeScene}dream_park.png';
-  /// "Build a Form" tab — `build_form.png`.
-  static const String artsCraftMakeSceneBuildForm =
+  /// "Build a Farm" tab — `build_form.png`.
+  static const String artsCraftMakeSceneBuildFarm =
       '${_webMakeScene}build_form.png';
-  /// Build a Form / farm scene background (`dream_form.png`).
+  /// Build a Farm / farm scene background (`dream_form.png`).
   static const String artsCraftMakeSceneDreamFarm =
       '${_webMakeScene}dream_form.png';
   static const String artsCraftMakeSceneStickerCow =

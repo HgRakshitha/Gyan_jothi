@@ -325,40 +325,7 @@ class _QuizCard extends StatelessWidget {
   }
 }
 
-class _RewardDots extends StatelessWidget {
-  const _RewardDots();
 
-  @override
-  Widget build(BuildContext context) {
-    return const Row(
-      children: [
-        _RewardCoin(),
-        SizedBox(width: 2),
-        _RewardCoin(),
-        SizedBox(width: 2),
-        _RewardCoin(),
-      ],
-    );
-  }
-}
-
-class _RewardCoin extends StatelessWidget {
-  const _RewardCoin();
-
-  @override
-  Widget build(BuildContext context) {
-    return const AppAssetImage(
-      assetPath: AppAssets.iconCoin,
-      width: 14,
-      height: 14,
-      fallback: Icon(
-        Icons.monetization_on_rounded,
-        size: 14,
-        color: Color(0xFFF6B300),
-      ),
-    );
-  }
-}
 
 class _QuizCardData {
   final String category;

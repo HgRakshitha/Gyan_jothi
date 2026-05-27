@@ -23,7 +23,7 @@ class _PlacedSticker {
   bool isFlipped = false;
 }
 
-/// Build a Form — farm scene builder (same layout as [CreateAParkPage]).
+/// Build a Farm — farm scene builder (same layout as [CreateAParkPage]).
 class BuildAFarmPage extends StatefulWidget {
   const BuildAFarmPage({super.key});
 

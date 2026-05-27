@@ -315,26 +315,32 @@ class _Header extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: onProfileTap,
-                child: Container(
-                  width: 58,
-                  height: 58,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    border: Border.all(color: Colors.white, width: 2),
-                    color: Colors.white,
-                  ),
-                  clipBehavior: Clip.hardEdge,
-                child: Padding(
-                  padding: const EdgeInsets.all(3),
-                  child: AppAssetImage(
-                    assetPath: avatarPath.isNotEmpty ? avatarPath : AppAssets.avatarDefault,
-                    width: 50,
-                    height: 50,
-                    fit: BoxFit.contain,
-                    fallback: const Icon(Icons.person_rounded),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(50),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                    child: Container(
+                      width: 58,
+                      height: 58,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        border: Border.all(color: Colors.white.withValues(alpha: 0.8), width: 2),
+                        color: Colors.white.withValues(alpha: 0.35),
+                      ),
+                      clipBehavior: Clip.hardEdge,
+                      child: Padding(
+                        padding: const EdgeInsets.all(3),
+                        child: AppAssetImage(
+                          assetPath: avatarPath.isNotEmpty ? avatarPath : AppAssets.avatarDefault,
+                          width: 50,
+                          height: 50,
+                          fit: BoxFit.contain,
+                          fallback: const Icon(Icons.person_rounded),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ),
               ),
               const SizedBox(width: 14),
               Expanded(
@@ -428,7 +434,6 @@ class _QuickAccessGrid extends StatelessWidget {
     required this.onStoriesTap,
   });
 
-  static const double _quizEventsWidth = 167;
   static const double _quizEventsHeight = 130;
   static const double _cardRadius = 34;
 

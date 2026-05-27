@@ -27,9 +27,9 @@ class MakeAScenePage extends ConsumerWidget {
       imagePath: AppAssets.artsCraftMakeScenePark,
     ),
     _SceneMaterialItemData(
-      title: 'Build a Form',
+      title: 'Build a Farm',
       coinCount: 20,
-      imagePath: AppAssets.artsCraftMakeSceneBuildForm,
+      imagePath: AppAssets.artsCraftMakeSceneBuildFarm,
     ),
     _SceneMaterialItemData(
       title: 'Make a Birthday Party',
@@ -114,7 +114,7 @@ class MakeAScenePage extends ConsumerWidget {
                                   if (index == 0) {
                                     result = await context.push(AppRoutes.artCraftCreateAPark);
                                   } else if (index == 1) {
-                                    result = await context.push(AppRoutes.artCraftBuildAForm);
+                                    result = await context.push(AppRoutes.artCraftBuildAFarm);
                                   } else if (index == 2) {
                                     result = await context.push(
                                       AppRoutes.artCraftMakeABirthdayParty,

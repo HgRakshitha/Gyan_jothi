@@ -1,11 +1,13 @@
 import 'dart:math' as math;
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../core/router/app_router.dart';
 import '../../../shared/widgets/top_wave_clipper.dart';
 
 class WelcomeFoxPage extends StatelessWidget {
-  const WelcomeFoxPage({super.key});
+  final VoidCallback onNext;
+  const WelcomeFoxPage({super.key, required this.onNext});
 
   @override
   Widget build(BuildContext context) {
@@ -62,31 +64,34 @@ class WelcomeFoxPage extends StatelessWidget {
                       alignment: Alignment.center,
                       clipBehavior: Clip.none,
                       children: [
-                        // Yellow Glow
-                        Container(
-                          width: MediaQuery.sizeOf(context).width * 0.65,
-                          height: MediaQuery.sizeOf(context).width * 0.65,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                color: const Color(0xFFDBF226).withValues(alpha: 0.25),
-                                blurRadius: 100,
-                                spreadRadius: 20,
+                        // Image Shaped Glow
+                        Transform.translate(
+                          offset: const Offset(0, 0),
+                          child: ImageFiltered(
+                            imageFilter: ImageFilter.blur(sigmaX: 25, sigmaY: 25),
+                            child: ColorFiltered(
+                              colorFilter: ColorFilter.mode(
+                                Colors.white.withValues(alpha: 0.9), 
+                                BlendMode.srcATop
                               ),
-                            ],
+                              child: Image.asset(
+                                'assets/welcome/welcome_fox.png',
+                                width: MediaQuery.sizeOf(context).width * 0.95,
+                                height: MediaQuery.sizeOf(context).height * 0.55,
+                                fit: BoxFit.contain,
+                                filterQuality: FilterQuality.high,
+                              ),
+                            ),
                           ),
                         ),
 
                         // Fox Image
-                        Transform.rotate(
-                          angle: -0.15,
-                          child: Image.asset(
-                            'assets/welcome/welcome_fox.png',
-                            width: MediaQuery.sizeOf(context).width * 0.88,
-                            height: MediaQuery.sizeOf(context).height * 0.48,
-                            fit: BoxFit.contain,
-                          ),
+                        Image.asset(
+                          'assets/welcome/welcome_fox.png',
+                          width: MediaQuery.sizeOf(context).width * 0.95,
+                          height: MediaQuery.sizeOf(context).height * 0.55,
+                          fit: BoxFit.contain,
+                          filterQuality: FilterQuality.high,
                         ),
                       ],
                     ),
@@ -121,7 +126,7 @@ class WelcomeFoxPage extends StatelessWidget {
                                 children: [
                                   // Title
                                   Text(
-                                    'Ready to Begin?',
+                                    'Discover New Things',
                                     style: TextStyle(
                                       fontSize: 32,
                                       fontWeight: FontWeight.w800,
@@ -133,7 +138,7 @@ class WelcomeFoxPage extends StatelessWidget {
 
                                   // Subtitle
                                   Text(
-                                    'Set up your profile, pick your favorite\ncharacter, and start your learning\nadventure!',
+                                    'Explore a vast library of interactive\ncontent tailored just for you!',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontSize: 16,
@@ -149,7 +154,7 @@ class WelcomeFoxPage extends StatelessWidget {
 
                             // Custom Styled Next Button (302 x 60)
                             GestureDetector(
-                              onTap: () => context.go(AppRoutes.welcomeFinal),
+                              onTap: onNext,
                               child: CustomPaint(
                                 painter: FoxNextButtonBorderPainter(strokeWidth: 3.0),
                                 child: Container(
