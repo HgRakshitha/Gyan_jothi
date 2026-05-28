@@ -87,7 +87,14 @@ flutter:
     - assets/animations/
     - assets/sounds/
     - assets/welcome/
+    - assets/living_things/
+    - assets/activity_livOrNot/
+    - assets/animals/
     - assets/avatar/
+    - assets/alphabet_chart/
+    - assets/word_book/
+    - assets/colors_english/
+    - assets/numbers/
     - web/icons/home/
     - web/icons/learn/
     - web/icons/quiz/

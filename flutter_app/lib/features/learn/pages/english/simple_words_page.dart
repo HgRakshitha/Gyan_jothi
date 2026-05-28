@@ -34,6 +34,7 @@ class SimpleWordsPage extends StatelessWidget {
       coinCount: 20,
       imagePath: AppAssets.englishLetterTrace,
       isVideo: false,
+      route: AppRoutes.englishStickerSpell,
     ),
   ];
 
@@ -133,10 +134,14 @@ class _MaterialCard extends ConsumerWidget {
   
 
   
-  void _awardCoins(BuildContext context, WidgetRef ref) {
-    final success = ref.read(userProvider.notifier).completeActivity('learn_${data.title}', data.coinCount);
-    if (success) {
-      context.push(AppRoutes.taskCompletion, extra: data.coinCount);
+  void _handleTap(BuildContext context, WidgetRef ref) {
+    if (data.route != null) {
+      context.push(data.route!);
+    } else {
+      final success = ref.read(userProvider.notifier).completeActivity('learn_${data.title}', data.coinCount);
+      if (success) {
+        context.push(AppRoutes.taskCompletion, extra: data.coinCount);
+      }
     }
   }
 
@@ -145,7 +150,7 @@ class _MaterialCard extends ConsumerWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: () => _awardCoins(context, ref),
+        onTap: () => _handleTap(context, ref),
         borderRadius: BorderRadius.circular(24),
         child: CrescentBorderCard(
           borderRadius: 24,
@@ -224,7 +229,7 @@ class _MaterialCard extends ConsumerWidget {
               const SizedBox(width: 10),
               // Action button - circular like reference (50×50)
               GestureDetector(
-                onTap: () => _awardCoins(context, ref),
+                onTap: () => _handleTap(context, ref),
                 child: Container(
                   width: AppSizes.studyMaterialActionButtonSize,
                   height: AppSizes.studyMaterialActionButtonSize,
@@ -261,6 +266,7 @@ class _MaterialItemData {
   final int coinCount;
   final String imagePath;
   final bool isVideo;
+  final String? route;
 
   const _MaterialItemData({
     required this.title,
@@ -268,6 +274,7 @@ class _MaterialItemData {
     required this.coinCount,
     required this.imagePath,
     required this.isVideo,
+    this.route,
   });
 }
 

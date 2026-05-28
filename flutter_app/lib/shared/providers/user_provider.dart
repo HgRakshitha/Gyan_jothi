@@ -9,6 +9,9 @@ class UserModel {
   final Set<String> completedActivities;
   final String avatarPath;
   final int age;
+  final int stars;
+  final int streakDays;
+  final DateTime? lastActiveDate;
 
   const UserModel({
     required this.name,
@@ -17,6 +20,9 @@ class UserModel {
     this.completedActivities = const {},
     this.avatarPath = '',
     this.age = 0,
+    this.stars = 0,
+    this.streakDays = 0,
+    this.lastActiveDate,
   });
 
   UserModel copyWith({
@@ -26,6 +32,9 @@ class UserModel {
     Set<String>? completedActivities,
     String? avatarPath,
     int? age,
+    int? stars,
+    int? streakDays,
+    DateTime? lastActiveDate,
   }) {
     return UserModel(
       name: name ?? this.name,
@@ -34,6 +43,9 @@ class UserModel {
       completedActivities: completedActivities ?? this.completedActivities,
       avatarPath: avatarPath ?? this.avatarPath,
       age: age ?? this.age,
+      stars: stars ?? this.stars,
+      streakDays: streakDays ?? this.streakDays,
+      lastActiveDate: lastActiveDate ?? this.lastActiveDate,
     );
   }
 
@@ -45,6 +57,9 @@ class UserModel {
       'completedActivities': completedActivities.toList(),
       'avatarPath': avatarPath,
       'age': age,
+      'stars': stars,
+      'streakDays': streakDays,
+      'lastActiveDate': lastActiveDate?.toIso8601String(),
     };
   }
 
@@ -59,6 +74,9 @@ class UserModel {
           const {},
       avatarPath: map['avatarPath'] as String? ?? '',
       age: map['age'] as int? ?? 0,
+      stars: map['stars'] as int? ?? 0,
+      streakDays: map['streakDays'] as int? ?? 0,
+      lastActiveDate: map['lastActiveDate'] != null ? DateTime.tryParse(map['lastActiveDate']) : null,
     );
   }
 }
@@ -122,12 +140,43 @@ class UserNotifier extends StateNotifier<UserModel> {
     if (state.completedActivities.contains(activityId)) {
       return false;
     }
+    
+    // Calculate streak
+    final now = DateTime.now();
+    int newStreak = state.streakDays;
+    DateTime? newLastActive = state.lastActiveDate;
+    
+    if (newLastActive == null) {
+      newStreak = 1;
+      newLastActive = now;
+    } else {
+      final lastDate = DateTime(newLastActive.year, newLastActive.month, newLastActive.day);
+      final today = DateTime(now.year, now.month, now.day);
+      final diff = today.difference(lastDate).inDays;
+      if (diff == 1) {
+        newStreak++;
+        newLastActive = now;
+      } else if (diff > 1) {
+        newStreak = 1;
+        newLastActive = now;
+      } else {
+        newLastActive = now;
+      }
+    }
+
     state = state.copyWith(
       coins: state.coins + coinReward,
       completedActivities: {...state.completedActivities, activityId},
+      streakDays: newStreak,
+      lastActiveDate: newLastActive,
     );
     _saveUser(state);
     return true;
+  }
+  
+  void earnStars(int amount) {
+    state = state.copyWith(stars: state.stars + amount);
+    _saveUser(state);
   }
 }
 

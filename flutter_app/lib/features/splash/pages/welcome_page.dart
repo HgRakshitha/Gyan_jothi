@@ -40,7 +40,7 @@ class WelcomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       TextButton(
-                        onPressed: () => context.go(AppRoutes.home),
+                        onPressed: () => context.go(AppRoutes.welcomeFinal),
                         style: TextButton.styleFrom(
                           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                         ),

@@ -6,23 +6,40 @@ import '../../features/splash/pages/welcome_name_page.dart';
 import '../../features/splash/pages/welcome_buddy_page.dart';
 import '../../features/splash/pages/welcome_class_page.dart';
 import '../../features/splash/pages/welcome_all_done_page.dart';
+import '../../features/splash/pages/welcome_final_page.dart';
 import '../../shared/pages/task_completion_page.dart';
 import '../../features/dashboard/pages/main_tab_page.dart';
 import '../../features/profile/pages/profile_page.dart';
 import '../../features/learn/pages/learn_page.dart';
 import '../../features/learn/pages/english/english_home_page.dart';
 import '../../features/learn/pages/english/alphabets_page.dart';
+import '../../features/learn/pages/english/alphabet_chart_page.dart';
+import '../../features/learn/pages/english/letter_tracing_page.dart';
 import '../../features/learn/pages/english/simple_words_page.dart';
+import '../../features/learn/pages/english/sticker_spell_page.dart';
 import '../../features/learn/pages/english/colors_page.dart';
+import '../../features/learn/pages/english/color_names_page.dart';
+import '../../features/learn/pages/english/color_match_page.dart';
+import '../../features/learn/pages/english/color_objects_page.dart';
 import '../../features/learn/pages/english/listen_repeat_page.dart';
 import '../../features/learn/pages/math/math_home_page.dart';
 import '../../features/learn/pages/math/numbers_page.dart';
+import '../../features/learn/pages/math/number_chart_page.dart';
+import '../../features/learn/pages/math/tap_number_page.dart';
 import '../../features/learn/pages/math/counting_page.dart';
+import '../../features/learn/pages/math/count_pictures_page.dart';
+import '../../features/learn/pages/math/count_match_page.dart';
+import '../../features/learn/pages/math/count_objects_page.dart';
 import '../../features/learn/pages/math/shapes_page.dart';
 import '../../features/learn/pages/math/addition_page.dart';
 import '../../features/learn/pages/science/science_home_page.dart';
 import '../../features/learn/pages/science/living_non_living_page.dart';
+import '../../features/learn/pages/science/living_things_book_page.dart';
+import '../../features/learn/pages/science/non_living_book_page.dart';
+import '../../features/learn/pages/science/living_or_not_activity_page.dart';
 import '../../features/learn/pages/science/animals_page.dart';
+import '../../features/learn/pages/science/animal_names_book_page.dart';
+import '../../features/learn/pages/science/match_animals_activity_page.dart';
 import '../../features/learn/pages/science/plants_page.dart';
 import '../../features/learn/pages/science/water_air_page.dart';
 import '../../features/learn/pages/science/human_body_page.dart';
@@ -95,16 +112,34 @@ class AppRoutes {
   static const String englishHome = '/learn/english';
   static const String alphabets = '/learn/english/alphabets';
   static const String simpleWords = '/learn/english/simple-words';
+  static const String englishStickerSpell = '/learn/english/sticker-spell';
   static const String colors = '/learn/english/colors';
+  static const String colorNames = '/learn/english/colors/names';
+  static const String colorMatch = '/learn/english/colors/match';
+  static const String colorObjects = '/learn/english/colors/objects';
   static const String listenRepeat = '/learn/english/listen-repeat';
+  static const String alphabetChart = '/learn/english/alphabets/chart';
+  static const String letterTracing = '/learn/english/alphabets/tracing';
+
   static const String mathHome = '/learn/math';
   static const String mathNumbers = '/learn/math/numbers';
+  static const String mathNumberChart = '/learn/math/numbers/chart';
+  static const String mathTapNumber = '/learn/math/numbers/tap';
   static const String mathCounting = '/learn/math/counting';
+  static const String mathCountPictures = '/learn/math/counting/pictures';
+  static const String mathCountMatch = '/learn/math/counting/match';
+  static const String mathCountObjects = '/learn/math/counting/objects';
   static const String mathShapes = '/learn/math/shapes';
   static const String mathAddition = '/learn/math/addition';
   static const String scienceHome = '/learn/science';
   static const String scienceLiving = '/learn/science/living-non-living';
+  static const String scienceLivingNonLiving = '/learn/science/living';
+  static const String scienceLivingThingsBook = '/learn/science/living/things';
+  static const String scienceNonLivingBook = '/learn/science/living/nonthings';
+  static const String scienceLivingOrNotActivity = '/learn/science/living/activity';
   static const String scienceAnimals = '/learn/science/animals';
+  static const String scienceAnimalNamesBook = '/learn/science/animals/names';
+  static const String scienceMatchAnimalsActivity = '/learn/science/animals/match';
   static const String sciencePlants = '/learn/science/plants';
   static const String scienceWaterAir = '/learn/science/water-air';
   static const String scienceHumanBody = '/learn/science/human-body';
@@ -264,6 +299,13 @@ final appRouter = GoRouter(
       builder: (context, state) => const WelcomeCarouselPage(),
     ),
     GoRoute(
+      path: AppRoutes.welcomeFinal,
+      pageBuilder: (context, state) => _buildSlideTransitionPage(
+        key: state.pageKey,
+        child: const WelcomeFinalPage(),
+      ),
+    ),
+    GoRoute(
       path: AppRoutes.welcomeName,
       pageBuilder: (context, state) => _buildSlideTransitionPage(
         key: state.pageKey,
@@ -319,12 +361,36 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetsPage(),
     ),
     GoRoute(
+      path: AppRoutes.alphabetChart,
+      builder: (context, state) => const AlphabetChartPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.letterTracing,
+      builder: (context, state) => const LetterTracingPage(),
+    ),
+    GoRoute(
       path: AppRoutes.simpleWords,
       builder: (context, state) => const SimpleWordsPage(),
     ),
     GoRoute(
+      path: AppRoutes.englishStickerSpell,
+      builder: (context, state) => const StickerSpellPage(),
+    ),
+    GoRoute(
       path: AppRoutes.colors,
       builder: (context, state) => const ColorsPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.colorNames,
+      builder: (context, state) => const ColorNamesPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.colorMatch,
+      builder: (context, state) => const ColorMatchPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.colorObjects,
+      builder: (context, state) => const ColorObjectsPage(),
     ),
     GoRoute(
       path: AppRoutes.listenRepeat,
@@ -339,8 +405,28 @@ final appRouter = GoRouter(
       builder: (context, state) => const NumbersPage(),
     ),
     GoRoute(
+      path: AppRoutes.mathNumberChart,
+      builder: (context, state) => const NumberChartPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.mathTapNumber,
+      builder: (context, state) => const TapNumberPage(),
+    ),
+    GoRoute(
       path: AppRoutes.mathCounting,
       builder: (context, state) => const CountingPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.mathCountPictures,
+      builder: (context, state) => const CountPicturesPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.mathCountMatch,
+      builder: (context, state) => const CountMatchPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.mathCountObjects,
+      builder: (context, state) => const CountObjectsPage(),
     ),
     GoRoute(
       path: AppRoutes.mathShapes,
@@ -359,8 +445,28 @@ final appRouter = GoRouter(
       builder: (context, state) => const LivingNonLivingPage(),
     ),
     GoRoute(
+      path: AppRoutes.scienceLivingThingsBook,
+      builder: (context, state) => const LivingThingsBookPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.scienceNonLivingBook,
+      builder: (context, state) => const NonLivingBookPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.scienceLivingOrNotActivity,
+      builder: (context, state) => const LivingOrNotActivityPage(),
+    ),
+    GoRoute(
       path: AppRoutes.scienceAnimals,
       builder: (context, state) => const AnimalsPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.scienceAnimalNamesBook,
+      builder: (context, state) => const AnimalNamesBookPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.scienceMatchAnimalsActivity,
+      builder: (context, state) => const MatchAnimalsActivityPage(),
     ),
     GoRoute(
       path: AppRoutes.sciencePlants,

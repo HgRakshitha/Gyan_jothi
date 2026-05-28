@@ -33,14 +33,14 @@ class _EnglishHomePageState extends State<EnglishHomePage> {
     _ChapterCardData(
       title: 'Simple Words',
       subtitle: 'Learn common words',
-      materialsCount: 4,
+      materialsCount: 2,
       backgroundColor: Color(0xFFF2D6DB),
       imagePath: AppAssets.englishSimpleWords,
     ),
     _ChapterCardData(
       title: 'Colors in English',
       subtitle: 'Learn colors with bright examples',
-      materialsCount: 2,
+      materialsCount: 3,
       backgroundColor: Color(0xFFDFD5D9),
       imagePath: AppAssets.englishColors,
     ),
