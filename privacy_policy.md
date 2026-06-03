@@ -31,4 +31,4 @@ These changes are effective immediately after they are posted on this page.
 If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.
 
 Contact Us
-Email: your-asharanipaul786@gmail.com
+Email:asharanipaul786@gmail.com
