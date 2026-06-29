@@ -30,4 +30,4 @@ These changes are effective immediately after they are posted on this page.
 
 If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.
 
-*(Please add your contact email or support website here before publishing)*
+Email:asharanipaul786@gmail.com
