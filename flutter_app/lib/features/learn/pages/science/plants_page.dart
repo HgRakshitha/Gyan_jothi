@@ -25,22 +25,25 @@ class PlantsPage extends StatelessWidget {
       title: 'Parts of a Plant',
       typeLabel: 'Book',
       coinCount: 20,
-      imagePath: AppAssets.englishLetterTrace,
+      imagePath: 'assets/plants/plant.png',
       isVideo: false,
+      route: AppRoutes.sciencePartsOfPlantBook,
     ),
     _MaterialItemData(
       title: 'Plants Around Us',
       typeLabel: 'Book',
       coinCount: 20,
-      imagePath: AppAssets.englishLetterTrace,
+      imagePath: 'assets/plants/big_tree.png',
       isVideo: false,
+      route: AppRoutes.sciencePlantsAroundUsBook,
     ),
     _MaterialItemData(
       title: 'Grow a Plant',
       typeLabel: 'Activity',
       coinCount: 15,
-      imagePath: AppAssets.englishLetterTrace,
+      imagePath: 'assets/plants/flower.png',
       isVideo: false,
+      route: AppRoutes.scienceGrowAPlantActivity,
     ),
     _MaterialItemData(
       title: 'Plants Song',
@@ -48,6 +51,7 @@ class PlantsPage extends StatelessWidget {
       coinCount: 30,
       imagePath: AppAssets.englishAbcSong,
       isVideo: true,
+      route: null,
     ),
   ];
 
@@ -141,14 +145,14 @@ class _MaterialCard extends ConsumerWidget {
     
   const _MaterialCard({required this.data});
 
-  
-  
-
-  
-  void _awardCoins(BuildContext context, WidgetRef ref) {
-    final success = ref.read(userProvider.notifier).completeActivity('learn_${data.title}', data.coinCount);
-    if (success) {
-      context.push(AppRoutes.taskCompletion, extra: data.coinCount);
+  void _onCardTapped(BuildContext context, WidgetRef ref) {
+    if (data.route != null) {
+      context.push(data.route!);
+    } else {
+      final success = ref.read(userProvider.notifier).completeActivity('learn_${data.title}', data.coinCount);
+      if (success) {
+        context.push(AppRoutes.taskCompletion, extra: data.coinCount);
+      }
     }
   }
 
@@ -157,7 +161,7 @@ class _MaterialCard extends ConsumerWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: () => _awardCoins(context, ref),
+        onTap: () => _onCardTapped(context, ref),
         borderRadius: BorderRadius.circular(24),
         child: CrescentBorderCard(
           borderRadius: 24,
@@ -233,7 +237,7 @@ class _MaterialCard extends ConsumerWidget {
               ),
               const SizedBox(width: 10),
               GestureDetector(
-                onTap: () => _awardCoins(context, ref),
+                onTap: () => _onCardTapped(context, ref),
                 child: Container(
                   width: AppSizes.studyMaterialActionButtonSize,
                   height: AppSizes.studyMaterialActionButtonSize,
@@ -270,6 +274,7 @@ class _MaterialItemData {
   final int coinCount;
   final String imagePath;
   final bool isVideo;
+  final String? route;
 
   const _MaterialItemData({
     required this.title,
@@ -277,6 +282,7 @@ class _MaterialItemData {
     required this.coinCount,
     required this.imagePath,
     required this.isVideo,
+    this.route,
   });
 }
 

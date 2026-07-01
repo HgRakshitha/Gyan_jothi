@@ -95,6 +95,7 @@ flutter:
     - assets/word_book/
     - assets/colors_english/
     - assets/numbers/
+    - assets/plants/
     - web/icons/home/
     - web/icons/learn/
     - web/icons/quiz/

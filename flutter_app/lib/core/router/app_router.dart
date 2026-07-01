@@ -41,6 +41,9 @@ import '../../features/learn/pages/science/animals_page.dart';
 import '../../features/learn/pages/science/animal_names_book_page.dart';
 import '../../features/learn/pages/science/match_animals_activity_page.dart';
 import '../../features/learn/pages/science/plants_page.dart';
+import '../../features/learn/pages/science/parts_of_plant_book_page.dart';
+import '../../features/learn/pages/science/plants_around_us_book_page.dart';
+import '../../features/learn/pages/science/grow_a_plant_activity_page.dart';
 import '../../features/learn/pages/science/water_air_page.dart';
 import '../../features/learn/pages/science/human_body_page.dart';
 import '../../features/learn/pages/art_craft/art_craft_home_page.dart';
@@ -141,6 +144,9 @@ class AppRoutes {
   static const String scienceAnimalNamesBook = '/learn/science/animals/names';
   static const String scienceMatchAnimalsActivity = '/learn/science/animals/match';
   static const String sciencePlants = '/learn/science/plants';
+  static const String sciencePartsOfPlantBook = '/learn/science/plants/parts';
+  static const String sciencePlantsAroundUsBook = '/learn/science/plants/around-us';
+  static const String scienceGrowAPlantActivity = '/learn/science/plants/grow-activity';
   static const String scienceWaterAir = '/learn/science/water-air';
   static const String scienceHumanBody = '/learn/science/human-body';
   static const String artCraftHome = '/learn/art-craft';
@@ -471,6 +477,18 @@ final appRouter = GoRouter(
     GoRoute(
       path: AppRoutes.sciencePlants,
       builder: (context, state) => const PlantsPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.sciencePartsOfPlantBook,
+      builder: (context, state) => const PartsOfPlantBookPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.sciencePlantsAroundUsBook,
+      builder: (context, state) => const PlantsAroundUsBookPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.scienceGrowAPlantActivity,
+      builder: (context, state) => const GrowAPlantActivityPage(),
     ),
     GoRoute(
       path: AppRoutes.scienceWaterAir,
