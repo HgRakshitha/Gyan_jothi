@@ -29,17 +29,17 @@ class _AnimalNamesBookPageState extends ConsumerState<AnimalNamesBookPage> {
   int _currentPage = 0;
   
   final List<_AnimalItem> _pages = [
-    const _AnimalItem('assets/animals/bear.png', 'Bear', Colors.brown, Icons.pets_rounded),
-    const _AnimalItem('assets/animals/camel.png', 'Camel', Colors.orangeAccent, Icons.pets_rounded),
-    const _AnimalItem('assets/animals/deer.png', 'Deer', Colors.deepOrange, Icons.pets_rounded),
-    const _AnimalItem('assets/animals/donkey.png', 'Donkey', Colors.grey, Icons.pets_rounded),
-    const _AnimalItem('assets/animals/fox.png', 'Fox', Colors.deepOrangeAccent, Icons.pets_rounded),
-    const _AnimalItem('assets/animals/giraffe.png', 'Giraffe', Colors.amber, Icons.pets_rounded),
-    const _AnimalItem('assets/animals/hippo.png', 'Hippo', Colors.blueGrey, Icons.pets_rounded),
-    const _AnimalItem('assets/animals/jaguar.png', 'Jaguar', Colors.orange, Icons.pets_rounded),
-    const _AnimalItem('assets/animals/rhino.png', 'Rhino', Colors.grey, Icons.pets_rounded),
-    const _AnimalItem('assets/animals/wolf.png', 'Wolf', Colors.blueGrey, Icons.pets_rounded),
-    const _AnimalItem('assets/animals/zebra.png', 'Zebra', Colors.black87, Icons.pets_rounded),
+    const _AnimalItem('assets/animals/bear.webp', 'Bear', Colors.brown, Icons.pets_rounded),
+    const _AnimalItem('assets/animals/camel.webp', 'Camel', Colors.orangeAccent, Icons.pets_rounded),
+    const _AnimalItem('assets/animals/deer.webp', 'Deer', Colors.deepOrange, Icons.pets_rounded),
+    const _AnimalItem('assets/animals/donkey.webp', 'Donkey', Colors.grey, Icons.pets_rounded),
+    const _AnimalItem('assets/animals/fox.webp', 'Fox', Colors.deepOrangeAccent, Icons.pets_rounded),
+    const _AnimalItem('assets/animals/giraffe.webp', 'Giraffe', Colors.amber, Icons.pets_rounded),
+    const _AnimalItem('assets/animals/hippo.webp', 'Hippo', Colors.blueGrey, Icons.pets_rounded),
+    const _AnimalItem('assets/animals/jaguar.webp', 'Jaguar', Colors.orange, Icons.pets_rounded),
+    const _AnimalItem('assets/animals/rhino.webp', 'Rhino', Colors.grey, Icons.pets_rounded),
+    const _AnimalItem('assets/animals/wolf.webp', 'Wolf', Colors.blueGrey, Icons.pets_rounded),
+    const _AnimalItem('assets/animals/zebra.webp', 'Zebra', Colors.black87, Icons.pets_rounded),
   ];
 
   @override

@@ -1,3 +1,4 @@
+import 'package:gyan_jyoti/shared/widgets/app_asset_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,16 +17,16 @@ class NumberChartPage extends ConsumerStatefulWidget {
 
 class _NumberChartPageState extends ConsumerState<NumberChartPage> {
   final List<Map<String, dynamic>> _numbers = [
-    {'num': 1, 'word': 'One', 'image': 'assets/numbers/one.png', 'color': Colors.red},
-    {'num': 2, 'word': 'Two', 'image': 'assets/numbers/two.png', 'color': Colors.blue},
-    {'num': 3, 'word': 'Three', 'image': 'assets/numbers/three.png', 'color': Colors.green},
-    {'num': 4, 'word': 'Four', 'image': 'assets/numbers/four.png', 'color': Colors.amber},
-    {'num': 5, 'word': 'Five', 'image': 'assets/numbers/five.png', 'color': Colors.purple},
-    {'num': 6, 'word': 'Six', 'image': 'assets/numbers/six.png', 'color': Colors.orange},
-    {'num': 7, 'word': 'Seven', 'image': 'assets/numbers/seven.png', 'color': Colors.pink},
-    {'num': 8, 'word': 'Eight', 'image': 'assets/numbers/eight.png', 'color': Colors.brown},
-    {'num': 9, 'word': 'Nine', 'image': 'assets/numbers/nine.png', 'color': Colors.teal},
-    {'num': 10, 'word': 'Ten', 'image': 'assets/numbers/ten.png', 'color': Colors.indigo},
+    {'num': 1, 'word': 'One', 'image': 'assets/numbers/one.webp', 'color': Colors.red},
+    {'num': 2, 'word': 'Two', 'image': 'assets/numbers/two.webp', 'color': Colors.blue},
+    {'num': 3, 'word': 'Three', 'image': 'assets/numbers/three.webp', 'color': Colors.green},
+    {'num': 4, 'word': 'Four', 'image': 'assets/numbers/four.webp', 'color': Colors.amber},
+    {'num': 5, 'word': 'Five', 'image': 'assets/numbers/five.webp', 'color': Colors.purple},
+    {'num': 6, 'word': 'Six', 'image': 'assets/numbers/six.webp', 'color': Colors.orange},
+    {'num': 7, 'word': 'Seven', 'image': 'assets/numbers/seven.webp', 'color': Colors.pink},
+    {'num': 8, 'word': 'Eight', 'image': 'assets/numbers/eight.webp', 'color': Colors.brown},
+    {'num': 9, 'word': 'Nine', 'image': 'assets/numbers/nine.webp', 'color': Colors.teal},
+    {'num': 10, 'word': 'Ten', 'image': 'assets/numbers/ten.webp', 'color': Colors.indigo},
   ];
 
   void _finishActivity() {
@@ -81,15 +82,15 @@ class _NumberChartPageState extends ConsumerState<NumberChartPage> {
                   width: 260,
                   height: 260,
                   child: Center(
-                    child: Image.asset(
-                      data['image'] as String,
-                      fit: BoxFit.contain,
-                      errorBuilder: (context, error, stackTrace) => Icon(
+                    child: AppAssetImage(
+  assetPath: data['image'] as String,
+  fit: BoxFit.contain,
+  fallback: Icon(
                         Icons.image_not_supported_rounded,
                         size: 100,
                         color: color,
                       ),
-                    ),
+),
                   ),
                 ),
                 

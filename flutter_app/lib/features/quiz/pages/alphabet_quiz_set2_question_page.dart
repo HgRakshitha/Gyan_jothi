@@ -90,7 +90,7 @@ class _AlphabetQuizSet2QuestionPageState
                     const SizedBox(height: 2),
                     const Center(
                       child: AlphabetQuizIllustration(
-                        assetPath: 'assets/icons/quiz/set1/king.png',
+                        assetPath: 'assets/icons/quiz/set1/king.webp',
                         width: 182,
                         height: 152,
                         fallback: Icon(

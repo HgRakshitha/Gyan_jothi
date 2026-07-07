@@ -19,9 +19,9 @@ class _WelcomeClassPageState extends ConsumerState<WelcomeClassPage> {
   final List<int> _ages = [2, 3, 4, 5];
 
   final List<Map<String, String>> _classes = [
-    {'name': 'Tiny Tots', 'image': 'assets/welcome/tiny_tots.png'},
-    {'name': 'Playgroup A', 'image': 'assets/welcome/playgroup A.png'},
-    {'name': 'Playgroup B', 'image': 'assets/welcome/playgroup B.png'},
+    {'name': 'Tiny Tots', 'image': 'assets/welcome/tiny_tots.webp'},
+    {'name': 'Playgroup A', 'image': 'assets/welcome/playgroup A.webp'},
+    {'name': 'Playgroup B', 'image': 'assets/welcome/playgroup B.webp'},
   ];
 
   @override

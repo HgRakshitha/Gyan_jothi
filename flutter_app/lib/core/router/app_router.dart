@@ -794,7 +794,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet2_4,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 4,
-        imageAssetPath: 'assets/icons/quiz/set1/giraffe.png',
+        imageAssetPath: 'assets/icons/quiz/set1/giraffe.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(
@@ -812,7 +812,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet2_5,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 5,
-        imageAssetPath: 'assets/icons/quiz/set1/elephant.png',
+        imageAssetPath: 'assets/icons/quiz/set1/elephant.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(
@@ -829,7 +829,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet2_6,
       builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
         questionNumber: 6,
-        imageAssetPath: 'assets/icons/quiz/set1/iguana.png',
+        imageAssetPath: 'assets/icons/quiz/set1/iguana.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(
@@ -846,7 +846,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet2_7,
       builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
         questionNumber: 7,
-        imageAssetPath: 'assets/icons/quiz/set1/jaguar.png',
+        imageAssetPath: 'assets/icons/quiz/set1/jaguar.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(
@@ -863,7 +863,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet2_8,
       builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
         questionNumber: 8,
-        imageAssetPath: 'assets/icons/quiz/set1/jungle.png',
+        imageAssetPath: 'assets/icons/quiz/set1/jungle.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(
@@ -884,7 +884,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 1,
         questionText: 'What animal is this?',
-        imageAssetPath: 'assets/icons/quiz/set3/whale.png',
+        imageAssetPath: 'assets/icons/quiz/set3/whale.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.waves_rounded, size: 120, color: Color(0xFF1565C0)),
@@ -897,7 +897,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet3_2,
       builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
         questionNumber: 2,
-        imageAssetPath: 'assets/icons/quiz/set3/kelp.png',
+        imageAssetPath: 'assets/icons/quiz/set3/kelp.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(
@@ -916,7 +916,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 3,
         questionText: 'What animal is this?',
-        imageAssetPath: 'assets/icons/quiz/set3/lobster.png',
+        imageAssetPath: 'assets/icons/quiz/set3/lobster.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.bug_report_rounded, size: 120, color: Color(0xFFD32F2F)),
@@ -929,7 +929,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet3_4,
       builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
         questionNumber: 4,
-        imageAssetPath: 'assets/icons/quiz/set3/lion.png',
+        imageAssetPath: 'assets/icons/quiz/set3/lion.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(
@@ -948,7 +948,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 5,
         questionText: 'What animal is this?',
-        imageAssetPath: 'assets/icons/quiz/set3/manatee.png',
+        imageAssetPath: 'assets/icons/quiz/set3/manatee.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.water_rounded, size: 120, color: Color(0xFF78909C)),
@@ -961,7 +961,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet3_6,
       builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
         questionNumber: 6,
-        imageAssetPath: 'assets/icons/quiz/set3/nemo.png',
+        imageAssetPath: 'assets/icons/quiz/set3/nemo.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(
@@ -980,7 +980,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 7,
         questionText: 'What animal is this?',
-        imageAssetPath: 'assets/icons/quiz/set3/octopus.png',
+        imageAssetPath: 'assets/icons/quiz/set3/octopus.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.bubble_chart_rounded, size: 120, color: Color(0xFFE91E63)),
@@ -993,7 +993,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet3_8,
       builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
         questionNumber: 8,
-        imageAssetPath: 'assets/icons/quiz/set3/orca.png',
+        imageAssetPath: 'assets/icons/quiz/set3/orca.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(
@@ -1015,7 +1015,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 1,
         questionText: 'What is this?',
-        imageAssetPath: 'assets/icons/quiz/set4/earth.png',
+        imageAssetPath: 'assets/icons/quiz/set4/earth.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.public_rounded, size: 120, color: Color(0xFF4CAF50)),
@@ -1028,7 +1028,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet4_2,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 2,
-        imageAssetPath: 'assets/icons/quiz/set4/quasar.png',
+        imageAssetPath: 'assets/icons/quiz/set4/quasar.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.blur_on_rounded, size: 120, color: Color(0xFFE91E63)),
@@ -1041,7 +1041,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet4_3,
       builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
         questionNumber: 3,
-        imageAssetPath: 'assets/icons/quiz/set4/ring.png',
+        imageAssetPath: 'assets/icons/quiz/set4/ring.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.camera_rounded, size: 120, color: Color(0xFFFFC107)),
@@ -1055,7 +1055,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet4_4,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 4,
-        imageAssetPath: 'assets/icons/quiz/set4/sun.png',
+        imageAssetPath: 'assets/icons/quiz/set4/sun.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.wb_sunny_rounded, size: 120, color: Color(0xFFFF9800)),
@@ -1069,7 +1069,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 5,
         questionText: 'What is this?',
-        imageAssetPath: 'assets/icons/quiz/set4/spaceship.png',
+        imageAssetPath: 'assets/icons/quiz/set4/spaceship.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.rocket_launch_rounded, size: 120, color: Color(0xFF9C27B0)),
@@ -1082,7 +1082,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet4_6,
       builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
         questionNumber: 6,
-        imageAssetPath: 'assets/icons/quiz/set4/star.png',
+        imageAssetPath: 'assets/icons/quiz/set4/star.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.star_rounded, size: 120, color: Color(0xFFFFEB3B)),
@@ -1096,7 +1096,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet4_7,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 7,
-        imageAssetPath: 'assets/icons/quiz/set4/telescope.png',
+        imageAssetPath: 'assets/icons/quiz/set4/telescope.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.center_focus_strong_rounded, size: 120, color: Color(0xFF607D8B)),
@@ -1109,7 +1109,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet4_8,
       builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
         questionNumber: 8,
-        imageAssetPath: 'assets/icons/quiz/set4/suit.png',
+        imageAssetPath: 'assets/icons/quiz/set4/suit.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.accessibility_new_rounded, size: 120, color: Color(0xFFFFFFFF)),
@@ -1127,7 +1127,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 1,
         questionText: 'What is this?',
-        imageAssetPath: 'assets/icons/quiz/set5/unicorn.png',
+        imageAssetPath: 'assets/icons/quiz/set5/unicorn.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.cruelty_free_rounded, size: 120, color: Color(0xFFE91E63)),
@@ -1140,7 +1140,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet5_2,
       builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
         questionNumber: 2,
-        imageAssetPath: 'assets/icons/quiz/set5/wand.png',
+        imageAssetPath: 'assets/icons/quiz/set5/wand.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.auto_fix_high_rounded, size: 120, color: Color(0xFFFFC107)),
@@ -1155,7 +1155,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 3,
         questionText: 'What is this?',
-        imageAssetPath: 'assets/icons/quiz/set5/wizard.png',
+        imageAssetPath: 'assets/icons/quiz/set5/wizard.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.face_retouching_natural_rounded, size: 120, color: Color(0xFF673AB7)),
@@ -1168,7 +1168,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet5_4,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 4,
-        imageAssetPath: 'assets/icons/quiz/set5/x-ray.png',
+        imageAssetPath: 'assets/icons/quiz/set5/x-ray.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.document_scanner_rounded, size: 120, color: Color(0xFF00BCD4)),
@@ -1181,7 +1181,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet5_5,
       builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
         questionNumber: 5,
-        imageAssetPath: 'assets/icons/quiz/set5/snow_yeti.png',
+        imageAssetPath: 'assets/icons/quiz/set5/snow_yeti.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.ac_unit_rounded, size: 120, color: Color(0xFF2196F3)),
@@ -1196,7 +1196,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 6,
         questionText: 'What is this?',
-        imageAssetPath: 'assets/icons/quiz/set5/zombie.png',
+        imageAssetPath: 'assets/icons/quiz/set5/zombie.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.personal_injury_rounded, size: 120, color: Color(0xFF4CAF50)),
@@ -1209,7 +1209,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAlphabetSet5_7,
       builder: (context, state) => const AlphabetQuizPuzzleRoundPage(
         questionNumber: 7,
-        imageAssetPath: 'assets/icons/quiz/set5/maze.png',
+        imageAssetPath: 'assets/icons/quiz/set5/maze.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.pattern_rounded, size: 120, color: Color(0xFFFF5722)),
@@ -1227,7 +1227,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 1,
         questionText: 'What color is this?',
-        imageAssetPath: 'assets/icons/quiz/colors_set2/red.png',
+        imageAssetPath: 'assets/icons/quiz/colors_set2/red.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.apple_rounded, size: 120, color: Color(0xFFF44336)),
@@ -1240,7 +1240,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizColorSet2_2,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 2,
-        imageAssetPath: 'assets/icons/quiz/colors_set2/banana.png',
+        imageAssetPath: 'assets/icons/quiz/colors_set2/banana.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.lunch_dining_rounded, size: 120, color: Color(0xFFFFEB3B)),
@@ -1254,7 +1254,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 3,
         questionText: 'What color is this?',
-        imageAssetPath: 'assets/icons/quiz/colors_set2/green_frog.png',
+        imageAssetPath: 'assets/icons/quiz/colors_set2/green_frog.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.pest_control_rounded, size: 120, color: Color(0xFF4CAF50)),
@@ -1267,7 +1267,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizColorSet2_4,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 4,
-        imageAssetPath: 'assets/icons/quiz/colors_set2/sky.png',
+        imageAssetPath: 'assets/icons/quiz/colors_set2/sky.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.cloud_rounded, size: 120, color: Color(0xFF03A9F4)),
@@ -1281,7 +1281,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 5,
         questionText: 'What color is this?',
-        imageAssetPath: 'assets/icons/quiz/colors_set2/water.png',
+        imageAssetPath: 'assets/icons/quiz/colors_set2/water.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.water_drop_rounded, size: 120, color: Color(0xFF2196F3)),
@@ -1294,7 +1294,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizColorSet2_6,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 6,
-        imageAssetPath: 'assets/icons/quiz/colors_set2/flamingo.png',
+        imageAssetPath: 'assets/icons/quiz/colors_set2/flamingo.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.cruelty_free_rounded, size: 120, color: Color(0xFFE91E63)),
@@ -1308,7 +1308,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 7,
         questionText: 'What color is this?',
-        imageAssetPath: 'assets/icons/quiz/colors_set2/orange.png',
+        imageAssetPath: 'assets/icons/quiz/colors_set2/orange.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.food_bank_rounded, size: 120, color: Color(0xFFFF9800)),
@@ -1321,7 +1321,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizColorSet2_8,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 8,
-        imageAssetPath: 'assets/icons/quiz/colors_set2/snow.png',
+        imageAssetPath: 'assets/icons/quiz/colors_set2/snow.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.ac_unit_rounded, size: 120, color: Color(0xFFFFFFFF)),
@@ -1338,7 +1338,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 1,
         questionText: 'How many apples?',
-        imageAssetPath: 'assets/icons/quiz/numbers_set2/apple.png',
+        imageAssetPath: 'assets/icons/quiz/numbers_set2/apple.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.apple_rounded, size: 120, color: Color(0xFFF44336)),
@@ -1351,7 +1351,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizNumbersSet2_2,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 2,
-        imageAssetPath: 'assets/icons/quiz/numbers_set2/cat.png',
+        imageAssetPath: 'assets/icons/quiz/numbers_set2/cat.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.pets_rounded, size: 120, color: Color(0xFF795548)),
@@ -1364,7 +1364,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizNumbersSet2_3,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 3,
-        imageAssetPath: 'assets/icons/quiz/numbers_set2/car.png',
+        imageAssetPath: 'assets/icons/quiz/numbers_set2/car.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.directions_car_rounded, size: 120, color: Color(0xFF2196F3)),
@@ -1378,7 +1378,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 4,
         questionText: 'How many dogs?',
-        imageAssetPath: 'assets/icons/quiz/numbers_set2/dogs.png',
+        imageAssetPath: 'assets/icons/quiz/numbers_set2/dogs.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.pets_rounded, size: 120, color: Color(0xFF795548)),
@@ -1391,7 +1391,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizNumbersSet2_5,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 5,
-        imageAssetPath: 'assets/icons/quiz/numbers_set2/stars.png',
+        imageAssetPath: 'assets/icons/quiz/numbers_set2/stars.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.star_rounded, size: 120, color: Color(0xFFFFEB3B)),
@@ -1405,7 +1405,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 6,
         questionText: 'How many trees?',
-        imageAssetPath: 'assets/icons/quiz/numbers_set2/tree.png',
+        imageAssetPath: 'assets/icons/quiz/numbers_set2/tree.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.park_rounded, size: 120, color: Color(0xFF4CAF50)),
@@ -1422,7 +1422,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 1,
         questionText: 'What animal is this?',
-        imageAssetPath: 'assets/icons/quiz/animals_set2/tiger.png',
+        imageAssetPath: 'assets/icons/quiz/animals_set2/tiger.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.pets_rounded, size: 120, color: Color(0xFFFF9800)),
@@ -1435,7 +1435,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAnimalsSet2_2,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 2,
-        imageAssetPath: 'assets/icons/quiz/animals_set2/cow.png',
+        imageAssetPath: 'assets/icons/quiz/animals_set2/cow.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.agriculture_rounded, size: 120, color: Color(0xFF795548)),
@@ -1449,7 +1449,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 3,
         questionText: 'What animal is this?',
-        imageAssetPath: 'assets/icons/quiz/animals_set2/elephant.png',
+        imageAssetPath: 'assets/icons/quiz/animals_set2/elephant.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.cruelty_free_rounded, size: 120, color: Color(0xFF9E9E9E)),
@@ -1462,7 +1462,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAnimalsSet2_4,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 4,
-        imageAssetPath: 'assets/icons/quiz/animals_set2/dog.png',
+        imageAssetPath: 'assets/icons/quiz/animals_set2/dog.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.pets_rounded, size: 120, color: Color(0xFF795548)),
@@ -1476,7 +1476,7 @@ final appRouter = GoRouter(
       builder: (context, state) => const AlphabetQuizMultipleChoiceRoundPage(
         questionNumber: 5,
         questionText: 'What animal is this?',
-        imageAssetPath: 'assets/icons/quiz/animals_set2/monkey.png',
+        imageAssetPath: 'assets/icons/quiz/animals_set2/monkey.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.face_retouching_natural_rounded, size: 120, color: Color(0xFF795548)),
@@ -1489,7 +1489,7 @@ final appRouter = GoRouter(
       path: AppRoutes.quizAnimalsSet2_6,
       builder: (context, state) => const AlphabetQuizTrueFalseRoundPage(
         questionNumber: 6,
-        imageAssetPath: 'assets/icons/quiz/animals_set2/bird_feather.png',
+        imageAssetPath: 'assets/icons/quiz/animals_set2/bird_feather.webp',
         imageWidth: 200,
         imageHeight: 200,
         fallback: Icon(Icons.flutter_dash_rounded, size: 120, color: Color(0xFF4CAF50)),

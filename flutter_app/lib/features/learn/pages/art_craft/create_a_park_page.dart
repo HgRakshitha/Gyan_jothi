@@ -1,3 +1,4 @@
+import 'package:gyan_jyoti/shared/widgets/app_asset_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -175,16 +176,15 @@ class _CreateAParkPageState extends State<CreateAParkPage> {
                           1.0,
                           1.0,
                         ),
-                        child: Image.asset(
-                          sticker.assetPath,
-                          fit: BoxFit.contain,
-                          filterQuality: FilterQuality.high,
-                          errorBuilder: (_, __, ___) => const Icon(
+                        child: AppAssetImage(
+  assetPath: sticker.assetPath,
+  fit: BoxFit.contain,
+  fallback: const Icon(
                             Icons.image_rounded,
                             size: 32,
                             color: Colors.black26,
                           ),
-                        ),
+),
                       ),
                     ),
                   ),
@@ -438,12 +438,10 @@ class _CreateAParkPageState extends State<CreateAParkPage> {
                                                 clipBehavior: Clip.none,
                                                 children: [
                                                   Positioned.fill(
-                                                    child: Image.asset(
-                                                      AppAssets.artsCraftMakeSceneDreamPark,
-                                                      fit: BoxFit.cover,
-                                                      filterQuality: FilterQuality.high,
-                                                      errorBuilder: (_, __, ___) =>
-                                                          ColoredBox(
+                                                    child: AppAssetImage(
+  assetPath: AppAssets.artsCraftMakeSceneDreamPark,
+  fit: BoxFit.cover,
+  fallback: ColoredBox(
                                                         color: Colors.grey.shade200,
                                                         child: Icon(
                                                           Icons.park_rounded,
@@ -451,7 +449,7 @@ class _CreateAParkPageState extends State<CreateAParkPage> {
                                                           color: Colors.grey.shade500,
                                                         ),
                                                       ),
-                                                    ),
+),
                                                   ),
                                                   for (final sticker in _stickers)
                                                     _buildPlacedSticker(sticker, s),
@@ -533,13 +531,11 @@ class _StickerChip extends StatelessWidget {
               SizedBox(
                 width: _imageSize,
                 height: _imageSize,
-                child: Image.asset(
-                  assetPath,
-                  fit: BoxFit.contain,
-                  filterQuality: FilterQuality.high,
-                  errorBuilder: (_, __, ___) =>
-                      const Icon(Icons.layers, size: 28),
-                ),
+                child: AppAssetImage(
+  assetPath: assetPath,
+  fit: BoxFit.contain,
+  fallback: const Icon(Icons.layers, size: 28),
+),
               ),
               const SizedBox(height: 2),
               Text(

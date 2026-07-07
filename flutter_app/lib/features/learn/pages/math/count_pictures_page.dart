@@ -1,3 +1,4 @@
+import 'package:gyan_jyoti/shared/widgets/app_asset_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,16 +20,16 @@ class _CountPicturesPageState extends ConsumerState<CountPicturesPage> {
   int _currentPage = 0;
   
   final List<Map<String, dynamic>> _pages = [
-    {'num': 1, 'word': 'One', 'color': Colors.red, 'image': 'assets/icons/quiz/slice_appple.png'},
-    {'num': 2, 'word': 'Two', 'color': Colors.blue, 'image': 'assets/icons/quiz/banana.png'},
-    {'num': 3, 'word': 'Three', 'color': Colors.green, 'image': 'assets/icons/quiz/carrot.png'},
-    {'num': 4, 'word': 'Four', 'color': Colors.amber, 'image': 'assets/icons/quiz/milk.png'},
-    {'num': 5, 'word': 'Five', 'color': Colors.purple, 'image': 'assets/icons/quiz/animals_set2/dog.png'},
-    {'num': 6, 'word': 'Six', 'color': Colors.orange, 'image': 'assets/icons/quiz/animals_set2/tiger.png'},
-    {'num': 7, 'word': 'Seven', 'color': Colors.pink, 'image': 'assets/icons/quiz/animals_set2/cow.png'},
-    {'num': 8, 'word': 'Eight', 'color': Colors.brown, 'image': 'assets/icons/quiz/animals_set2/monkey.png'},
-    {'num': 9, 'word': 'Nine', 'color': Colors.teal, 'image': 'assets/icons/quiz/animals_set2/elephant.png'},
-    {'num': 10, 'word': 'Ten', 'color': Colors.indigo, 'image': 'assets/icons/quiz/color_pallete.png'},
+    {'num': 1, 'word': 'One', 'color': Colors.red, 'image': 'assets/icons/quiz/slice_appple.webp'},
+    {'num': 2, 'word': 'Two', 'color': Colors.blue, 'image': 'assets/icons/quiz/banana.webp'},
+    {'num': 3, 'word': 'Three', 'color': Colors.green, 'image': 'assets/icons/quiz/carrot.webp'},
+    {'num': 4, 'word': 'Four', 'color': Colors.amber, 'image': 'assets/icons/quiz/milk.webp'},
+    {'num': 5, 'word': 'Five', 'color': Colors.purple, 'image': 'assets/icons/quiz/animals_set2/dog.webp'},
+    {'num': 6, 'word': 'Six', 'color': Colors.orange, 'image': 'assets/icons/quiz/animals_set2/tiger.webp'},
+    {'num': 7, 'word': 'Seven', 'color': Colors.pink, 'image': 'assets/icons/quiz/animals_set2/cow.webp'},
+    {'num': 8, 'word': 'Eight', 'color': Colors.brown, 'image': 'assets/icons/quiz/animals_set2/monkey.webp'},
+    {'num': 9, 'word': 'Nine', 'color': Colors.teal, 'image': 'assets/icons/quiz/animals_set2/elephant.webp'},
+    {'num': 10, 'word': 'Ten', 'color': Colors.indigo, 'image': 'assets/icons/quiz/color_pallete.webp'},
   ];
 
   @override
@@ -160,12 +161,13 @@ class _CountPicturesPageState extends ConsumerState<CountPicturesPage> {
                                 alignment: WrapAlignment.center,
                                 children: List.generate(
                                   number,
-                                  (i) => Image.asset(
-                                    pageData['image'] as String,
-                                    width: number > 6 ? 60 : 90,
-                                    height: number > 6 ? 60 : 90,
-                                    fit: BoxFit.contain,
-                                  ),
+                                  (i) => AppAssetImage(
+  assetPath: pageData['image'] as String,
+  width: number > 6 ? 60 : 90,
+  height: number > 6 ? 60 : 90,
+  fit: BoxFit.contain,
+  fallback: const SizedBox.shrink(),
+),
                                 ),
                               ),
                             ),

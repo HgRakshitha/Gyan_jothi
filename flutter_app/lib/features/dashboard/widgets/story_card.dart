@@ -1,3 +1,4 @@
+import 'package:gyan_jyoti/shared/widgets/app_asset_image.dart';
 import 'package:flutter/material.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/theme/text_styles.dart';
@@ -29,8 +30,13 @@ class StoryCard extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: imagePath != null
-                  ? Image.asset(imagePath!,
-                      width: 56, height: 56, fit: BoxFit.cover)
+                  ? AppAssetImage(
+  assetPath: imagePath!,
+  width: 56,
+  height: 56,
+  fit: BoxFit.cover,
+  fallback: const SizedBox.shrink(),
+)
                   : Container(
                       width: 56,
                       height: 56,

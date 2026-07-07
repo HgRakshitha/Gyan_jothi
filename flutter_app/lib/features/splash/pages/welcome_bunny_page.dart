@@ -75,7 +75,7 @@ class WelcomeBunnyPage extends StatelessWidget {
                                 BlendMode.srcATop
                               ),
                               child: Image.asset(
-                                'assets/welcome/welcome_bunny.png',
+                                'assets/welcome/welcome_bunny.webp',
                                 width: MediaQuery.sizeOf(context).width * 0.95,
                                 height: MediaQuery.sizeOf(context).height * 0.55,
                                 fit: BoxFit.contain,
@@ -87,7 +87,7 @@ class WelcomeBunnyPage extends StatelessWidget {
 
                         // Bunny Image
                         Image.asset(
-                          'assets/welcome/welcome_bunny.png',
+                          'assets/welcome/welcome_bunny.webp',
                           width: MediaQuery.sizeOf(context).width * 0.95,
                           height: MediaQuery.sizeOf(context).height * 0.55,
                           fit: BoxFit.contain,

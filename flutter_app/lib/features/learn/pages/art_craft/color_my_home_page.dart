@@ -1,3 +1,4 @@
+import 'package:gyan_jyoti/shared/widgets/app_asset_image.dart';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
@@ -323,19 +324,17 @@ class _ColorMyHomePageState extends State<ColorMyHomePage> {
                                             width: w,
                                             height: h,
                                             child: _maskImage == null
-                                                ? Image.asset(
-                                                    AppAssets.artsCraftColorMyHomeLineArt,
-                                                    width: w,
-                                                    height: h,
-                                                    fit: BoxFit.contain,
-                                                    alignment: Alignment.center,
-                                                    filterQuality: FilterQuality.high,
-                                                    errorBuilder: (_, __, ___) => Icon(
+                                                ? AppAssetImage(
+  assetPath: AppAssets.artsCraftColorMyHomeLineArt,
+  width: w,
+  height: h,
+  fit: BoxFit.contain,
+  fallback: Icon(
                                                       Icons.home_rounded,
                                                       size: 72,
                                                       color: Colors.grey.shade400,
                                                     ),
-                                                  )
+)
                                                 : RawGestureDetector(
                                                     gestures: <Type, GestureRecognizerFactory>{
                                                       ImmediatePanGestureRecognizer:

@@ -1,3 +1,4 @@
+import 'package:gyan_jyoti/shared/widgets/app_asset_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -108,11 +109,11 @@ class _TreeStepIllustration extends StatelessWidget {
     return Center(
       child: ConstrainedBox(
         constraints: BoxConstraints(maxWidth: maxWidth),
-        child: Image.asset(
-          asset,
-          fit: BoxFit.contain,
-          filterQuality: FilterQuality.medium,
-        ),
+        child: AppAssetImage(
+  assetPath: asset,
+  fit: BoxFit.contain,
+  fallback: const SizedBox.shrink(),
+),
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:gyan_jyoti/shared/widgets/app_asset_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,7 +24,7 @@ class _CountObjectsPageState extends ConsumerState<CountObjectsPage> with Single
   final int _maxScore = 5;
   
   Color _currentColor = Colors.blue;
-  String _currentImage = 'assets/welcome/welcome_bunny.png';
+  String _currentImage = 'assets/welcome/welcome_bunny.webp';
   
   List<int> _options = [];
   int? _wrongChoice;
@@ -36,16 +37,16 @@ class _CountObjectsPageState extends ConsumerState<CountObjectsPage> with Single
   ];
   
   final List<String> _images = [
-    'assets/welcome/welcome_bunny.png',
-    'assets/welcome/welcome_cat.png',
-    'assets/welcome/welcome_fox.png',
-    'assets/welcome/welcome_monkey.png',
-    'assets/welcome/welcome_panda.png',
-    'assets/welcome/all_done_bear.png',
-    'assets/welcome/all_done_bunny.png',
-    'assets/welcome/all_done_cat.png',
-    'assets/welcome/all_done_fox.png',
-    'assets/welcome/all_done_owl.png',
+    'assets/welcome/welcome_bunny.webp',
+    'assets/welcome/welcome_cat.webp',
+    'assets/welcome/welcome_fox.webp',
+    'assets/welcome/welcome_monkey.webp',
+    'assets/welcome/welcome_panda.webp',
+    'assets/welcome/all_done_bear.webp',
+    'assets/welcome/all_done_bunny.webp',
+    'assets/welcome/all_done_cat.webp',
+    'assets/welcome/all_done_fox.webp',
+    'assets/welcome/all_done_owl.webp',
   ];
 
   @override
@@ -196,12 +197,13 @@ class _CountObjectsPageState extends ConsumerState<CountObjectsPage> with Single
                       alignment: WrapAlignment.center,
                       children: List.generate(
                         _targetNumber,
-                        (index) => Image.asset(
-                          _currentImage,
-                          width: _targetNumber > 6 ? 50 : 70,
-                          height: _targetNumber > 6 ? 50 : 70,
-                          fit: BoxFit.contain,
-                        ),
+                        (index) => AppAssetImage(
+  assetPath: _currentImage,
+  width: _targetNumber > 6 ? 50 : 70,
+  height: _targetNumber > 6 ? 50 : 70,
+  fit: BoxFit.contain,
+  fallback: const SizedBox.shrink(),
+),
                       ),
                     ),
                   ),

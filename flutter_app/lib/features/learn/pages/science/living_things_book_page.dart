@@ -1,3 +1,4 @@
+import 'package:gyan_jyoti/shared/widgets/app_asset_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,40 +24,40 @@ class _LivingThingsBookPageState extends ConsumerState<LivingThingsBookPage> {
       'title': 'Living Things',
       'desc': 'What makes something a living thing? Let\'s find out!',
       'color': Colors.green,
-      'image': 'assets/living_things/tree.png',
+      'image': 'assets/living_things/tree.webp',
     },
     {
       'title': 'They Breathe',
       'desc': 'Living things need air to breathe and stay alive.',
       'color': Colors.lightBlue,
-      'image': 'assets/living_things/breath.png',
+      'image': 'assets/living_things/breath.webp',
     },
     {
       'title': 'They Eat',
       'desc': 'Living things need food and water for energy.',
       'color': Colors.orange,
-      'image': 'assets/living_things/eat.png',
+      'image': 'assets/living_things/eat.webp',
     },
     {
       'title': 'They Grow',
       'desc': 'Living things start small and grow bigger over time.',
       'color': Colors.teal,
-      'image': 'assets/living_things/grow.png',
+      'image': 'assets/living_things/grow.webp',
     },
     {
       'title': 'They Move',
       'desc': 'Living things can move around on their own.',
       'color': Colors.purple,
-      'image': 'assets/living_things/walk.png',
+      'image': 'assets/living_things/walk.webp',
     },
     {
       'title': 'Examples',
       'desc': 'You, trees, birds, and fish are all living things!',
       'color': Colors.pink,
       'images': [
-        'assets/living_things/bird.png',
-        'assets/living_things/tree.png',
-        'assets/living_things/fish.png',
+        'assets/living_things/bird.webp',
+        'assets/living_things/tree.webp',
+        'assets/living_things/fish.webp',
       ],
     },
   ];
@@ -176,15 +177,22 @@ class _LivingThingsBookPageState extends ConsumerState<LivingThingsBookPage> {
                                       spacing: 8,
                                       runSpacing: 8,
                                       children: (pageData['images'] as List<String>).map((img) => 
-                                        Image.asset(img, width: 50, height: 50, fit: BoxFit.contain)
+                                        AppAssetImage(
+  assetPath: img,
+  width: 50,
+  height: 50,
+  fit: BoxFit.contain,
+  fallback: const SizedBox.shrink(),
+)
                                       ).toList(),
                                     )
-                                  : Image.asset(
-                                      pageData['image'] as String,
-                                      width: 100,
-                                      height: 100,
-                                      fit: BoxFit.contain,
-                                    ),
+                                  : AppAssetImage(
+  assetPath: pageData['image'] as String,
+  width: 100,
+  height: 100,
+  fit: BoxFit.contain,
+  fallback: const SizedBox.shrink(),
+),
                               ),
                             ),
                             const SizedBox(height: 40),

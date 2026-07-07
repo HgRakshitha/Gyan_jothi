@@ -37,17 +37,17 @@ class _MatchAnimalsActivityPageState extends ConsumerState<MatchAnimalsActivityP
   late List<_AnimalPair> _shuffledNames;
 
   final List<_AnimalPair> _allAnimals = [
-    _AnimalPair('assets/animals/bear.png', 'Bear', Colors.brown, Icons.pets_rounded),
-    _AnimalPair('assets/animals/camel.png', 'Camel', Colors.orangeAccent, Icons.pets_rounded),
-    _AnimalPair('assets/animals/deer.png', 'Deer', Colors.deepOrange, Icons.pets_rounded),
-    _AnimalPair('assets/animals/donkey.png', 'Donkey', Colors.grey, Icons.pets_rounded),
-    _AnimalPair('assets/animals/fox.png', 'Fox', Colors.deepOrangeAccent, Icons.pets_rounded),
-    _AnimalPair('assets/animals/giraffe.png', 'Giraffe', Colors.amber, Icons.pets_rounded),
-    _AnimalPair('assets/animals/hippo.png', 'Hippo', Colors.blueGrey, Icons.pets_rounded),
-    _AnimalPair('assets/animals/jaguar.png', 'Jaguar', Colors.orange, Icons.pets_rounded),
-    _AnimalPair('assets/animals/rhino.png', 'Rhino', Colors.grey, Icons.pets_rounded),
-    _AnimalPair('assets/animals/wolf.png', 'Wolf', Colors.blueGrey, Icons.pets_rounded),
-    _AnimalPair('assets/animals/zebra.png', 'Zebra', Colors.black87, Icons.pets_rounded),
+    _AnimalPair('assets/animals/bear.webp', 'Bear', Colors.brown, Icons.pets_rounded),
+    _AnimalPair('assets/animals/camel.webp', 'Camel', Colors.orangeAccent, Icons.pets_rounded),
+    _AnimalPair('assets/animals/deer.webp', 'Deer', Colors.deepOrange, Icons.pets_rounded),
+    _AnimalPair('assets/animals/donkey.webp', 'Donkey', Colors.grey, Icons.pets_rounded),
+    _AnimalPair('assets/animals/fox.webp', 'Fox', Colors.deepOrangeAccent, Icons.pets_rounded),
+    _AnimalPair('assets/animals/giraffe.webp', 'Giraffe', Colors.amber, Icons.pets_rounded),
+    _AnimalPair('assets/animals/hippo.webp', 'Hippo', Colors.blueGrey, Icons.pets_rounded),
+    _AnimalPair('assets/animals/jaguar.webp', 'Jaguar', Colors.orange, Icons.pets_rounded),
+    _AnimalPair('assets/animals/rhino.webp', 'Rhino', Colors.grey, Icons.pets_rounded),
+    _AnimalPair('assets/animals/wolf.webp', 'Wolf', Colors.blueGrey, Icons.pets_rounded),
+    _AnimalPair('assets/animals/zebra.webp', 'Zebra', Colors.black87, Icons.pets_rounded),
   ];
 
   @override

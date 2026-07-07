@@ -1,3 +1,4 @@
+import 'package:gyan_jyoti/shared/widgets/app_asset_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -246,18 +247,18 @@ class _GrowAPlantActivityPageState extends ConsumerState<GrowAPlantActivityPage>
             topRight: Radius.circular(10),
           ),
         ),
-        child: Stack(
+        child: const Stack(
           alignment: Alignment.topCenter,
           clipBehavior: Clip.none,
           children: [
             Positioned(
               top: -36,
-              child: Image.asset(
-                'assets/plants/leaf.png',
+              child: AppAssetImage(
+                assetPath: 'assets/plants/leaf.webp',
                 width: 56,
                 height: 56,
                 fit: BoxFit.contain,
-                errorBuilder: (c, e, s) => const Text('🌱', style: TextStyle(fontSize: 48)),
+                fallback: Text('🌱', style: TextStyle(fontSize: 48)),
               ),
             ),
           ],
@@ -275,18 +276,18 @@ class _GrowAPlantActivityPageState extends ConsumerState<GrowAPlantActivityPage>
             topRight: Radius.circular(10),
           ),
         ),
-        child: Stack(
+        child: const Stack(
           alignment: Alignment.topCenter,
           clipBehavior: Clip.none,
           children: [
             Positioned(
               top: -65,
-              child: Image.asset(
-                'assets/plants/flower.png',
+              child: AppAssetImage(
+                assetPath: 'assets/plants/flower.webp',
                 width: 90,
                 height: 90,
                 fit: BoxFit.contain,
-                errorBuilder: (c, e, s) => const Text('🌸\n🌿', style: TextStyle(fontSize: 48), textAlign: TextAlign.center),
+                fallback: Text('🌸\n🌿', style: TextStyle(fontSize: 48), textAlign: TextAlign.center),
               ),
             ),
           ],

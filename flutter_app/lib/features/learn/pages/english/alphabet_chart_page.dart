@@ -1,3 +1,4 @@
+import 'package:gyan_jyoti/shared/widgets/app_asset_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -77,17 +78,17 @@ class AlphabetChartPage extends ConsumerWidget {
                         shape: BoxShape.circle,
                       ),
                       child: ClipOval(
-                        child: Image.asset(
-                          'assets/alphabet_chart/${wordMap[letter]?.toLowerCase()}.png',
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) => const Center(
+                        child: AppAssetImage(
+  assetPath: 'assets/alphabet_chart/${wordMap[letter]?.toLowerCase()}.webp',
+  fit: BoxFit.cover,
+  fallback: const Center(
                             child: Icon(
                               Icons.image_not_supported_rounded,
                               size: 50,
                               color: AppColors.primary,
                             ),
                           ),
-                        ),
+),
                       ),
                     ),
                     const SizedBox(height: 20),

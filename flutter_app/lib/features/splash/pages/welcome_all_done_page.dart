@@ -10,15 +10,15 @@ class WelcomeAllDonePage extends ConsumerWidget {
   const WelcomeAllDonePage({super.key});
 
   String _getAllDoneImage(String avatarPath) {
-    if (avatarPath.contains('bunny')) return 'assets/welcome/all_done_bunny.png';
-    if (avatarPath.contains('cat')) return 'assets/welcome/all_done_cat.png';
-    if (avatarPath.contains('fox')) return 'assets/welcome/all_done_fox.png';
-    if (avatarPath.contains('owl')) return 'assets/welcome/all_done_owl.png';
-    if (avatarPath.contains('monkey')) return 'assets/welcome/welcome_monkey.png';
-    if (avatarPath.contains('penguin')) return 'assets/welcome/all_done_penguin.png';
-    if (avatarPath.contains('puppy')) return 'assets/welcome/all_done_puppy.png';
+    if (avatarPath.contains('bunny')) return 'assets/welcome/all_done_bunny.webp';
+    if (avatarPath.contains('cat')) return 'assets/welcome/all_done_cat.webp';
+    if (avatarPath.contains('fox')) return 'assets/welcome/all_done_fox.webp';
+    if (avatarPath.contains('owl')) return 'assets/welcome/all_done_owl.webp';
+    if (avatarPath.contains('monkey')) return 'assets/welcome/welcome_monkey.webp';
+    if (avatarPath.contains('penguin')) return 'assets/welcome/all_done_penguin.webp';
+    if (avatarPath.contains('puppy')) return 'assets/welcome/all_done_puppy.webp';
     // Fallback or bear
-    return 'assets/welcome/all_done_bear.png';
+    return 'assets/welcome/all_done_bear.webp';
   }
 
   @override

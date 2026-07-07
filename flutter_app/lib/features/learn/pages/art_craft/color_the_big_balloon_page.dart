@@ -1,3 +1,4 @@
+import 'package:gyan_jyoti/shared/widgets/app_asset_image.dart';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
@@ -17,7 +18,7 @@ import 'widgets/immediate_pan_gesture_recognizer.dart';
 import '../../../../shared/widgets/quiz_header.dart';
 import '../../../../shared/widgets/crescent_border_card.dart';
 
-/// Hot-air balloon coloring — `color_ballon.png`, upright, full white card;
+/// Hot-air balloon coloring — `color_ballon.webp`, upright, full white card;
 /// same interaction as [ColorTheTreePage].
 class ColorTheBigBalloonPage extends StatefulWidget {
   const ColorTheBigBalloonPage({super.key});
@@ -326,19 +327,17 @@ class _ColorTheBigBalloonPageState extends State<ColorTheBigBalloonPage> {
                                             width: w,
                                             height: h,
                                             child: _maskImage == null
-                                                ? Image.asset(
-                                                    AppAssets.artsCraftColorBigLineArt,
-                                                    width: w,
-                                                    height: h,
-                                                    fit: BoxFit.contain,
-                                                    alignment: Alignment.center,
-                                                    filterQuality: FilterQuality.high,
-                                                    errorBuilder: (_, __, ___) => Icon(
+                                                ? AppAssetImage(
+  assetPath: AppAssets.artsCraftColorBigLineArt,
+  width: w,
+  height: h,
+  fit: BoxFit.contain,
+  fallback: Icon(
                                                       Icons.air_rounded,
                                                       size: 72,
                                                       color: Colors.grey.shade400,
                                                     ),
-                                                  )
+)
                                                 : RawGestureDetector(
                                                     gestures: <Type, GestureRecognizerFactory>{
                                                       ImmediatePanGestureRecognizer:

@@ -1,3 +1,4 @@
+import 'package:gyan_jyoti/shared/widgets/app_asset_image.dart';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -252,15 +253,15 @@ class _StickerSpellPageState extends ConsumerState<StickerSpellPage> {
             Colors.black12,
             BlendMode.srcIn,
           ),
-          child: Image.asset(
-            'assets/word_book/${word.toLowerCase()}.png',
-            fit: BoxFit.contain,
-            errorBuilder: (context, error, stackTrace) => const Icon(
+          child: AppAssetImage(
+  assetPath: 'assets/word_book/${word.toLowerCase()}.webp',
+  fit: BoxFit.contain,
+  fallback: const Icon(
               Icons.help_outline_rounded,
               size: 100,
               color: Colors.black26,
             ),
-          ),
+),
         ),
       ),
     );
@@ -286,15 +287,15 @@ class _StickerSpellPageState extends ConsumerState<StickerSpellPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              child: Image.asset(
-                'assets/word_book/${word.toLowerCase()}.png',
-                fit: BoxFit.contain,
-                errorBuilder: (context, error, stackTrace) => const Icon(
+              child: AppAssetImage(
+  assetPath: 'assets/word_book/${word.toLowerCase()}.webp',
+  fit: BoxFit.contain,
+  fallback: const Icon(
                   Icons.star_rounded,
                   size: 80,
                   color: Colors.amber,
                 ),
-              ),
+),
             ),
             const SizedBox(height: 10),
             Text(

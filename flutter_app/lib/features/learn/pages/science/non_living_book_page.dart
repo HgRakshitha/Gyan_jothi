@@ -1,3 +1,4 @@
+import 'package:gyan_jyoti/shared/widgets/app_asset_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,35 +24,35 @@ class _NonLivingBookPageState extends ConsumerState<NonLivingBookPage> {
       'title': 'Non-Living Things',
       'desc': 'What makes something non-living? Let\'s find out!',
       'color': Colors.blueGrey,
-      'image': 'assets/living_things/tree.png',
+      'image': 'assets/living_things/tree.webp',
       'strike': true,
     },
     {
       'title': 'They Do Not Breathe',
       'desc': 'Non-living things do not need air.',
       'color': Colors.redAccent,
-      'image': 'assets/living_things/breath.png',
+      'image': 'assets/living_things/breath.webp',
       'strike': true,
     },
     {
       'title': 'They Do Not Eat',
       'desc': 'Non-living things do not need food or water.',
       'color': Colors.deepOrange,
-      'image': 'assets/living_things/eat.png',
+      'image': 'assets/living_things/eat.webp',
       'strike': true,
     },
     {
       'title': 'They Do Not Grow',
       'desc': 'Non-living things stay the same size forever.',
       'color': Colors.indigo,
-      'image': 'assets/living_things/grow.png',
+      'image': 'assets/living_things/grow.webp',
       'strike': true,
     },
     {
       'title': 'They Do Not Move',
       'desc': 'They cannot move on their own (unless you push them!)',
       'color': Colors.amber,
-      'image': 'assets/living_things/walk.png',
+      'image': 'assets/living_things/walk.webp',
       'strike': true,
     },
     {
@@ -59,9 +60,9 @@ class _NonLivingBookPageState extends ConsumerState<NonLivingBookPage> {
       'desc': 'Toys, cars, rocks, and chairs are all non-living things!',
       'color': Colors.cyan,
       'images': [
-        'assets/activity_livOrNot/car.png',
-        'assets/activity_livOrNot/robot.png',
-        'assets/activity_livOrNot/watch.png',
+        'assets/activity_livOrNot/car.webp',
+        'assets/activity_livOrNot/robot.webp',
+        'assets/activity_livOrNot/watch.webp',
       ],
       'strike': false,
     },
@@ -186,15 +187,22 @@ class _NonLivingBookPageState extends ConsumerState<NonLivingBookPage> {
                                           spacing: 8,
                                           runSpacing: 8,
                                           children: (pageData['images'] as List<String>).map((img) => 
-                                            Image.asset(img, width: 50, height: 50, fit: BoxFit.contain)
+                                            AppAssetImage(
+  assetPath: img,
+  width: 50,
+  height: 50,
+  fit: BoxFit.contain,
+  fallback: const SizedBox.shrink(),
+)
                                           ).toList(),
                                         )
-                                      : Image.asset(
-                                          pageData['image'] as String,
-                                          width: 100,
-                                          height: 100,
-                                          fit: BoxFit.contain,
-                                        ),
+                                      : AppAssetImage(
+  assetPath: pageData['image'] as String,
+  width: 100,
+  height: 100,
+  fit: BoxFit.contain,
+  fallback: const SizedBox.shrink(),
+),
                                   ),
                                 ),
                                 if (strike)

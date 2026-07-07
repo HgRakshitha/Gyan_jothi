@@ -1,3 +1,4 @@
+import 'package:gyan_jyoti/shared/widgets/app_asset_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -38,42 +39,42 @@ class _PlantsAroundUsBookPageState extends ConsumerState<PlantsAroundUsBookPage>
     const _PlantTypeItem(
       title: 'Plants Around Us',
       desc: 'Plants are all around us! They make our world clean and beautiful. Let\'s learn about different types of plants!',
-      imagePath: 'assets/plants/plant.png',
+      imagePath: 'assets/plants/plant.webp',
       color: Colors.teal,
       fallbackIcon: Icons.park_rounded,
     ),
     const _PlantTypeItem(
       title: 'Big Trees',
       desc: 'Trees are very big, tall, and strong plants. They have a hard wood trunk. Examples: Mango trees, Apple trees, and Coconut trees!',
-      imagePath: 'assets/plants/big_tree.png',
+      imagePath: 'assets/plants/big_tree.webp',
       color: Colors.green,
       fallbackIcon: Icons.forest_rounded,
     ),
     const _PlantTypeItem(
       title: 'Bushy Shrubs',
       desc: 'Shrubs are medium-sized plants. They are smaller than trees and have thin, woody branches. Examples: Rose, Hibiscus, and Jasmine plants!',
-      imagePath: 'assets/plants/bushy_shrub.png',
+      imagePath: 'assets/plants/bushy_shrub.webp',
       color: Colors.pinkAccent,
       fallbackIcon: Icons.yard_rounded,
     ),
     const _PlantTypeItem(
       title: 'Tiny Herbs',
       desc: 'Herbs are very small plants with soft, green stems. They are useful for medicine and cooking. Examples: Mint, Coriander, and Basil!',
-      imagePath: 'assets/plants/herbs.png',
+      imagePath: 'assets/plants/herbs.webp',
       color: Colors.lightGreen,
       fallbackIcon: Icons.spa_rounded,
     ),
     const _PlantTypeItem(
       title: 'Friendly Climbers',
       desc: 'Climbers have very weak stems. They cannot stand straight, so they climb up walls or poles. Examples: Grapevine and Money plants!',
-      imagePath: 'assets/plants/money_plant.png',
+      imagePath: 'assets/plants/money_plant.webp',
       color: Colors.blueGrey,
       fallbackIcon: Icons.grain_rounded,
     ),
     const _PlantTypeItem(
       title: 'Crawling Creepers',
       desc: 'Creepers also have weak stems, but they crawl and grow along the ground. They usually have big fruits. Examples: Watermelon and Pumpkin!',
-      imagePath: 'assets/plants/crawling_creeper.png',
+      imagePath: 'assets/plants/crawling_creeper.webp',
       color: Colors.orange,
       fallbackIcon: Icons.blur_linear_rounded,
     ),
@@ -187,17 +188,17 @@ class _PlantsAroundUsBookPageState extends ConsumerState<PlantsAroundUsBookPage>
                                 shape: BoxShape.circle,
                               ),
                               child: Center(
-                                child: Image.asset(
-                                  item.imagePath,
-                                  width: 150,
-                                  height: 150,
-                                  fit: BoxFit.contain,
-                                  errorBuilder: (context, error, stackTrace) => Icon(
+                                child: AppAssetImage(
+  assetPath: item.imagePath,
+  width: 150,
+  height: 150,
+  fit: BoxFit.contain,
+  fallback: Icon(
                                     item.fallbackIcon,
                                     size: 110,
                                     color: item.color,
                                   ),
-                                ),
+),
                               ),
                             ),
                             const SizedBox(height: 40),

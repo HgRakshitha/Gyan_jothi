@@ -1,3 +1,4 @@
+import 'package:gyan_jyoti/shared/widgets/app_asset_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -22,67 +23,67 @@ class _ColorNamesPageState extends ConsumerState<ColorNamesPage> {
       'colorName': 'RED', 
       'sentence': 'The Rocket is Red!', 
       'color': Colors.red, 
-      'image': 'assets/colors_english/rocket.png'
+      'image': 'assets/colors_english/rocket.webp'
     },
     {
       'colorName': 'BLUE', 
       'sentence': 'The Diamond is Blue!', 
       'color': Colors.blue, 
-      'image': 'assets/colors_english/diamond.png'
+      'image': 'assets/colors_english/diamond.webp'
     },
     {
       'colorName': 'GREEN', 
       'sentence': 'The Alien is Green!', 
       'color': Colors.green, 
-      'image': 'assets/colors_english/alien.png'
+      'image': 'assets/colors_english/alien.webp'
     },
     {
       'colorName': 'YELLOW', 
       'sentence': 'The Crown is Yellow!', 
       'color': Colors.amber, 
-      'image': 'assets/colors_english/yellow.png'
+      'image': 'assets/colors_english/yellow.webp'
     },
     {
       'colorName': 'PURPLE', 
       'sentence': 'The Guitar is Purple!', 
       'color': Colors.purple, 
-      'image': 'assets/colors_english/guitar.png'
+      'image': 'assets/colors_english/guitar.webp'
     },
     {
       'colorName': 'ORANGE', 
       'sentence': 'The Basketball is Orange!', 
       'color': Colors.orange, 
-      'image': 'assets/colors_english/basketball.png'
+      'image': 'assets/colors_english/basketball.webp'
     },
     {
       'colorName': 'PINK', 
       'sentence': 'The Flower is Pink!', 
       'color': Colors.pink, 
-      'image': 'assets/colors_english/flower.png'
+      'image': 'assets/colors_english/flower.webp'
     },
     {
       'colorName': 'BROWN', 
       'sentence': 'The Coffee is Brown!', 
       'color': Colors.brown, 
-      'image': 'assets/colors_english/coffee.png'
+      'image': 'assets/colors_english/coffee.webp'
     },
     {
       'colorName': 'BLACK', 
       'sentence': 'The Keyboard is Black!', 
       'color': Colors.black, 
-      'image': 'assets/colors_english/keyboard.png'
+      'image': 'assets/colors_english/keyboard.webp'
     },
     {
       'colorName': 'WHITE', 
       'sentence': 'The Snowflake is White!', 
       'color': Colors.white, 
-      'image': 'assets/colors_english/snowflake.png'
+      'image': 'assets/colors_english/snowflake.webp'
     },
     {
       'colorName': 'GREY', 
       'sentence': 'The Shield is Grey!', 
       'color': Colors.grey, 
-      'image': 'assets/colors_english/shield.png'
+      'image': 'assets/colors_english/shield.webp'
     },
   ];
   
@@ -207,15 +208,15 @@ class _ColorNamesPageState extends ConsumerState<ColorNamesPage> {
                             child: Center(
                               child: Padding(
                                 padding: const EdgeInsets.all(24.0),
-                                child: Image.asset(
-                                  pageData['image'] as String,
-                                  fit: BoxFit.contain,
-                                  errorBuilder: (context, error, stackTrace) => Icon(
+                                child: AppAssetImage(
+  assetPath: pageData['image'] as String,
+  fit: BoxFit.contain,
+  fallback: Icon(
                                     Icons.image_not_supported_rounded,
                                     size: 80,
                                     color: color,
                                   ),
-                                ),
+),
                               ),
                             ),
                           ),

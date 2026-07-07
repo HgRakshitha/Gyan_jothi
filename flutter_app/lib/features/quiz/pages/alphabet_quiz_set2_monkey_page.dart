@@ -81,7 +81,7 @@ class _AlphabetQuizSet2MonkeyPageState extends State<AlphabetQuizSet2MonkeyPage>
                     const SizedBox(height: 2),
                     const Center(
                       child: AlphabetQuizIllustration(
-                        assetPath: 'assets/icons/quiz/set1/monkey.png',
+                        assetPath: 'assets/icons/quiz/set1/monkey.webp',
                         width: 184,
                         height: 176,
                         fallback: Icon(

@@ -1,3 +1,4 @@
+import 'package:gyan_jyoti/shared/widgets/app_asset_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -35,16 +36,16 @@ class _LivingOrNotActivityPageState extends ConsumerState<LivingOrNotActivityPag
   
   final List<_SortItem> _pool = [
     // Living
-    _SortItem('assets/activity_livOrNot/human.png', 'Human', true, Colors.orange),
-    _SortItem('assets/activity_livOrNot/plant.png', 'Plant', true, Colors.green),
-    _SortItem('assets/activity_livOrNot/rabbit.png', 'Rabbit', true, Colors.grey),
-    _SortItem('assets/activity_livOrNot/rat.png', 'Rat', true, Colors.brown),
+    _SortItem('assets/activity_livOrNot/human.webp', 'Human', true, Colors.orange),
+    _SortItem('assets/activity_livOrNot/plant.webp', 'Plant', true, Colors.green),
+    _SortItem('assets/activity_livOrNot/rabbit.webp', 'Rabbit', true, Colors.grey),
+    _SortItem('assets/activity_livOrNot/rat.webp', 'Rat', true, Colors.brown),
     // Non-Living
-    _SortItem('assets/activity_livOrNot/car.png', 'Car', false, Colors.blue),
-    _SortItem('assets/activity_livOrNot/cloth.png', 'Cloth', false, Colors.purple),
-    _SortItem('assets/activity_livOrNot/pen.png', 'Pen', false, Colors.redAccent),
-    _SortItem('assets/activity_livOrNot/robot.png', 'Robot', false, Colors.teal),
-    _SortItem('assets/activity_livOrNot/watch.png', 'Watch', false, Colors.black87),
+    _SortItem('assets/activity_livOrNot/car.webp', 'Car', false, Colors.blue),
+    _SortItem('assets/activity_livOrNot/cloth.webp', 'Cloth', false, Colors.purple),
+    _SortItem('assets/activity_livOrNot/pen.webp', 'Pen', false, Colors.redAccent),
+    _SortItem('assets/activity_livOrNot/robot.webp', 'Robot', false, Colors.teal),
+    _SortItem('assets/activity_livOrNot/watch.webp', 'Watch', false, Colors.black87),
   ];
 
   late List<_SortItem> _questions;
@@ -245,7 +246,13 @@ class _LivingOrNotActivityPageState extends ConsumerState<LivingOrNotActivityPag
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(item.imagePath, width: 80, height: 80, fit: BoxFit.contain),
+            AppAssetImage(
+  assetPath: item.imagePath,
+  width: 80,
+  height: 80,
+  fit: BoxFit.contain,
+  fallback: const SizedBox.shrink(),
+),
             const SizedBox(height: 10),
             Text(
               item.name,

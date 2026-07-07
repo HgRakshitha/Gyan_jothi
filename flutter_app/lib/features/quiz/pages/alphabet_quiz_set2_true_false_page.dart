@@ -93,7 +93,7 @@ class _AlphabetQuizSet2TrueFalsePageState
                           children: [
                             const Center(
                               child: AlphabetQuizIllustration(
-                                assetPath: 'assets/icons/quiz/set1/frog.png',
+                                assetPath: 'assets/icons/quiz/set1/frog.webp',
                                 width: 214,
                                 height: 168,
                                 fallback: Icon(

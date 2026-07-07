@@ -75,7 +75,7 @@ class WelcomeFoxPage extends StatelessWidget {
                                 BlendMode.srcATop
                               ),
                               child: Image.asset(
-                                'assets/welcome/welcome_fox.png',
+                                'assets/welcome/welcome_fox.webp',
                                 width: MediaQuery.sizeOf(context).width * 0.95,
                                 height: MediaQuery.sizeOf(context).height * 0.55,
                                 fit: BoxFit.contain,
@@ -87,7 +87,7 @@ class WelcomeFoxPage extends StatelessWidget {
 
                         // Fox Image
                         Image.asset(
-                          'assets/welcome/welcome_fox.png',
+                          'assets/welcome/welcome_fox.webp',
                           width: MediaQuery.sizeOf(context).width * 0.95,
                           height: MediaQuery.sizeOf(context).height * 0.55,
                           fit: BoxFit.contain,

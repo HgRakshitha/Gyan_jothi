@@ -90,7 +90,7 @@ class _TaskCompletionPageState extends State<TaskCompletionPage>
                     ),
                     // Image
                     Image.asset(
-                      'assets/welcome/all_done.png',
+                      'assets/welcome/all_done.webp',
                       width: 220,
                       height: 220,
                       fit: BoxFit.contain,

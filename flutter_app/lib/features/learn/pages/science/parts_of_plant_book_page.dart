@@ -1,3 +1,4 @@
+import 'package:gyan_jyoti/shared/widgets/app_asset_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -38,42 +39,42 @@ class _PartsOfPlantBookPageState extends ConsumerState<PartsOfPlantBookPage> {
     const _PlantPartItem(
       title: 'What is a Plant?',
       desc: 'Plants are living things that grow in the earth. They need soil, water, and sunlight to live and grow big!',
-      imagePath: 'assets/plants/plant.png',
+      imagePath: 'assets/plants/plant.webp',
       color: Colors.green,
       fallbackIcon: Icons.local_florist_rounded,
     ),
     const _PlantPartItem(
       title: 'The Roots',
       desc: 'Roots grow deep down under the soil. They hold the plant tight and drink water and nutrients from the ground!',
-      imagePath: 'assets/plants/root.png',
+      imagePath: 'assets/plants/root.webp',
       color: Colors.brown,
       fallbackIcon: Icons.grass_rounded,
     ),
     const _PlantPartItem(
       title: 'The Stem',
       desc: 'The stem stands tall above the ground. It is like a straw, carrying water and food to all parts of the plant!',
-      imagePath: 'assets/plants/stem.png',
+      imagePath: 'assets/plants/stem.webp',
       color: Colors.lightGreen,
       fallbackIcon: Icons.vertical_distribute_rounded,
     ),
     const _PlantPartItem(
       title: 'The Leaves',
       desc: 'Leaves grow on the stem and branches. They act as the plant\'s kitchen, catching sunlight to cook food for the plant!',
-      imagePath: 'assets/plants/leaf.png',
+      imagePath: 'assets/plants/leaf.webp',
       color: Colors.green,
       fallbackIcon: Icons.eco_rounded,
     ),
     const _PlantPartItem(
       title: 'The Flowers',
       desc: 'Flowers are the most colorful and beautiful part of a plant! They attract bees and help make seeds for new plants.',
-      imagePath: 'assets/plants/flower.png',
+      imagePath: 'assets/plants/flower.webp',
       color: Colors.pink,
       fallbackIcon: Icons.filter_vintage_rounded,
     ),
     const _PlantPartItem(
       title: 'Fruits and Seeds',
       desc: 'Some flowers grow into delicious fruits! Inside the fruit are seeds, which fall to the soil and grow into new plants.',
-      imagePath: 'assets/plants/fruits_seeds.png',
+      imagePath: 'assets/plants/fruits_seeds.webp',
       color: Colors.red,
       fallbackIcon: Icons.apple_rounded,
     ),
@@ -187,17 +188,17 @@ class _PartsOfPlantBookPageState extends ConsumerState<PartsOfPlantBookPage> {
                                 shape: BoxShape.circle,
                               ),
                               child: Center(
-                                child: Image.asset(
-                                  item.imagePath,
-                                  width: 150,
-                                  height: 150,
-                                  fit: BoxFit.contain,
-                                  errorBuilder: (context, error, stackTrace) => Icon(
+                                child: AppAssetImage(
+  assetPath: item.imagePath,
+  width: 150,
+  height: 150,
+  fit: BoxFit.contain,
+  fallback: Icon(
                                     item.fallbackIcon,
                                     size: 110,
                                     color: item.color,
                                   ),
-                                ),
+),
                               ),
                             ),
                             const SizedBox(height: 40),

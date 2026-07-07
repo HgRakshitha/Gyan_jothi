@@ -43,9 +43,11 @@ class AppAssetImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (!assetPath.toLowerCase().endsWith('.svg')) {
+    final resolvedPath = assetPath;
+
+    if (!resolvedPath.toLowerCase().endsWith('.svg')) {
       return Image.asset(
-        assetPath,
+        resolvedPath,
         width: width,
         height: height,
         fit: fit,
@@ -55,7 +57,7 @@ class AppAssetImage extends StatelessWidget {
     }
 
     return FutureBuilder<Uint8List?>(
-      future: _extractEmbeddedPng(assetPath),
+      future: _extractEmbeddedPng(resolvedPath),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return Image.memory(
@@ -70,7 +72,7 @@ class AppAssetImage extends StatelessWidget {
 
         if (snapshot.connectionState == ConnectionState.done) {
           return SvgPicture.asset(
-            assetPath,
+            resolvedPath,
             width: width,
             height: height,
             fit: fit,

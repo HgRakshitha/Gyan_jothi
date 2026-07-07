@@ -72,9 +72,12 @@ flutter:
           weight: 800
 
   assets:
-    - assets/images/
-    - assets/icons/
+    - assets/icons/profile/
+    - assets/animations/
+    - assets/avatar/
     - assets/icons/home/
+    - web/icons/home/
+    - assets/images/
     - assets/icons/quiz/
     - assets/icons/quiz/set1/
     - assets/icons/quiz/set3/
@@ -83,50 +86,27 @@ flutter:
     - assets/icons/quiz/colors_set2/
     - assets/icons/quiz/numbers_set2/
     - assets/icons/quiz/animals_set2/
-    - assets/icons/profile/
-    - assets/animations/
     - assets/sounds/
     - assets/welcome/
     - assets/living_things/
     - assets/activity_livOrNot/
     - assets/animals/
-    - assets/avatar/
     - assets/alphabet_chart/
     - assets/word_book/
     - assets/colors_english/
     - assets/numbers/
     - assets/plants/
-    - web/icons/home/
     - web/icons/learn/
     - web/icons/quiz/
     - web/icons/profile/
     - web/icons/events/
     - web/icons/stories/
-    - web/icons/stories/bunny_s_day/first.png
-    - web/icons/stories/bunny_s_day/second.png
-    - web/icons/stories/bunny_s_day/third.png
-    - web/icons/stories/bunny_s_day/fourth.png
-    - web/icons/stories/bunny_s_day/fifth.png
-    - "web/icons/stories/Elli's story/first.png"
-    - "web/icons/stories/Elli's story/second.png"
-    - "web/icons/stories/Elli's story/third.png"
-    - "web/icons/stories/Elli's story/fourth.png"
-    - "web/icons/stories/Elli's story/fifth.png"
-    - web/icons/stories/chicky_walk/one.png
-    - web/icons/stories/chicky_walk/two.png
-    - web/icons/stories/chicky_walk/three.png
-    - web/icons/stories/chicky_walk/four.png
-    - web/icons/stories/chicky_walk/five.png
-    - web/icons/stories/shining_star/one.png
-    - web/icons/stories/shining_star/two.png
-    - web/icons/stories/shining_star/three.png
-    - web/icons/stories/shining_star/four.png
-    - web/icons/stories/shining_star/five.png
-    - web/icons/stories/teddy_s_button/one.png
-    - web/icons/stories/teddy_s_button/two.png
-    - web/icons/stories/teddy_s_button/three.png
-    - web/icons/stories/teddy_s_button/four.png
-    - web/icons/stories/teddy_s_button/five.png
+    - web/icons/stories/bunny_s_day/
+    - "web/icons/stories/Elli's story/"
+    - web/icons/stories/chicky_walk/
+    - web/icons/stories/shining_star/
+    - web/icons/stories/teddy_s_button/
+    - web/icons/stories/teddy's_button/
     - web/icons/english_sub/
     - web/icons/math_sub/
     - web/icons/science_sub/

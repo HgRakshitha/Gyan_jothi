@@ -16,15 +16,15 @@ class _WelcomeBuddyPageState extends ConsumerState<WelcomeBuddyPage> {
   int _selectedBuddyIndex = 0;
 
   final List<Map<String, String>> buddies = [
-    {'name': 'Bear', 'image': 'assets/avatar/bear.png'},
-    {'name': 'Cat', 'image': 'assets/avatar/cat.png'},
-    {'name': 'Bunny', 'image': 'assets/avatar/bunny.png'},
-    {'name': 'Fox', 'image': 'assets/avatar/fox.png'},
-    {'name': 'Panda', 'image': 'assets/avatar/panda.png'},
-    {'name': 'Puppy', 'image': 'assets/avatar/puppy.png'},
-    {'name': 'Monkey', 'image': 'assets/avatar/monkey.png'},
-    {'name': 'Owl', 'image': 'assets/avatar/owl.png'},
-    {'name': 'Penguin', 'image': 'assets/avatar/penguin.png'},
+    {'name': 'Bear', 'image': 'assets/avatar/bear.webp'},
+    {'name': 'Cat', 'image': 'assets/avatar/cat.webp'},
+    {'name': 'Bunny', 'image': 'assets/avatar/bunny.webp'},
+    {'name': 'Fox', 'image': 'assets/avatar/fox.webp'},
+    {'name': 'Panda', 'image': 'assets/avatar/panda.webp'},
+    {'name': 'Puppy', 'image': 'assets/avatar/puppy.webp'},
+    {'name': 'Monkey', 'image': 'assets/avatar/monkey.webp'},
+    {'name': 'Owl', 'image': 'assets/avatar/owl.webp'},
+    {'name': 'Penguin', 'image': 'assets/avatar/penguin.webp'},
   ];
 
   @override
